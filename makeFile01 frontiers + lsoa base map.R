@@ -15,9 +15,12 @@ sfModels_path <-
 
 
 ## Output 
+shefBase_Here <- 
+  'temp data/makeFile01 sheffield ttwa lsoa.rds'
 
-clean_dir <-
-  'cleaned data'
+shefBorders_Here <-
+  'temp data/makeFile01 sheffield borders+frontiers.rds'
+  
 
 
 ## Additional library call from the socialFrontier package
@@ -37,8 +40,7 @@ shef_sf <-
 
 ##  save this to cleaned data
 shef_sf %>% saveRDS(
-  clean_dir %>% 
-    file.path('makeFile01 sheffield ttwa lsoa.rds')
+  shefBase_Here
   )
 
 # 2. Extract borders incld. frontiers -------------------------------------
@@ -66,6 +68,5 @@ sfBorders <-
 # 3. Save the data --------------------------------------------------------
 
 sfBorders %>% saveRDS(
-  clean_dir %>% 
-    file.path('makeFile01 sheffield borders+frontiers.rds')
+  shefBorders_Here
 )
