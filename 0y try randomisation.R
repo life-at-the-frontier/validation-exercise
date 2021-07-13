@@ -70,20 +70,28 @@ mapD <-
 
 mapD$rank %>% summary
 
+
+
+
 ### Collate
+
+set.seed(444)
+order_id <- sample.int(4, 4)
+typeName <- letters[1:4][order_id]
+
 combined_maps <-
   bind_rows(
-  mapA %>% mutate(type = 'A'),
-  mapB %>% mutate(type = 'B'),
-  mapC %>% mutate(type = 'C'),
-  mapD %>% mutate(type = 'D')
+  mapA %>% mutate(type = typeName[1]),
+  mapB %>% mutate(type = typeName[2]),
+  mapC %>% mutate(type = typeName[3]),
+  mapD %>% mutate(type = typeName[4])
 )
 
 
 ### facet maps ---- 
 tm_shape(
   combined_maps %>% 
-    filter(type %in% c('A', 'D'))
+    filter(type %in% c('b', 'd'))
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
