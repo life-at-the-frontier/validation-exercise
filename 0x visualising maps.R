@@ -21,8 +21,26 @@ shef_borders <-
   shefBorders_Here %>% readRDS
 
 
+
+# explore -----------------------------------------------------------------
+
+shef_sf %>% head
+
+shef_sf [1,] %>% qtm
+shef_sf[1:10, ]
+
+shef_sf <-
+  shef_sf %>% 
+  mutate(
+    y = 1
+  )
+
+shef_borders %>% head
+shef_borders[1, ] %>% qtm
+
 # Example map -------------------------------------------------------------
 
+tmap_mode('plot')
 
 shef_borders %>%
   qtm
@@ -31,7 +49,8 @@ shef_borders %>% head
 
 shef_borders %>%
   filter(
-    std_diff_phi > 1.96) %>% 
+    std_diff_phi > 1.96
+    ) %>% 
   qtm
 
 
@@ -48,6 +67,11 @@ shef_borders %>%
 
 
 ##  more lengthy version
+# tm_shape(thisGISobj) +
+#   tm_lines() +
+#   tm_dots
+
+
 tm_shape(
   shef_borders %>%
     filter(
@@ -55,7 +79,7 @@ tm_shape(
     filter(
       frontier == T
     ) 
-) +
+  ) +
   tm_lines( lwd = 4)
 
 
@@ -67,10 +91,13 @@ shef_sf <-
     propForeign = nonUKBorn/ allResidents
   )
 
+shef_sf %>% head
+
 propMap <- 
   tm_shape(shef_sf) +
   tm_fill(
-    'propForeign'
+    'propForeign',
+    alpha = 0.2
   )
   
 propMap 
@@ -102,11 +129,14 @@ this_Point <-
     c(5e5, 5e5)
   )
 
+
 this_Point %>% st_sfc %>% qtm
 
 this_Point <-
   this_Point %>%
-  st_sfc(crs = st_crs(ukgrid))
+  st_sfc(
+    crs = st_crs(ukgrid)
+    )
 
 this_Point  %>% qtm
 
