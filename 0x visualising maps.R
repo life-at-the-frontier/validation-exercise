@@ -97,3 +97,28 @@ propMap + frontiersMap
 ukgrid = "+init=epsg:27700"
 
 ## check SF guide book to add in a sheffield uni's postcode as an point object
+this_Point <-
+  st_point(
+    c(5e5, 5e5)
+  )
+
+this_Point %>% st_sfc %>% qtm
+
+this_Point <-
+  this_Point %>%
+  st_sfc(crs = st_crs(ukgrid))
+
+this_Point  %>% qtm
+
+this_Point_plus1k <-
+  this_Point %>% st_buffer(1000)
+
+this_Point_plus1k %>% qtm
+
+tm_shape(this_Point_plus1k) +
+  tm_borders()
+
+# Task: Read in the postcode file and find sheffield unis coord -----------
+##  1. find coord
+##  2. turn it into a gis object
+##  3. map it onto the map of sheffield and frontiers
