@@ -118,6 +118,16 @@ this_Point_plus1k %>% qtm
 tm_shape(this_Point_plus1k) +
   tm_borders()
 
+## Alternative get the centroid of an existing area in sheffiled
+
+shef_sf[1,] %>% qtm
+
+this_Place <- 
+  shef_sf[1, ] %>%
+  st_centroid()
+
+this_Place %>% qtm
+
 # Task: Read in the postcode file and find sheffield unis coord -----------
 ##  1. find coord
 ##  2. turn it into a gis object
