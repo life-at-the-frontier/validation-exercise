@@ -5,10 +5,10 @@
 
 ## input
 shefBase_Here <- 
-  'temp data/makeFile01 sheffield ttwa lsoa.rds'
+  'cleaned data/makeFile01 sheffield ttwa lsoa.rds'
 
 shefBorders_Here <-
-  'temp data/makeFile01 sheffield borders+frontiers.rds'
+  'cleaned data/makeFile01 sheffield borders+frontiers.rds'
 
 
 
