@@ -22,6 +22,7 @@ shef_borders <-
 
 
 # Example map -------------------------------------------------------------
+shef_borders[1, ]
 
 shef_borders$std_diff_phi %>% summary ## mean is quite high
 shef_borders$std_diff_phi %>% quantile( c(0.75, 0.8, 0.85, 0.9))
@@ -39,9 +40,12 @@ shef_borders <-
   shef_borders %>%
   arrange(std_diff_phi) %>%
   mutate(
-    rank = (1:nrow(shef_borders)) / (nrow(shef_borders)) * 100
+    order = 1:nrow(shef_borders),
+    rank = order / (nrow(shef_borders)) * 100
   )
 
+
+###
 mapA <- 
   shef_borders %>%
   filter(
@@ -60,11 +64,16 @@ mapC <-
     rank %>% between(65, 80)
   ) 
 
+## randomise
+set.seed(123) # sets random number gen
+rand.index <- 
+  sample.int(nrow(shef_borders), 242)
 
-set.seed(123)
+rand.index
+
 mapD <-
-  shef_borders[sample.int(nrow(shef_borders), 242), ]
-
+  shef_borders[rand.index, ]
+mapD
 
 mapD$rank %>% summary
 
@@ -75,7 +84,10 @@ mapD$rank %>% summary
 
 set.seed(444)
 order_id <- sample.int(4, 4)
-typeName <- letters[1:4][order_id]
+
+typeName <- 
+  letters[order_id]
+
 
 combined_maps <-
   bind_rows(
@@ -86,16 +98,22 @@ combined_maps <-
 )
 
 
+
 ##  Pin pointing a location 
+shef_sf[1, ] %>% qtm
 
 this_point <-
   shef_sf[1, ] %>% st_centroid()
 
 this_point <-
   this_point %>% 
-  st_buffer(1000)
+  st_buffer(2000)
+
+this_point %>% qtm
 
 ## subset
+combined_maps[1:10, ]
+
 these_borders <- 
   combined_maps[this_point, ]
 
@@ -106,7 +124,7 @@ tmap_mode('view')
 
 tm_shape(this_point) + 
   tm_borders(alpha = 0.5) +
-tm_shape(
+  tm_shape(
   these_borders %>% 
     filter(type %in% c('b', 'd'))
   ) +
