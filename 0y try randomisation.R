@@ -86,10 +86,24 @@ combined_maps <-
 )
 
 
+##  Aggregate by type
+
+test <-
+  combined_maps %>%
+  group_by(type) %>%
+  summarise_all(
+    mean
+  )
+
+test %>% head
+
+## same size
+test %>% object.size()
+combined_maps %>% object.size()
+
 ### facet maps ---- 
 
 tmap_mode('view')
-tmap_options(check.and.fix = F)
 
 combined_maps <-
   combined_maps %>% st_make_valid()
@@ -97,7 +111,7 @@ combined_maps[1, ]# %>% qtm
 
 
 tm_shape(
-  combined_maps %>% 
+  test %>% 
     filter(type %in% c('b', 'd'))
   ) +
   tm_lines(lwd = 3) +
