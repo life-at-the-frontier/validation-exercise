@@ -23,8 +23,6 @@ shef_borders <-
 
 # Example map -------------------------------------------------------------
 
-tmap_mode('plot')
-
 shef_borders$std_diff_phi %>% summary ## mean is quite high
 shef_borders$std_diff_phi %>% quantile( c(0.75, 0.8, 0.85, 0.9))
 
@@ -89,6 +87,15 @@ combined_maps <-
 
 
 ### facet maps ---- 
+
+tmap_mode('view')
+tmap_options(check.and.fix = F)
+
+combined_maps <-
+  combined_maps %>% st_make_valid()
+combined_maps[1, ]# %>% qtm
+
+
 tm_shape(
   combined_maps %>% 
     filter(type %in% c('b', 'd'))
