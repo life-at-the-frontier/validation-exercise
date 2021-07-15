@@ -86,32 +86,28 @@ combined_maps <-
 )
 
 
-##  Aggregate by type
+##  Pin pointing a location 
 
-test <-
-  combined_maps %>%
-  group_by(type) %>%
-  summarise_all(
-    mean
-  )
+this_point <-
+  shef_sf[1, ] %>% st_centroid()
 
-test %>% head
+this_point <-
+  this_point %>% 
+  st_buffer(1000)
 
-## same size
-test %>% object.size()
-combined_maps %>% object.size()
+## subset
+these_borders <- 
+  combined_maps[this_point, ]
+
 
 ### facet maps ---- 
 
 tmap_mode('view')
 
-combined_maps <-
-  combined_maps %>% st_make_valid()
-combined_maps[1, ]# %>% qtm
-
-
+tm_shape(this_point) + 
+  tm_borders(alpha = 0.5) +
 tm_shape(
-  test %>% 
+  these_borders %>% 
     filter(type %in% c('b', 'd'))
   ) +
   tm_lines(lwd = 3) +
