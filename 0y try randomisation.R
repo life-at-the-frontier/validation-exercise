@@ -226,6 +226,11 @@ tm_shape(RUCST) +
   tm_facets('type', sync = T)
 
 
+# Save the rotherham maps for example -------------------------------------
+RUCST_borders %>% saveRDS('cleaned data/rotherham borders example.rds')
+
+
+
 
 ###Holiday Camps are based in S65 1LN
 
