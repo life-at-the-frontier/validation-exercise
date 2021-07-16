@@ -98,48 +98,48 @@ combined_maps <-
 )
 
 
-
+##  Example code
 ##  Pin pointing a location 
-shef_sf[1, ] %>% qtm
-
-this_point <-
-  shef_sf[1, ] %>% st_centroid()
-
-this_point <-
-  this_point %>% 
-  st_buffer(2000)
-
-this_point %>% qtm
-
-## subset
-combined_maps[1:10, ]
-
-these_borders <- 
-  combined_maps[this_point, ]
-
-
-### facet maps ---- 
-
-tmap_mode('view')
-
-tm_shape(this_point) + 
-  tm_borders(alpha = 0.5) +
-  tm_shape(
-  these_borders %>% 
-    filter(type %in% c('b', 'd'))
-  ) +
-  tm_lines(lwd = 3) +
-  tm_facets('type', sync = T)
-
-tm_shape(this_point) + 
-  tm_borders(alpha = 0.5) +
-  tm_shape(
-    these_borders %>% 
-      filter(type %in% c('a', 'c'))
-  ) +
-  tm_lines(lwd = 3) +
-  tm_facets('type', sync = T)
-
+# shef_sf[1, ] %>% qtm
+# 
+# this_point <-
+#   shef_sf[1, ] %>% st_centroid()
+# 
+# this_point <-
+#   this_point %>% 
+#   st_buffer(2000)
+# 
+# this_point %>% qtm
+# 
+# ## subset
+# combined_maps[1:10, ]
+# 
+# these_borders <- 
+#   combined_maps[this_point, ]
+# 
+# 
+# ### facet maps ---- 
+# 
+# tmap_mode('view')
+# 
+# tm_shape(this_point) + 
+#   tm_borders(alpha = 0.5) +
+#   tm_shape(
+#   these_borders %>% 
+#     filter(type %in% c('b', 'd'))
+#   ) +
+#   tm_lines(lwd = 3) +
+#   tm_facets('type', sync = T)
+# 
+# tm_shape(this_point) + 
+#   tm_borders(alpha = 0.5) +
+#   tm_shape(
+#     these_borders %>% 
+#       filter(type %in% c('a', 'c'))
+#   ) +
+#   tm_lines(lwd = 3) +
+#   tm_facets('type', sync = T)
+# 
 ## all are frontiers basically 
 
 ###Rotherham United Community Sports Trust (RUCST) are based in S60 1AH
@@ -174,29 +174,58 @@ RUCST <-
 RUCST %>% qtm
 
 ## subset
+
+## st_intersection(), get only the features of gis obj A that are contained within 
+##  gis object B
+
 RUCST_borders <- 
-  combined_maps[RUCST, ]
+  combined_maps %>% 
+  st_intersection(RUCST)
+
+
+
 
 #facet maps
 tmap_mode('view')
 
 tm_shape(RUCST) + 
-  tm_borders(alpha = 0.5) +
+  tm_borders(
+    lty = 'dotted',
+    alpha = 0.5) +
   tm_shape(
-    these_borders %>% 
+    RUCST_borders %>% 
       filter(type %in% c('b', 'd'))
   ) +
-  tm_lines(lwd = 3) +
+  tm_lines(
+    lwd = 3) +
   tm_facets('type', sync = T)
 
 tm_shape(RUCST) + 
-  tm_borders(alpha = 0.5) +
+  tm_borders(
+    lty = 'dotted',
+    alpha = 0.5) +
   tm_shape(
-    these_borders %>% 
+    RUCST_borders %>% 
       filter(type %in% c('a', 'c'))
   ) +
-  tm_lines(lwd = 3) +
+  tm_lines(
+    lwd = 3) +
   tm_facets('type', sync = T)
+
+
+tm_shape(RUCST) + 
+  tm_borders(
+    lty = 'dotted',
+    alpha = 0.5) +
+  tm_shape(
+    RUCST_borders %>% 
+      filter(type %in% c('c', 'b'))
+  ) +
+  tm_lines(
+    lwd = 3) +
+  tm_facets('type', sync = T)
+
+
 
 ###Holiday Camps are based in S65 1LN
 
