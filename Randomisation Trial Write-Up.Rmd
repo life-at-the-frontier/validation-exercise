@@ -13,13 +13,6 @@ Using a 2km radius, this area from the centre of Rotherham includes a very small
 ``` {rsetup, include = FALSE}
 ukgrid = "+init=epsg:27700"
 
-#Find coord for S60 1AH
-pcd_df <- read.csv('temp data/NSPL_FEB_2020_UK/Data/NSPL_FEB_2020_UK.csv')
-pcd_df %>% head
-pcd_df$pcd %>% grep('S60 1AH', x = .) #1979604
-pcd_df$oseast1m[1979604] #442732
-pcd_df$osnrth1m[1979604] #392677
-
 #Make RUCST a point
 RUCST <-
   st_point(
@@ -32,13 +25,9 @@ RUCST <-
     crs = st_crs(ukgrid)
   )
 
-RUCST %>% qtm
-
 RUCST <-
   RUCST %>% 
   st_buffer(2000)
-
-RUCST %>% qtm
 
 ## subset
 RUCST_borders <- 
@@ -57,7 +46,22 @@ tm_shape(RUCST) +
   tm_facets('type', sync = T)
 ```
 ###Maps b & d:
-```
+``` {r load-data-quietly, echo=FALSE}
+RUCST <-
+  st_point(
+    c(442732, 392677)
+  )
+
+RUCST <-
+  RUCST %>%
+  st_sfc(
+    crs = st_crs(ukgrid)
+  )
+
+RUCST <-
+  RUCST %>% 
+  st_buffer(2000)
+
 tm_shape(RUCST) + 
   tm_borders(alpha = 0.5) +
   tm_shape(
@@ -72,9 +76,109 @@ tm_shape(RUCST) +
 Included below are maps using a 1km, 2km and 3km radius from this location. We believe that at 1km, the number of frontiers may be too low to make an informed decision, but at 3km the radius may be too large for participants to be familiar with the entire area. 2km therefore appears to strike a balance between these two:
 
 ##1km
+```{r 1km-quietly, echo=FALSE}
+ukgrid = "+init=epsg:27700"
 
+#Make hol_camp a point
+hol_camp <-
+  st_point(
+    c(443940, 393560)
+  )
+
+hol_camp <-
+  hol_camp %>%
+  st_sfc(
+    crs = st_crs(ukgrid)
+  )
+
+
+hol_camp <-
+  hol_camp %>% 
+  st_buffer(1000)
+
+## subset
+hol_borders <- 
+  combined_maps[hol_camp, ]
+
+#facet maps
+tmap_mode('view')
+
+tm_shape(hol_camp) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(
+    these_borders %>% 
+      filter(type %in% c('b', 'd'))
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+```
 
 ##2km
+```{r 2km-quietly, echo=FALSE}
+hol_camp <-
+  st_point(
+    c(443940, 393560)
+  )
 
+hol_camp <-
+  hol_camp %>%
+  st_sfc(
+    crs = st_crs(ukgrid)
+  )
+
+
+hol_camp <-
+  hol_camp %>% 
+  st_buffer(2000)
+
+## subset
+hol_borders <- 
+  combined_maps[hol_camp, ]
+
+#facet maps
+tmap_mode('view')
+
+tm_shape(hol_camp) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(
+    these_borders %>% 
+      filter(type %in% c('b', 'd'))
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+```
 
 ##3km
+```{r 3km-quietly, echo=FALSE}
+hol_camp <-
+  st_point(
+    c(443940, 393560)
+  )
+
+hol_camp <-
+  hol_camp %>%
+  st_sfc(
+    crs = st_crs(ukgrid)
+  )
+
+
+hol_camp <-
+  hol_camp %>% 
+  st_buffer(3000)
+
+## subset
+hol_borders <- 
+  combined_maps[hol_camp, ]
+
+#facet maps
+tmap_mode('view')
+
+tm_shape(hol_camp) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(
+    these_borders %>% 
+      filter(type %in% c('b', 'd'))
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+```
