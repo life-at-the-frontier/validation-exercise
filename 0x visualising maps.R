@@ -162,3 +162,48 @@ this_Place %>% qtm
 ##  1. find coord
 ##  2. turn it into a gis object
 ##  3. map it onto the map of sheffield and frontiers
+
+# Task: Read in the postcode file and find sheffield unis coord -----------
+##  1. find coord
+pcd_df <- read.csv('temp data/NSPL_FEB_2020_UK/Data/NSPL_FEB_2020_UK.csv')
+pcd_df %>% head
+pcd_df$pcd %>% grep('S10 2TN', x = .)
+pcd_df$oseast1m[1953603] #434120
+pcd_df$osnrth1m[1953603] #387290
+
+##  2. turn it into a gis object
+shef_uni <-
+  st_point(
+    c(434120, 387290)
+  )
+
+shef_uni <-
+  shef_uni %>%
+  st_sfc(
+    crs = st_crs(ukgrid)
+  )
+
+shef_uni %>% qtm
+
+shef_uni_1k <-
+  shef_uni %>% st_buffer(1000)
+
+shef_uni_2k <-
+  shef_uni %>% st_buffer(2000)
+
+shef_uni_1k %>% qtm
+
+shef_radius_map <- tm_shape(shef_uni_1k) +
+  tm_borders()
+
+shef_radius2k <- tm_shape(shef_uni_2k) + tm_borders()
+
+shef_radius_map + frontiersMap
+shef_radius_map + propMap
+
+shef_radius2k + frontiersMap
+
+
+tmap_options
+
+##  3. map it onto the map of sheffield and frontiers

@@ -177,6 +177,8 @@ RUCST %>% qtm
 RUCST_borders <- 
   combined_maps[RUCST, ]
 
+RUCST_borders %>% saveRDS('cleaned data/rotherham borders example.rds')
+
 #facet maps
 tmap_mode('view')
 
@@ -225,13 +227,15 @@ hol_camp %>% qtm
 
 hol_camp <-
   hol_camp %>% 
-  st_buffer(2000)
+  st_buffer(1000)
 
 hol_camp %>% qtm
 
 ## subset
 hol_borders <- 
   combined_maps[hol_camp, ]
+
+hol_borders %>% saveRDS('cleaned data/holiday camp borders.rds')
 
 #facet maps
 tmap_mode('view')
