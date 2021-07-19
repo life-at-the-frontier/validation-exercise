@@ -1,0 +1,80 @@
+---
+title: "Randomisation Trial Write-Up"
+output: html_document
+---
+
+##What we did:
+We trialled creating interactive maps for three locations in Rotherham in order to test the suitability of different distances. The locations were selected using information on facilities used by Rotherham United Community Sport Trust (RUCST). We trialled 3 different distances, using loci of 1km, 2km and 3km to create a balance between an area being familiar to participants and including enough frontiers to enable them to make a decision. Some examples are outlined below:
+
+##Rotherham United Community Sports Trust (RUCST) - S60 1AH
+Using a 2km radius, this area from the centre of Rotherham includes a very small number of frontiers, with none shown by one of the four maps:
+
+###Maps a & c:
+``` {rsetup, include = FALSE}
+ukgrid = "+init=epsg:27700"
+
+#Find coord for S60 1AH
+pcd_df <- read.csv('temp data/NSPL_FEB_2020_UK/Data/NSPL_FEB_2020_UK.csv')
+pcd_df %>% head
+pcd_df$pcd %>% grep('S60 1AH', x = .) #1979604
+pcd_df$oseast1m[1979604] #442732
+pcd_df$osnrth1m[1979604] #392677
+
+#Make RUCST a point
+RUCST <-
+  st_point(
+    c(442732, 392677)
+  )
+
+RUCST <-
+  RUCST %>%
+  st_sfc(
+    crs = st_crs(ukgrid)
+  )
+
+RUCST %>% qtm
+
+RUCST <-
+  RUCST %>% 
+  st_buffer(2000)
+
+RUCST %>% qtm
+
+## subset
+RUCST_borders <- 
+  combined_maps[RUCST, ]
+
+#facet maps
+tmap_mode('view')
+
+tm_shape(RUCST) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(
+    these_borders %>% 
+      filter(type %in% c('a', 'c'))
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+```
+###Maps b & d:
+```
+tm_shape(RUCST) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(
+    these_borders %>% 
+      filter(type %in% c('b', 'd'))
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+```
+
+##RUCST run their Future Stars programme at Parkgate Astro - S62 6FH
+Included below are maps using a 1km, 2km and 3km radius from this location. We believe that at 1km, the number of frontiers may be too low to make an informed decision, but at 3km the radius may be too large for participants to be familiar with the entire area. 2km therefore appears to strike a balance between these two:
+
+##1km
+
+
+##2km
+
+
+##3km
