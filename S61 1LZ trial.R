@@ -71,8 +71,9 @@ mapD$rank %>% summary
 ### Collate
 
 set.seed(444)
-order_id <- sample.int(4, 4)
-
+order_id <- 
+#  sample.int(4, 4)
+  1:4
 typeName <- 
   letters[order_id]
 
@@ -134,7 +135,7 @@ tm_shape(S61_1LZ) +
   tm_borders(alpha = 0.5) +
   tm_shape(
     these_borders %>% 
-      filter(type %in% c('b', 'd'))
+      filter(type %in% c('a', 'b'))
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
@@ -144,7 +145,7 @@ tm_shape(S61_1LZ) +
   tm_borders(alpha = 0.5) +
   tm_shape(
     these_borders %>% 
-      filter(type %in% c('a', 'c'))
+      filter(type %in% c('c', 'd'))
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
