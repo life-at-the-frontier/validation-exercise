@@ -71,7 +71,7 @@ centrePoint <-
 
 centrePoint <-
   centrePoint %>% 
-  st_buffer(1000)
+  st_buffer(1.5e3)
 
 centrePoint %>% qtm
 
@@ -246,12 +246,12 @@ combined_maps %>%
 
 
 ## [Results] 
-##  [Desc] Buffer changed to 1km.
+##  [Desc] Buffer changed to 1.5km.
 ##  Map A has over 1.96SD phi (approx 25%), B is between ranks 50 and 75 (no overlap with A)
 ##  D is random with same n borders A. C is omitted.
 ##  ---
-##  Lengths are not quite comparable -- A > B whilst A ~C
-##  std_diff_phi is actually very high for all; mean is above 1.90 for all maps
+##  Lengths are comparable between A and B but not C (due to randomisation)
+##  mean std_diff_phi is actually lower for than 1.6 for B and C -- A>C>B
 ## cleaned up tiny borders <50m
 
 # xx. Check the maps ------------------------------------------------------
