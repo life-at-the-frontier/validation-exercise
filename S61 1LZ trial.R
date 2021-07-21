@@ -72,14 +72,19 @@ S61_1LZ %>% qtm
 shef_borders <-
   shef_borders[S61_1LZ, ]
 
+tmap_mode('view')
+
 shef_borders %>% qtm
 
 ## 1. Randomise based on this area
+
 ##  2. alternative based on frontierness in this area 
 ##  3. get stats on alternatives in terms of n. borders, total border length., diff_phi etc
 
 shef_borders %>% st_length()
 shef_borders %>% nrow
+
+summary(shef_borders)
 # -------------------------------------------------------------------------
 
 
@@ -106,7 +111,7 @@ mapC <-
 ## randomise
 set.seed(123) # sets random number gen
 rand.index <- 
-  sample.int(nrow(shef_borders), 242)
+  sample.int(nrow(shef_borders), 61)
 
 
 mapD <-
@@ -153,10 +158,11 @@ tm_shape(S61_1LZ) +
   tm_shape(
     these_borders %>% 
       filter(type %in% 
-               c('a', 'b', 'c', 'd', 'e')
+               c('a', 'b')
              )
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
 
+shef_borders
 
