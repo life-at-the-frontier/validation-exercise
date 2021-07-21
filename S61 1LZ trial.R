@@ -76,50 +76,60 @@ tmap_mode('view')
 
 shef_borders %>% qtm
 
+#create relative rank just for Masborough area
+rel_borders <-
+  shef_borders %>%
+  arrange(std_diff_phi) %>%
+  mutate(
+    order = 1:nrow(shef_borders),
+    rank = order / (nrow(shef_borders)) * 100
+  )
+
+rel_borders$rank
 
 ## 1. Randomise based on this area
 
 ##  2. alternative based on frontierness in this area 
 ##  3. get stats on alternatives in terms of n. borders, total border length., diff_phi etc
 
-shef_borders %>% st_length()
-shef_borders %>% nrow
+rel_borders %>% st_length()
+rel_borders %>% nrow
 
-summary(shef_borders)
+summary(rel_borders)
 # -------------------------------------------------------------------------
 
 
 
 ###
 mapA <- 
-  shef_borders %>%
+  rel_borders %>%
   filter(
-    rank > 95 #3rd qu. rank = 94.05
+    rank > 85
   ) 
 
 mapB <- 
-  shef_borders %>%
+  rel_borders %>%
   filter(
-    rank %>% between(90, 97.5)
+    rank %>% between(75, 90)
   )
 
 mapC <- 
-  shef_borders %>%
+  rel_borders %>%
   filter(
-    rank %>% between(85, 92.5)
+    rank %>% between(65, 80)
   ) 
 
 ## randomise
 set.seed(123) # sets random number gen
 rand.index <- 
-  sample.int(nrow(shef_borders), 15)
+  sample.int(nrow(rel_borders), 10)
 
 
 mapD <-
-  shef_borders[rand.index, ]
+  rel_borders[rand.index, ]
 
 mapE <- 
-  shef_borders  ##all borders 
+  rel_borders  ##all borders 
 
 
 ### Collate
@@ -165,7 +175,6 @@ tm_shape(S61_1LZ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
 
-shef_borders
 
 #To get frontier lengths for each map
 combined_maps$lengths <- st_length(combined_maps) %>% as.numeric
