@@ -122,7 +122,7 @@ mapC <-
 ## randomise
 set.seed(123) # sets random number gen
 rand.index <- 
-  sample.int(nrow(rel_borders), 10)
+  sample.int(nrow(rel_borders), 15)
 
 
 mapD <-
@@ -159,7 +159,9 @@ these_borders <-
 #S61_1LZ_borders <-
  # 'cleaned data/S61 1LZ borders.rds' %>% readRDS
 
-
+map_borders <- 
+  combined_maps %>% 
+  st_intersection(S61_1LZ)
 
 #facet maps
 tmap_mode('view')
@@ -167,7 +169,7 @@ tmap_mode('view')
 tm_shape(S61_1LZ) + 
   tm_borders(alpha = 0.5) +
   tm_shape(
-    these_borders %>% 
+    map_borders %>% 
       filter(type %in% 
                c('a', 'b', 'c', 'd', 'e')
              )
