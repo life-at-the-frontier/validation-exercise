@@ -143,34 +143,50 @@ shef_borders
 # end hotfix --------------------------------------------------------------
 
 
+# 3. Restrict around centre point and add relative_rank -------------------
+
+these_borders <-
+  shef_borders %>%
+  st_intersection(
+    centrePoint
+  )
+
+these_borders <-
+  these_borders %>%
+  arrange(std_diff_phi) %>%
+  mutate(
+    rel_order = 1:nrow(these_borders),
+    rel_rank = rel_order / (nrow(these_borders)) * 100
+  )
+
+these_borders %>% summary
+
 
 # 4. intersect and create map ---------------------------------------------
 
 
-
-###
 mapA <- 
-  shef_borders %>%
+  these_borders %>%
   filter(
-    rank > 85
+    rel_rank > 85
   ) 
 
 mapB <- 
-  shef_borders %>%
+  these_borders %>%
   filter(
-    rank %>% between(75, 90)
+    rel_rank %>% between(75, 90)
   )
 
 mapC <- 
-  shef_borders %>%
+  these_borders %>%
   filter(
-    rank %>% between(65, 80)
+    rel_rank %>% between(65, 80)
   ) 
 
 ## randomise
 set.seed(123) # sets random number gen
 rand.index <- 
-  sample.int(nrow(shef_borders), 
+  sample.int(nrow(these_borders), 
              (nrow(mapA)
               )
   )
@@ -178,7 +194,7 @@ rand.index <-
 rand.index
 
 mapD <-
-  shef_borders[rand.index, ]
+  these_borders[rand.index, ]
 
 ### Collate
 
@@ -200,21 +216,10 @@ combined_maps <-
   )
 
 
-# xx. Save the example maps for output ------------------------------------
 
-
-
-map_borders <- 
-  combined_maps %>% 
-  st_intersection(centrePoint)
-
-
-
-##  Descriptives:
+##  Descriptives: -------------------
 
 combined_maps$lengths <- st_length(combined_maps) %>% as.numeric
-combined_maps %>% summary
-
 
 ## sum of lengths 
 combined_maps %>%
@@ -228,15 +233,19 @@ combined_maps %>%
 ## mean of other vars
 combined_maps %>%
   group_by(type) %>%
-  summarise_all(
+  summarise_if(
+    is.numeric,
     mean
   )
 
 
+
 ## [Results] 
-##  [Desc] A B and C are ranked by diff_phi A>B>C whilst D randomly samples borders within area of masborough
-##  Lengths are not comparable A>B>C whilst lengths A ~ D 
-##  D also has more diff_phi than B!
+##  [Desc] A B and C are ranked by relative rank A>B>C whilst D randomly samples borders within area of masborough
+##  Lengths are more or less comparable 
+##  Even the C has large std_diff_phi @ 1.74 -- almost all borders
+##  The r
+##  The OA maps look very bitty
 
 # xx. Check the maps ------------------------------------------------------
 
@@ -248,7 +257,7 @@ tm_shape(centrePoint) +
     lty = 'dotted',
     alpha = 0.5) +
   tm_shape(
-    map_borders #%>% 
+    combined_maps #%>% 
 #      filter(type %in% c('b', 'd'))
   ) +
   tm_lines(
