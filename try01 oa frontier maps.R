@@ -160,6 +160,8 @@ these_borders <-
   )
 
 these_borders %>% summary
+these_borders$std_diff_phi %>% quantile ## around 25% over 1.96
+
 
 
 # 4. intersect and create map ---------------------------------------------
@@ -168,20 +170,22 @@ these_borders %>% summary
 mapA <- 
   these_borders %>%
   filter(
-    rel_rank > 85
+    std_diff_phi > 1.96
   ) 
 
+## mapA ~ 25%
+## We can map B to have the 50% lowest of map A 
 mapB <- 
   these_borders %>%
   filter(
-    rel_rank %>% between(75, 90)
+    rel_rank %>% between(62.5, 87.5)
   )
 
-mapC <- 
-  these_borders %>%
-  filter(
-    rel_rank %>% between(65, 80)
-  ) 
+# mapC <- 
+#   these_borders %>%
+#   filter(
+#     rel_rank %>% between(65, 80)
+#   ) 
 
 ## randomise
 set.seed(123) # sets random number gen
@@ -211,7 +215,7 @@ combined_maps <-
   bind_rows(
     mapA %>% mutate(type = typeName[1]),
     mapB %>% mutate(type = typeName[2]),
-    mapC %>% mutate(type = typeName[3]),
+#    mapC %>% mutate(type = typeName[3]),
     mapD %>% mutate(type = typeName[4])
   )
 
@@ -225,6 +229,7 @@ combined_maps$lengths <- st_length(combined_maps) %>% as.numeric
 combined_maps %>%
   group_by(type) %>%
   summarise(
+    nborders = n(),
     sum_length = lengths %>% sum
   )
 
@@ -241,11 +246,11 @@ combined_maps %>%
 
 
 ## [Results] 
-##  [Desc] A B and C are ranked by relative rank A>B>C whilst D randomly samples borders within area of masborough
-##  Lengths are more or less comparable 
+##  [Desc] Map A has over 1.96SD phi (approx 25%), B is between ranks 62.5 and 87.5 (contains 50% of A)
+##  D is random with same n borders A. C is omitted.
+##  Lengths are more or less comparable -- in fact B is longer than A
 ##  Even the C has large std_diff_phi @ 1.74 -- almost all borders
-##  The r
-##  The OA maps look very bitty
+## cleaned up tiny borders <50m
 
 # xx. Check the maps ------------------------------------------------------
 
@@ -257,8 +262,8 @@ tm_shape(centrePoint) +
     lty = 'dotted',
     alpha = 0.5) +
   tm_shape(
-    combined_maps #%>% 
-#      filter(type %in% c('b', 'd'))
+    combined_maps %>% 
+      filter(lengths > 50)
   ) +
   tm_lines(
     lwd = 3) +
