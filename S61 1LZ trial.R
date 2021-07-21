@@ -76,6 +76,7 @@ tmap_mode('view')
 
 shef_borders %>% qtm
 
+
 ## 1. Randomise based on this area
 
 ##  2. alternative based on frontierness in this area 
@@ -93,25 +94,25 @@ summary(shef_borders)
 mapA <- 
   shef_borders %>%
   filter(
-    rank > 85
+    rank > 95 #3rd qu. rank = 94.05
   ) 
 
 mapB <- 
   shef_borders %>%
   filter(
-    rank %>% between(75, 90)
+    rank %>% between(90, 97.5)
   )
 
 mapC <- 
   shef_borders %>%
   filter(
-    rank %>% between(65, 80)
+    rank %>% between(85, 92.5)
   ) 
 
 ## randomise
 set.seed(123) # sets random number gen
 rand.index <- 
-  sample.int(nrow(shef_borders), 61)
+  sample.int(nrow(shef_borders), 15)
 
 
 mapD <-
@@ -158,7 +159,7 @@ tm_shape(S61_1LZ) +
   tm_shape(
     these_borders %>% 
       filter(type %in% 
-               c('a', 'b')
+               c('a', 'b', 'c', 'd', 'e')
              )
   ) +
   tm_lines(lwd = 3) +
@@ -166,3 +167,11 @@ tm_shape(S61_1LZ) +
 
 shef_borders
 
+#To get frontier lengths for each map
+combined_maps$lengths <- st_length(combined_maps) %>% as.numeric
+
+combined_maps %>% 
+  group_by(type) %>%
+  summarise(
+    sum_length = lengths %>% sum
+  )
