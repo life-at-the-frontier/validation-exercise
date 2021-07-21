@@ -178,7 +178,7 @@ mapA <-
 mapB <- 
   these_borders %>%
   filter(
-    rel_rank %>% between(62.5, 87.5)
+    rel_rank %>% between(50, 75)
   )
 
 # mapC <- 
@@ -246,10 +246,10 @@ combined_maps %>%
 
 
 ## [Results] 
-##  [Desc] Map A has over 1.96SD phi (approx 25%), B is between ranks 62.5 and 87.5 (contains 50% of A)
+##  [Desc] Map A has over 1.96SD phi (approx 25%), B is between ranks 50 and 75 (no overlap with A)
 ##  D is random with same n borders A. C is omitted.
-##  Lengths are more or less comparable -- in fact B is longer than A
-##  Even the C has large std_diff_phi @ 1.74 -- almost all borders
+##  Lengths are once again comparable -- in fact B is longer than A
+##  For SD both B and C are below 1.6 and actually C has higher SD than B (small)
 ## cleaned up tiny borders <50m
 
 # xx. Check the maps ------------------------------------------------------
