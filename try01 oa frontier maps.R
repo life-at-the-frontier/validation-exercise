@@ -20,12 +20,6 @@ shef_sf <-
 shef_borders <-
   shefBorders_Here %>% readRDS
 
-
-
-
-
-
-
 # Example map -------------------------------------------------------------
 shef_borders[1, ]
 
@@ -176,7 +170,10 @@ mapC <-
 ## randomise
 set.seed(123) # sets random number gen
 rand.index <- 
-  sample.int(nrow(shef_borders), 242)
+  sample.int(nrow(shef_borders), 
+             (nrow(mapA)
+              )
+  )
 
 rand.index
 
@@ -219,24 +216,27 @@ combined_maps$lengths <- st_length(combined_maps) %>% as.numeric
 combined_maps %>% summary
 
 
+## sum of lengths 
 combined_maps %>%
   group_by(type) %>%
   summarise(
     sum_length = lengths %>% sum
   )
 
+
+
+## mean of other vars
 combined_maps %>%
   group_by(type) %>%
   summarise_all(
     mean
   )
 
-combined_maps %>%
-  group_by(type) %>%
-  summarise_all(
-    sum
-  )
 
+## [Results] 
+##  [Desc] A B and C are ranked by diff_phi A>B>C whilst D randomly samples borders within area of masborough
+##  Lengths are not comparable A>B>C whilst lengths A ~ D 
+##  D also has more diff_phi than B!
 
 # xx. Check the maps ------------------------------------------------------
 
