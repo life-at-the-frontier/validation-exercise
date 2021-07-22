@@ -149,7 +149,7 @@ pair_4 <-
   )
 
 all_pairs <- list(pair_1, pair_2, pair_3, pair_4)
-
+all_pairs[[2]]
 
 #Pair 1
 these_borders <- 
