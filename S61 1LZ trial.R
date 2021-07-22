@@ -105,33 +105,45 @@ rel_borders$std_diff_phi %>% quantile(0.55)
 mapA <- 
   rel_borders %>%
   filter(
-    rank > 60
+    rank > 50
   ) 
 
 mapB <- 
   rel_borders %>%
   filter(
-    rank %>% between(30, 70)
+    rank %>% between(25, 75)
   )
 
-# mapC <- 
-#   rel_borders %>%
-#   filter(
-#     rank %>% between(65, 80)
-#   ) 
+ mapC <- 
+   rel_borders %>%
+   filter(
+     rank %>% between(0, 50)
+   ) 
 
-## randomise
-set.seed(123) # sets random number gen
-rand.index <- 
-  sample.int(nrow(rel_borders), nrow(mapA))
+# ## randomise
+# set.seed(123) # sets random number gen
+# rand.index <- 
+#   sample.int(nrow(rel_borders), nrow(mapA))
 
 
 mapD <-
-  rel_borders[rand.index, ]
+  rel_borders %>%
+  filter(
+    rank %>% between(75, 100) | rank %>% between(25, 50)
+  ) 
 
-mapE <- 
-  rel_borders  ##all borders 
 
+mapE <-
+  rel_borders %>%
+  filter(
+    rank %>% between(50, 75) | rank %>% between(0, 25)
+  ) 
+
+  
+
+# mapE <- 
+#   rel_borders  ##all borders 
+# 
 
 ### Collate
 
@@ -147,9 +159,9 @@ combined_maps <-
   bind_rows(
     mapA %>% mutate(type = typeName[1]),
     mapB %>% mutate(type = typeName[2]),
-#    mapC %>% mutate(type = typeName[3]),
+    mapC %>% mutate(type = typeName[3]),
     mapD %>% mutate(type = typeName[4]),
-#    mapE %>% mutate(type = typeName[5])
+    mapE %>% mutate(type = typeName[5])
   )
 
 
@@ -164,11 +176,27 @@ map_borders <-
   combined_maps %>% 
   st_intersection(S61_1LZ)
 
+
+# add map layer for propFor -----------------------------------------------
+shef_sf %>% head
+base_layer <-
+  shef_sf[S61_1LZ, ] %>%
+  mutate(
+    propFor = nonUKBorn / allResidents
+  ) 
+
+# -------------------------------------------------------------------------
+
+
+
+
 #facet maps
 tmap_mode('view')
 
 tm_shape(S61_1LZ) + 
   tm_borders(alpha = 0.5) +
+tm_shape(base_layer) +
+  tm_fill('propFor', alpha = 0.2) +
   tm_shape(
     map_borders %>% 
       filter(type %in% 
