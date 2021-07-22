@@ -60,7 +60,7 @@ S61_1LZ %>% qtm
 
 S61_1LZ <-
   S61_1LZ %>% 
-  st_buffer(1.5e3)
+  st_buffer(2e3)
 
 S61_1LZ %>% qtm
 
