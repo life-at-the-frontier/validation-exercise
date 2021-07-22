@@ -85,6 +85,12 @@ rel_borders <-
     rank = order / (nrow(shef_borders)) * 100
   )
 
+
+rel_borders <-
+  rel_borders %>%
+  st_intersection(S61_1LZ)
+
+
 mapA <- #Qs 1&2
   rel_borders %>%
   filter(
@@ -103,11 +109,19 @@ mapC <- #Qs 2&3
     rank %>% between(50, 75) | rank %>% between(25, 50)
   ) 
 
-mapD <- #Qs 1&3
+mapD <- #Qs 2&4
+  rel_borders %>%
+  filter(
+    rank %>% between(50, 75) | rank %>% between(0, 25)
+  ) 
+
+mapE <- #Qs 1&3
   rel_borders %>%
   filter(
     rank %>% between(75, 100) | rank %>% between(25, 50)
   ) 
+
+
 
 #Collate in pairs
 set.seed(123)
@@ -127,34 +141,93 @@ typeName <-
 pair_1 <-
   bind_rows(
     mapA %>% mutate(type = typeName[1], pair = 1),
-    mapC %>% mutate(type = typeName[2], pair = 1),
+    mapB %>% mutate(type = typeName[2], pair = 1),
   )
 
 pair_2 <-
   bind_rows(
-    mapB %>% mutate(type = typeName[1], pair = 2),
+    mapA %>% mutate(type = typeName[1], pair = 2),
     mapC %>% mutate(type = typeName[2], pair = 2),
   )
 
 pair_3 <-
   bind_rows(
-    mapA %>% mutate(type = typeName[1], pair = 3),
-    mapB %>% mutate(type = typeName[2], pair = 3),
+    mapD %>% mutate(type = typeName[1], pair = 3),
+    mapC %>% mutate(type = typeName[2], pair = 3),
   )
 
 pair_4 <-
   bind_rows(
-    mapD %>% mutate(type = typeName[2], pair = 4),
     mapE %>% mutate(type = typeName[1], pair = 4),
+    mapC %>% mutate(type = typeName[2], pair = 4),
   )
 
 all_pairs <- list(pair_1, pair_2, pair_3, pair_4)
-all_pairs[[2]]
 
 #Pair 1
-these_borders <- 
-  pair_1[S61_1LZ, ]
 
-p1_borders <- 
-  pair_1 %>% 
-  st_intersection(S61_1LZ)
+tmap_mode('view')
+
+# add map layer for propFor -----------------------------------------------
+shef_sf %>% head
+base_layer <-
+  shef_sf[S61_1LZ, ] %>%
+  mutate(
+    propFor = nonUKBorn / allResidents
+  ) 
+
+# -------------------------------------------------------------------------
+
+pairMap1 <- 
+tm_shape(S61_1LZ) + 
+  tm_borders(alpha = 0.5) +
+tm_shape(base_layer) +
+  tm_fill('propFor', alpha = 0.2) +
+  tm_shape(
+    pair_1
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+
+pairMap2 <- 
+tm_shape(S61_1LZ) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(base_layer) +
+  tm_fill('propFor', alpha = 0.2) +
+  tm_shape(
+    pair_2
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+
+pairMap3 <- 
+tm_shape(S61_1LZ) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(base_layer) +
+  tm_fill('propFor', alpha = 0.2) +
+  tm_shape(
+    pair_3
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+
+pairMap4 <- 
+tm_shape(S61_1LZ) + 
+  tm_borders(alpha = 0.5) +
+  tm_shape(base_layer) +
+  tm_fill('propFor', alpha = 0.2) +
+  tm_shape(
+    pair_4
+  ) +
+  tm_lines(lwd = 3) +
+  tm_facets('type', sync = T)
+
+pairMapList <-
+  list(
+    pairMap1,
+    pairMap2,
+    pairMap3,
+    pairMap4
+  )
+
+pairMapList %>% saveRDS('cleaned data/Quartile maps saved.rds')
