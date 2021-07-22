@@ -60,7 +60,7 @@ S61_1LZ %>% qtm
 
 S61_1LZ <-
   S61_1LZ %>% 
-  st_buffer(2000)
+  st_buffer(1.5e3)
 
 S61_1LZ %>% qtm
 
@@ -96,6 +96,7 @@ rel_borders %>% st_length()
 rel_borders %>% nrow
 
 summary(rel_borders)
+rel_borders$std_diff_phi %>% quantile(0.55)
 # -------------------------------------------------------------------------
 
 
@@ -104,25 +105,25 @@ summary(rel_borders)
 mapA <- 
   rel_borders %>%
   filter(
-    rank > 85
+    rank > 60
   ) 
 
 mapB <- 
   rel_borders %>%
   filter(
-    rank %>% between(75, 90)
+    rank %>% between(30, 70)
   )
 
-mapC <- 
-  rel_borders %>%
-  filter(
-    rank %>% between(65, 80)
-  ) 
+# mapC <- 
+#   rel_borders %>%
+#   filter(
+#     rank %>% between(65, 80)
+#   ) 
 
 ## randomise
 set.seed(123) # sets random number gen
 rand.index <- 
-  sample.int(nrow(rel_borders), 15)
+  sample.int(nrow(rel_borders), nrow(mapA))
 
 
 mapD <-
@@ -146,9 +147,9 @@ combined_maps <-
   bind_rows(
     mapA %>% mutate(type = typeName[1]),
     mapB %>% mutate(type = typeName[2]),
-    mapC %>% mutate(type = typeName[3]),
+#    mapC %>% mutate(type = typeName[3]),
     mapD %>% mutate(type = typeName[4]),
-    mapE %>% mutate(type = typeName[5])
+#    mapE %>% mutate(type = typeName[5])
   )
 
 
@@ -179,10 +180,17 @@ tm_shape(S61_1LZ) +
 
 
 #To get frontier lengths for each map
-combined_maps$lengths <- st_length(combined_maps) %>% as.numeric
+map_borders$lengths <- st_length(map_borders) %>% as.numeric
 
-combined_maps %>% 
+map_borders %>% 
   group_by(type) %>%
   summarise(
     sum_length = lengths %>% sum
   )
+
+map_borders %>% 
+  group_by(type) %>%
+  summarise_all(
+    mean
+  )
+
