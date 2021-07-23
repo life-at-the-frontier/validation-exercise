@@ -14,7 +14,7 @@ mapdataList <- readRDS('cleaned data/01 data for trial maps.rds')
 # mapA <- #Qs 1
 # mapB <- #Qs 2
 # mapC <- #Qs 3
-# mapD <- #Qs 4
+# mapD <- #NA
 
 
 nPairs <- 3 # number of pairs
@@ -45,7 +45,7 @@ pair_2 <-
 pair_3 <-
   bind_rows(
     mapdataList$b %>% mutate(type = map_a_position[3], pair = 3),
-    mapdataList$d %>% mutate(type = map_b_position[3], pair = 3),
+    mapdataList$c %>% mutate(type = map_b_position[3], pair = 3),
   )
 
 # pair_4 <-

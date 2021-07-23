@@ -1,10 +1,10 @@
 # 01. Make maps for each pair -------------------------------------------------
 
-##  Note: Quartile maps are:
+##  Note: maps are now thirds Q = top third
 # mapA <- #Qs 1
 # mapB <- #Qs 2
 # mapC <- #Qs 3
-# mapD <- #Qs 4
+# mapD <- NA
 # mapE <- #NA
 # 
 
@@ -91,11 +91,19 @@ rel_borders <-
   mutate(
     order_rel = 1:nrow(rel_borders),
     rank_rel = order_rel / (nrow(rel_borders)) * 100,
-    quartile_rel = ntile(-std_diff_phi, 4)
+    quartile_rel = ntile(-std_diff_phi, 3)
   )
 
-##  Summaries; Q1 = highest quartile
-rel_borders %>% group_by(quartile_rel) %>% summarise_all( mean ) 
+rel_borders$length <-
+  rel_borders %>% st_length()
+
+##  Summaries; Q1 = highest percentile group
+rel_borders %>% 
+  group_by(quartile_rel) %>%
+  select(std_diff_phi:length) %>%
+  summarise_all( mean ) 
+
+
 
 # create maps  ------------------------------------------------------------
 
@@ -118,12 +126,12 @@ mapC <- #Qs 3
     quartile_rel %in% c(3)
   ) 
 
-mapD <- #Qs 4
-  rel_borders %>%
-  filter(
-    quartile_rel %in% c(4)
-  ) 
-
+# mapD <- #Qs 4
+#   rel_borders %>%
+#   filter(
+#     quartile_rel %in% c(4)
+#   ) 
+# 
 # mapE <- #Qs 1&3
 #   rel_borders %>%
 #   filter(
@@ -136,8 +144,8 @@ mapdataList <-
   list(
     a = mapA,
     b = mapB,
-    c = mapC,
-    d = mapD#,
+    c = mapC#,
+#    d = mapD#,
 #    e = mapE
   )
 
