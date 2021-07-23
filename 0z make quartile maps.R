@@ -1,11 +1,11 @@
 # 01. Make maps for each pair -------------------------------------------------
 
 ##  Note: Quartile maps are:
-# mapA <- #Qs 1&2
-# mapB <- #Qs 3&4
-# mapC <- #Qs 2&3
-# mapD <- #Qs 2&4
-# mapE <- #Qs 1&3
+# mapA <- #Qs 1
+# mapB <- #Qs 2
+# mapC <- #Qs 3
+# mapD <- #Qs 4
+# mapE <- #NA
 # 
 
 
@@ -100,35 +100,35 @@ rel_borders %>% group_by(quartile_rel) %>% summarise_all( mean )
 # create maps  ------------------------------------------------------------
 
 
-mapA <- #Qs 1&2
+mapA <- #Qs 1
   rel_borders %>%
   filter(
-    quartile_rel %in% c(1, 2)
+    quartile_rel %in% c(1)
   ) 
 
-mapB <- #Qs 3&4
+mapB <- #Qs 2
   rel_borders %>%
   filter(
-    quartile_rel %in% c(3, 4)
+    quartile_rel %in% c(2)
   ) 
 
-mapC <- #Qs 2&3
+mapC <- #Qs 3
   rel_borders %>%
   filter(
-    quartile_rel %in% c(2, 3)
+    quartile_rel %in% c(3)
   ) 
 
-mapD <- #Qs 2&4
+mapD <- #Qs 4
   rel_borders %>%
   filter(
-    quartile_rel %in% c(2, 4)
+    quartile_rel %in% c(4)
   ) 
 
-mapE <- #Qs 1&3
-  rel_borders %>%
-  filter(
-    quartile_rel %in% c(1, 3)
-  ) 
+# mapE <- #Qs 1&3
+#   rel_borders %>%
+#   filter(
+#     quartile_rel %in% c(1, 3)
+#   ) 
 
 
 # save maps ---------------------------------------------------------------
@@ -137,8 +137,8 @@ mapdataList <-
     a = mapA,
     b = mapB,
     c = mapC,
-    d = mapD,
-    e = mapE
+    d = mapD#,
+#    e = mapE
   )
 
 
