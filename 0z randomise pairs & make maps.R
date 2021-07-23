@@ -1,47 +1,63 @@
 
 # Randomise pairs and save maps -------------------------------------------
 
+
+# inputs ------------------------------------------------------------------
+
+mapdataList <- readRDS('cleaned data/01 data for trial maps.rds')
+
+
+
+# 1. Create map pairs and randomise which map is on lhs ----------------------
+
+# refresher on map order
+# mapA <- #Qs 1&2
+# mapB <- #Qs 3&4
+# mapC <- #Qs 2&3
+# mapD <- #Qs 2&4
+# mapE <- #Qs 1&3
+
+
+
 #Collate in pairs
-set.seed(123)
-rep <- replicate(4, sample.int(2, 2)
-)
-?replicate
-rep[,2][2]
-rep
-#set.seed(444)
-order_id <- 
-  #  sample.int(4, 4)
-  1:2
-typeName <- 
-  letters[order_id]
+#set.seed(123)
+map_a_position <-
+  sample.int(2, 4, replace = T)
+
+map_b_position <-
+  ifelse(map_a_position == 2, 1, 2)
 
 
 pair_1 <-
   bind_rows(
-    mapA %>% mutate(type = typeName[1], pair = 1),
-    mapB %>% mutate(type = typeName[2], pair = 1),
+    mapA %>% mutate(type = map_a_position[1], pair = 1),
+    mapB %>% mutate(type = map_b_position[1], pair = 1),
   )
 
 pair_2 <-
   bind_rows(
-    mapA %>% mutate(type = typeName[1], pair = 2),
-    mapC %>% mutate(type = typeName[2], pair = 2),
+    mapA %>% mutate(type = map_a_position[2], pair = 2),
+    mapC %>% mutate(type = map_b_position[2], pair = 2),
   )
 
 pair_3 <-
   bind_rows(
-    mapD %>% mutate(type = typeName[1], pair = 3),
-    mapC %>% mutate(type = typeName[2], pair = 3),
+    mapD %>% mutate(type = map_a_position[3], pair = 3),
+    mapC %>% mutate(type = map_b_position[3], pair = 3),
   )
 
 pair_4 <-
   bind_rows(
-    mapE %>% mutate(type = typeName[2], pair = 4),
-    mapC %>% mutate(type = typeName[1], pair = 4),
+    mapE %>% mutate(type = map_a_position[4], pair = 4),
+    mapC %>% mutate(type = map_b_position[4], pair = 4),
   )
 
+all_pairs <- list(pair_1, pair_2, pair_3, pair_4)
 
-tmap_mode('view')
+
+# create the tmap objs  ---------------------------------------------------
+
+#tmap_mode('view')
 
 
 pairMap1 <- 
@@ -97,4 +113,66 @@ pairMapList <-
     pairMap4
   )
 
-pairMapList %>% saveRDS('cleaned data/Quartile maps saved.rds')
+
+# Randomise map pairs and save the order ----------------------------------
+
+## Create directory
+map.dir <- 
+  'output maps'
+
+dir.create(
+  map.dir
+)
+
+##  Then randomise pairs
+
+pairOrder <- 
+  sample.int(4, 4)
+
+randPairs <- pairMapList[pairOrder]
+
+## save the randomised order
+randPairs %>% 
+  saveRDS(
+    map.dir 
+    %>% file.path('random map pairs.rds')
+  )
+
+
+##  Save order 
+
+orderFile <-
+  data.frame(
+    shownOrder = 1:4,
+    pairID = pairOrder,
+    map_a_position = map_a_position[pairOrder]
+  )
+
+orderFile %>% 
+  write.csv(
+    map.dir %>% file.path('map order.csv'),
+    row.names = F
+  )
+
+
+
+# final step render markdown ----------------------------------------------
+
+rmarkdown::render(
+  map.dir %>% file.path("renderPair1.Rmd"), 
+  params = list())
+
+rmarkdown::render(
+  map.dir %>% file.path("renderPair2.Rmd"), 
+  params = list())
+
+rmarkdown::render(
+  map.dir %>% file.path("renderPair3.Rmd"), 
+  params = list())
+
+rmarkdown::render(
+  map.dir %>% file.path("renderPair4.Rmd"), 
+  params = list())
+
+
+#

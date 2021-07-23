@@ -35,9 +35,9 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# produce html maps/  csv for map order/ rds file
+# produce html maps/ rds file
 output maps/*.html
-output maps/*.csv
+#output maps/*.csv
 output maps/*.rds
 
 
