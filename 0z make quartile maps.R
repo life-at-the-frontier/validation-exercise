@@ -1,6 +1,12 @@
+# 01. Make maps for each pair -------------------------------------------------
 
-# Make maps for each pair -------------------------------------------------
-
+##  Note: Quartile maps are:
+# mapA <- #Qs 1&2
+# mapB <- #Qs 3&4
+# mapC <- #Qs 2&3
+# mapD <- #Qs 2&4
+# mapE <- #Qs 1&3
+# 
 
 
 # input/ output -----------------------------------------------------------
@@ -61,67 +67,79 @@ S61_1LZ <-
     crs = st_crs(ukgrid)
   )
 
-tmap_mode('view')
+# buffer point ------------------------------------------------------------
 
-S61_1LZ %>% qtm
+
+tmap_mode('view')
 
 S61_1LZ <-
   S61_1LZ %>% 
   st_buffer(1500)
 
-S61_1LZ %>% qtm
-
-#S61_1LZ %>% saveRDS('cleaned data/S61 1LZ borders.rds')
 
 
-# subset ------------------------------------------------------------------
+# subset and make quartiles -------------------------------------------------
 
-shef_borders <-
-  shef_borders[S61_1LZ, ]
-
-shef_borders %>% qtm
+rel_borders <-
+  shef_borders %>%
+  st_intersection(S61_1LZ)
 
 #create relative rank just for Masborough area
 rel_borders <-
-  shef_borders %>%
+  rel_borders %>%
   arrange(std_diff_phi) %>%
   mutate(
-    order = 1:nrow(shef_borders),
-    rank = order / (nrow(shef_borders)) * 100
+    order_rel = 1:nrow(rel_borders),
+    rank_rel = order_rel / (nrow(rel_borders)) * 100,
+    quartile_rel = ntile(-std_diff_phi, 4)
   )
 
+##  Summaries; Q1 = highest quartile
+rel_borders %>% group_by(quartile_rel) %>% summarise_all( mean ) 
 
-rel_borders <-
-  rel_borders %>%
-  st_intersection(S61_1LZ)
+# create maps  ------------------------------------------------------------
 
 
 mapA <- #Qs 1&2
   rel_borders %>%
   filter(
-    rank %>% between(75, 100) | rank %>% between(50, 75)
+    quartile_rel %in% c(1, 2)
   ) 
 
 mapB <- #Qs 3&4
   rel_borders %>%
   filter(
-    rank %>% between(25, 50) | rank %>% between(0 , 25)
+    quartile_rel %in% c(3, 4)
   ) 
 
 mapC <- #Qs 2&3
   rel_borders %>%
   filter(
-    rank %>% between(50, 75) | rank %>% between(25, 50)
+    quartile_rel %in% c(2, 3)
   ) 
 
 mapD <- #Qs 2&4
   rel_borders %>%
   filter(
-    rank %>% between(50, 75) | rank %>% between(0, 25)
+    quartile_rel %in% c(2, 4)
   ) 
 
 mapE <- #Qs 1&3
   rel_borders %>%
   filter(
-    rank %>% between(75, 100) | rank %>% between(25, 50)
+    quartile_rel %in% c(1, 3)
   ) 
+
+
+# save maps ---------------------------------------------------------------
+mapdataList <-
+  list(
+    a = mapA,
+    b = mapB,
+    c = mapC,
+    d = mapD,
+    e = mapE
+  )
+
+
+mapdataList %>% saveRDS('cleaned data/01 data for trial maps.rds')
