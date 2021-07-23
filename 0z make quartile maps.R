@@ -4,7 +4,7 @@
 # mapA <- #Qs 1
 # mapB <- #Qs 2
 # mapC <- #Qs 3
-# mapD <- NA
+# mapD <- # random map
 # mapE <- #NA
 # 
 
@@ -103,6 +103,7 @@ rel_borders %>%
   select(std_diff_phi:length) %>%
   summarise_all( mean ) 
 
+rel_borders %>% summary ## check for the stat vs the random map
 
 
 # create maps  ------------------------------------------------------------
