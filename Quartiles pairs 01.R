@@ -162,27 +162,32 @@ pair_4 <-
     mapC %>% mutate(type = typeName[2], pair = 4),
   )
 
-all_pairs <- list(pair_1, pair_2, pair_3, pair_4)
 
-#Pair 1
+#Randomise order
+set.seed(321)
+rep2 <- replicate(1, sample.int(4, 4)
+)
+rep2
+rep[,4][2]
+
+order_id2 <- 
+  1:4
+typeName2 <- 
+  letters[order_id2]
+
+pair_1 %>% mutate(pair_order = typeName2[2])
+pair_2 %>% mutate(pair_order = typeName2[1])
+pair_3 %>% mutate(pair_order = typeName2[4])
+pair_4 %>% mutate(pair_order = typeName2[3])
 
 tmap_mode('view')
 
-# add map layer for propFor -----------------------------------------------
-shef_sf %>% head
-base_layer <-
-  shef_sf[S61_1LZ, ] %>%
-  mutate(
-    propFor = nonUKBorn / allResidents
-  ) 
-
-# -------------------------------------------------------------------------
 
 pairMap1 <- 
 tm_shape(S61_1LZ) + 
   tm_borders(alpha = 0.5) +
-tm_shape(base_layer) +
-  tm_fill('propFor', alpha = 0.2) +
+# tm_shape(base_layer) +
+# tm_fill('propFor', alpha = 0.2) +
   tm_shape(
     pair_1
   ) +
@@ -192,8 +197,8 @@ tm_shape(base_layer) +
 pairMap2 <- 
 tm_shape(S61_1LZ) + 
   tm_borders(alpha = 0.5) +
-  tm_shape(base_layer) +
-  tm_fill('propFor', alpha = 0.2) +
+  # tm_shape(base_layer) +
+  # tm_fill('propFor', alpha = 0.2) +
   tm_shape(
     pair_2
   ) +
@@ -203,8 +208,8 @@ tm_shape(S61_1LZ) +
 pairMap3 <- 
 tm_shape(S61_1LZ) + 
   tm_borders(alpha = 0.5) +
-  tm_shape(base_layer) +
-  tm_fill('propFor', alpha = 0.2) +
+  # tm_shape(base_layer) +
+  # tm_fill('propFor', alpha = 0.2) +
   tm_shape(
     pair_3
   ) +
@@ -214,13 +219,14 @@ tm_shape(S61_1LZ) +
 pairMap4 <- 
 tm_shape(S61_1LZ) + 
   tm_borders(alpha = 0.5) +
-  tm_shape(base_layer) +
-  tm_fill('propFor', alpha = 0.2) +
+  # tm_shape(base_layer) +
+  # tm_fill('propFor', alpha = 0.2) +
   tm_shape(
     pair_4
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
+
 
 pairMapList <-
   list(
@@ -231,3 +237,11 @@ pairMapList <-
   )
 
 pairMapList %>% saveRDS('cleaned data/Quartile maps saved.rds')
+
+pairMapList[[1]]
+
+pairMapList[[2]]
+
+pairMapList[[3]]
+
+pairMapList[[4]]
