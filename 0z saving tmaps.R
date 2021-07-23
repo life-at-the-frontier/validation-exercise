@@ -3,8 +3,11 @@
 
 # 1. Create directory to save ---------------------------------------------
 
+map.dir <- 
+  'output maps'
+
 dir.create(
-  'map pairs'
+  map.dir
 )
 
 
@@ -12,17 +15,41 @@ dir.create(
 
 pairMapList <- readRDS('cleaned data/Quartile maps saved.rds')
 
-mapOrder <- 1:4
+mapOrder <- 
+  1:4
+
+randPairs <- pairMapList[mapOrder]
+
+## save the randomised order
+randPairs %>% 
+  saveRDS(
+    map.dir 
+    %>% file.path('random map pairs.rds')
+    )
 
 
-# 3 save --------------------------------------------------------
+##  Save order 
+mapOrder %>% write.csv(
+  map.dir %>% file.path('map order.csv')
+)
 
-## first map
-# pairMapList[[ mapOrder[1] ]] %>% 
-#   tmap_save('map pairs/pair1.html')
-## Doesn't work 
+# 3. Second try == render in Rmarkdown 
 
-## known tmap problem -- you can't save facetted synced mapos even if you can export them in R
+rmarkdown::render(
+  map.dir %>% file.path("renderPair1.Rmd"), 
+  params = list())
 
-pairMapList[[ mapOrder[1] ]] %>% leaflet::leaflet()
-pairMapList[[ mapOrder[1] ]] %>% tmap_leaflet() %>% htmlwidgets::saveWidget('test.html')
+rmarkdown::render(
+  map.dir %>% file.path("renderPair2.Rmd"), 
+  params = list())
+
+rmarkdown::render(
+  map.dir %>% file.path("renderPair3.Rmd"), 
+  params = list())
+
+rmarkdown::render(
+  map.dir %>% file.path("renderPair4.Rmd"), 
+  params = list())
+
+
+#
