@@ -1,0 +1,64 @@
+---
+title: "Preliminary Exercise"
+output: html_document
+---
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(tmap)
+library(sf)
+
+sf::sf_use_s2(FALSE)
+
+tmap_mode('view')
+```
+
+```{r load-data-quietly, echo=FALSE}
+#Get map data for comparisons
+
+shefBorders_Here <-
+  'cleaned data/makeFile01 sheffield borders+frontiers.rds'
+shef_borders <-
+  shefBorders_Here %>% readRDS
+
+ukgrid = "+init=epsg:27700"
+
+Sheff_Centre <- c(435366, 387189)
+
+centrePoint <-
+  st_point(
+    Sheff_Centre
+  )
+
+centrePoint <-
+  centrePoint %>%
+  st_sfc(
+    crs = st_crs(ukgrid)
+  )
+
+```
+
+#Introductory exercise
+This initial exercise is in place to help you to familiarise yourself with using interactive maps ahead of the main exercise.
+
+``` {r make-map-quietly, echo = FALSE}
+
+centrePoint %>% qtm
+
+```
+
+Step 1: 
+Use the button pictured below to open the OpenStreetMap layer to enable you to view locations.
+###INSERT PICTURE OF BUTTON###
+``` {r inset-image-quietly, echo = FALSE}
+!(wardenProject2021/images/layers-picture.png)
+```
+
+Hint:
+Use the plus button in the top left hand corner to zoom in and the minus button to zoom out.
+
+Hint:
+Click and drag on the map to move the viewer.
+
+Step 2:
+Find Masborough on the map.
