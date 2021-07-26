@@ -38,7 +38,6 @@ centrePoint <-
 
 ```
 
-#Introductory exercise
 This initial exercise is in place to help you to familiarise yourself with using interactive maps ahead of the main exercise.
 
 ``` {r make-map-quietly, echo = FALSE}
@@ -49,10 +48,8 @@ centrePoint %>% qtm
 
 Step 1: 
 Use the button pictured below to open the OpenStreetMap layer to enable you to view locations.
-###INSERT PICTURE OF BUTTON###
-``` {r inset-image-quietly, echo = FALSE}
-!(wardenProject2021/images/layers-picture.png)
-```
+![](images/layers-picture.png)
+
 
 Hint:
 Use the plus button in the top left hand corner to zoom in and the minus button to zoom out.
@@ -62,3 +59,6 @@ Click and drag on the map to move the viewer.
 
 Step 2:
 Find Masborough on the map.
+
+Step 3:
+Find Rotherham Central Train Station on the map.
