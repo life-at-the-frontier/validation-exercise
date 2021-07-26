@@ -23,11 +23,11 @@ shef_borders <-
 
 ukgrid = "+init=epsg:27700"
 
-Sheff_Centre <- c(435366, 387189)
+Rotherham_Centre <- c(442235, 392938)
 
 centrePoint <-
   st_point(
-    Sheff_Centre
+    Rotherham_Centre
   )
 
 centrePoint <-
@@ -58,7 +58,7 @@ Hint:
 Click and drag on the map to move the viewer.
 
 Step 2:
-Find Masborough on the map.
+Find Masbrough on the map.
 
 Step 3:
 Find Rotherham Central Train Station on the map.
