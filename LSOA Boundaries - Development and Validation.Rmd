@@ -1,0 +1,19 @@
+---
+title: "LSOA Boundaries - Development and Validation"
+author: "Lydia Warden"
+date: "27/07/2021"
+output: html_document
+---
+
+LSOA Boundaries: Development and Validation
+-	LSOAs were constructed from OAs and designed to contain between 1000 and 3000 residents and 400 to 1200 households. (Tower Hamlets, 2013, p4).
+-	Changes were implemented between 2001 and 2011 to reflect population growth, in most cases leading to an increase in the number of LSOAs (Tower Hamlets, 2013, p7).
+-	The ONS conducted consultations to gain feedback on proposed changes to output area boundaries ahead of the 2011 and 2021 censuses. Responses were given in the form of written feedback. A large proportion of respondents were representatives from councils and related organisations (ONS, 2021). The consultations requested feedback on proposed strategies for making changes to boundaries, rather than validation of the new boundaries (ONS, 2021).
+
+
+References:
+ONS., (2021). Consultation response: Census 2021 Output Geography Policy, Products and Services [online]. London: ONS. [Viewed 27 July 2021]. Available from: https://consultations.ons.gov.uk/external-affairs/ons-2021-census-output-geography-policy-products-a/results/2021geographyoutputsconsultation_response_v5.pdf
+Tower Hamlets., (2013). Research Briefing: A Guide to Census Geography [online]. London: Tower Hamlets. [Viewed 27 July 2021]. Available from: https://www.towerhamlets.gov.uk/Documents/Borough_statistics/Research-tools-and-guidance/RB-Census2011-Census-Geography-Guide-2013-05.pdf
+
+Other useful sources:
+Copy of consultation questionnaire from 2011 consultation: https://www.mrs.org.uk/pdf/MRS_CGG_Geography_consultation_response.pdf
