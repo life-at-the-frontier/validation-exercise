@@ -65,12 +65,14 @@ all_pairs <-
 
 #tmap_mode('view')
 
+pairMap1 
 
 pairMap1 <- 
   tm_shape(centrePoint) + 
   tm_borders(alpha = 0.5) +
   tm_shape(
-    pair_1
+    pair_1 %>% select(type),
+    name = 'borders'
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
@@ -79,7 +81,8 @@ pairMap2 <-
   tm_shape(centrePoint) + 
   tm_borders(alpha = 0.5) +
   tm_shape(
-    pair_2
+    pair_2 %>% select(type),
+    name = 'borders'
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
@@ -88,10 +91,12 @@ pairMap3 <-
   tm_shape(centrePoint) + 
   tm_borders(alpha = 0.5) +
   tm_shape(
-    pair_3
+    pair_3 %>% select(type),
+    name = 'borders'
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
+
 
 # pairMap4 <- 
 #   tm_shape(centrePoint) + 
@@ -153,7 +158,6 @@ orderFile %>%
     map.dir %>% file.path('map order.csv'),
     row.names = F
   )
-
 
 
 
