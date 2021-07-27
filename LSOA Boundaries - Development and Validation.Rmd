@@ -4,16 +4,29 @@ author: "Lydia Warden"
 date: "27/07/2021"
 output: html_document
 ---
-
 LSOA Boundaries: Development and Validation
 -	LSOAs were constructed from OAs and designed to contain between 1000 and 3000 residents and 400 to 1200 households. (Tower Hamlets, 2013, p4).
 -	Changes were implemented between 2001 and 2011 to reflect population growth, in most cases leading to an increase in the number of LSOAs (Tower Hamlets, 2013, p7).
 -	The ONS conducted consultations to gain feedback on proposed changes to output area boundaries ahead of the 2011 and 2021 censuses. Responses were given in the form of written feedback. A large proportion of respondents were representatives from councils and related organisations (ONS, 2021). The consultations requested feedback on proposed strategies for making changes to boundaries, rather than validation of the new boundaries (ONS, 2021).
+Vickers, D. and Rees, P., (2007). Creating the UK National Statistics 2001 output area classification. Journal of the Royal Statistical Society: Series A, Statistics in Society. 170(2), pp.379-403.
+-	P380 Area classification refers to the classification of areas into groups in the basis of the similarity of characteristics within them. One of the most commonly used area classifications is geodemographic classifications, which ‘works on the principle that the place and the population are inextricably linked.’ Information including age, ethnicity, education, employment and type of housing is used to find out about the people who live in an area, as if similar people live in similar places we can infer knowledge about others from knowledge about one.
+-	P381 Classifications are created using cluster analysis.
+-	P390-1 41 variables were selected for input to the classification
+o	Demographic variables including age, ethnicity, proportion of the population that were foreign-born and population density.
+o	Household composition: separated/divorced, single person households, single pensioner households, lone parent households, childless couples and households with non-dependent children.
+o	Housing: renting, terraced, detached, flats, no central heating, average house size (no of rooms), people per room.
+o	Socioeconomic: HE qualification, employment, 2+ cars, public transport to work, WFH, long-term limiting illness, providing unpaid care.
+o	Employment: students, unemployed, part-time, proportions working in different industries.
+-	P395 Selection of the number of clusters involved consultation with potential users and members of the ONS area classification advisory board.
+-	P398 Each cluster was named based on the profile features that distinguish it from other clusters.
+-	P399 Comments and suggestions on names were received from people who took part in a consultation exercise about the classification.
 
 
 References:
+Martin, D., (1998). 2001 Census output areas: from concept to prototype. Population Trends. 94, pp.19-24.
 ONS., (2021). Consultation response: Census 2021 Output Geography Policy, Products and Services [online]. London: ONS. [Viewed 27 July 2021]. Available from: https://consultations.ons.gov.uk/external-affairs/ons-2021-census-output-geography-policy-products-a/results/2021geographyoutputsconsultation_response_v5.pdf
 Tower Hamlets., (2013). Research Briefing: A Guide to Census Geography [online]. London: Tower Hamlets. [Viewed 27 July 2021]. Available from: https://www.towerhamlets.gov.uk/Documents/Borough_statistics/Research-tools-and-guidance/RB-Census2011-Census-Geography-Guide-2013-05.pdf
 
 Other useful sources:
 Copy of consultation questionnaire from 2011 consultation: https://www.mrs.org.uk/pdf/MRS_CGG_Geography_consultation_response.pdf
+Martin, D., (1998). 2001 Census output areas: from concept to prototype. Population Trends. 94, pp.19-24. – Outlines the process of using GIS to create the output areas – doesn’t discuss validation.
