@@ -1,7 +1,7 @@
 # Using local residents and experts validate a border detection algorithm
 Full title:  A discrete choice experiment using local residents and experts in Rotherham to evaluate the validity of a border detection algorithm.
 
-Authors: Meng Le Zhang, Lydia Warden, Aneta Piekut, Gwilym Pryce
+Authors: Meng Le Zhang, Lydia Warden, Aneta Piekut, Zaneeb Rasool, Gwilym Pryce
 Date:
 - Original- 26 July 2021
 
@@ -85,17 +85,16 @@ _Sample size_: The sample size was based on the qualitative research design. The
 
 ![](assets/qual-table.png)
 
-_Recruitment_:
+_Recruitment_: Particpants are expected to be recruited by snowball sampling. Potential experts were suggested to interview team by ZR who is a professional that has worked in the community for many years.
 
 
-## Evaluation criteria
-## outcomes
-## participant timeline
-## sample size
-## recruitment
+
+## Assignment of interventions
+
+Written in a seperate doc  [here](#study-protocol-assignment.md).
 
 
-##  Assignment of interventions
+
 ## Study setting
 ## Monitoring
 
@@ -108,8 +107,12 @@ _Recruitment_:
 
 ## Author's contributions
 
-MZ originally conceived the validation study. AP designed the qualitative interviews, sampling design and the recruitment of participants. AP will conduct the interviews. LW and MZ created the research materials for the exercise. MZ, AP and LW are responsible for the write up of the study protocol and results. MZ provides statistical expertise and primary data analysis. AP and GP are grant holders.
+MZ originally conceived the validation study. AP and ZR designed the qualitative interviews, sampling design and the recruitment of participants. AP and ZR will conduct the interviews. LW and MZ created the research materials for the exercise. MZ, AP and LW are responsible for the write up of the study protocol and results. MZ provides statistical expertise and primary data analysis. AP and GP are grant holders.
 
 ## Funding
 
 This study is funded by the Nordforsk as part of the life at the frontiers project (project numnber 95193). For more details, see [here](https://www.nordforsk.org/projects/life-frontier-impact-social-frontiers-social-mobility-and-integration-migrants). LW's time on the study is funded by Sheffield University.
+
+# References
+
+Dean, Nema, Guanpeng Dong, Aneta Piekut, and Gwilym Pryce. 2019. ‘Frontiers in Residential Segregation: Understanding Neighbourhood Boundaries and Their Impacts’. Tijdschrift Voor Economische En Sociale Geografie 110 (3): 271–88. https://doi.org/10.1111/tesg.12316.
