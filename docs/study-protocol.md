@@ -1,5 +1,5 @@
 # Using residents and experts validate a border detection algorithm
-Full title:  A discrete choice experiment using residents and experts in Rotherham to evaluate the validity of a border detection algorithm.
+Full title:  A discrete choice experiment using residents and experts to evaluate the validity of a border detection algorithm.
 
 Authors: Meng Le Zhang, Lydia Warden, Aneta Piekut, Zaneeb Rasool, Maeve O’Brien, Goretti Horgan, Aarti Iyer, and Gwilym Pryce
 Versions:
@@ -41,7 +41,10 @@ _Need for a trial_: The need for external validation of the results of algorithm
 
 _Primary objective_: Determine whether residents and experts perceive sharper borders (as determined by the algorithm) as indicative of more clearly defined community borders.
 
+_Hypothesis_: The algorithm predicts which borders are more likely to be clearly defined community borders. The hypothesis is that participants will agree with the predictions of the algorithm.
+
 _Secondary objective_: Determine the feasibility of this type of trial for future research.
+
 
 
 **Trial design** A discrete choice experiment where participants are given a pair of maps and asked to pick which map represents more defined community borders. Each participant is given three pair sets to complete. All maps cover the same geographical area. The pair sequence and the order of maps within each pair are randomised. The exercise is conducted as part of a longer semi-structured qualitative interview. The exercise is given at either the beginning or end of the interview (depending on whether experts or residents).
@@ -58,7 +61,7 @@ _Study setting_: The study is carried out as part of online and face-to-face int
 - 2 Sites [tbd], Norway
 - 2 Sites [tbd], Sweden
 
-The definition of a community does not match statistical boundaries. A number of factors determined the choice of areas. First, each city was chosen due to their higher than average degree of segregation, the proportion of foreign-born residents, and the research team's prior links and collaborations. Then, using the Dean et al. algorithm, MZ gave AP a map of social frontiers in each city. Finally, AP and expert ZR chose an area in Rotherham with an above-average number of defined community borders and MO and GH in Derry. Derry location is a subject to final consulation with one more local expert.
+The definition of a community does not match statistical boundaries. A number of factors determined the choice of areas. First, each city was chosen due to their higher than average degree of segregation, the proportion of foreign-born residents, and the research team's prior links and collaborations. Then, using the Dean et al. algorithm, MZ gave AP a map of social frontiers in each city. Finally, AP and expert ZR chose an area in Rotherham with an above-average number of defined community borders and MO and GH in Derry. Derry location is a subject to final consultation with one more local expert.
 
 The maps used in the trial are centred on the middle of these areas and show border information within a 1.5km radius.
 
@@ -98,7 +101,7 @@ _Recruitment_:
 
 ## Assignment of interventions
 
-Written in a seperate doc  [here](#study-protocol-assignment.md).
+Written in a seperate doc [here](#study-protocol-assignment.md). Alternative link is at https://github.com/MengLeZhang/wardenProject2021.
 
 ## Data collection
 

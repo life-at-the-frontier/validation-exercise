@@ -37,3 +37,12 @@ All participants will be shown all three pairs of maps after an initial prelimin
 **Concealment mechanism and blinding**
 The order and sequence is saved onto a file and not shown to the any member of the research team until the data has been collected. This includes member of the data analysis team who will only access the sequencing information after an interview to check the automated routine has not failed. In the case of the interview team, they will not see the data or the order/sequence until all the data has been collected.
 The participants and the interview team will be unaware of how the maps in the exercise have been generated.
+
+## Stat analysis
+
+Analysis of the primary outcome will use a linear regression model with cluster robust standard errors (cluster = participant). The outcome will be whether a respondent 'agrees' with the algorithm by choosing the map with 'sharper' borders in a pair. A t-test of the regression parameters will constitute a test of our null hypothesis. Missing data, including item non-response (e.g. skipping pairs), will be omitted.
+
+Additional test for sequencing, ordering, and better agreement over time will be conducted. We will use fisher exact tests to check if the agreement rate is different across the 3 pairs (pair sequence is randomised). We will use a linear regression model with cluster robust standard errors to check the frequency with which participants pick maps shown on the left-hand side of a pair (map order is randomised). We will . We will test the effect of item non-response by using partial identification to calculate the lower and upper bounds for the agreement rate (e.g. non-responders are always agree or disagree).
+
+
+Exploratory analysis will include a multinomial logit model to measure whether the attribute 'sharpness' has a linear relationship with map preference.
