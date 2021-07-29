@@ -1,9 +1,9 @@
 # Using residents and experts validate a border detection algorithm
 Full title:  A discrete choice experiment using residents and experts in Rotherham to evaluate the validity of a border detection algorithm.
 
-Authors: Meng Le Zhang, Lydia Warden, Aneta Piekut, Zaneeb Rasool, Gwilym Pryce
+Authors: Meng Le Zhang, Lydia Warden, Aneta Piekut, Zaneeb Rasool, Maeve O’Brien, Goretti Horgan, Aarti Iyer, and Gwilym Pryce
 Versions:
-- Original- 26 July 2021
+- Original- 29 July 2021
 
 Note: Based on SPIRIT checklist here (https://www.spirit-statement.org/about-spirit/).
 
@@ -58,7 +58,7 @@ _Study setting_: The study is carried out as part of online and face-to-face int
 - 2 Sites [tbd], Norway
 - 2 Sites [tbd], Sweden
 
-The definition of a community does not match statistical boundaries. A number of factors determined the choice of areas. First, each city was chosen due to their higher than average degree of segregation, the proportion of foreign-born residents, and the research team's prior links and collaborations. Then, using the Dean et al. algorithm, MZ gave AP a map of social frontiers in each city. Finally, AP and expert ZR chose an area within each city with an above-average number of defined community borders.
+The definition of a community does not match statistical boundaries. A number of factors determined the choice of areas. First, each city was chosen due to their higher than average degree of segregation, the proportion of foreign-born residents, and the research team's prior links and collaborations. Then, using the Dean et al. algorithm, MZ gave AP a map of social frontiers in each city. Finally, AP and expert ZR chose an area in Rotherham with an above-average number of defined community borders and MO and GH in Derry. Derry location is a subject to final consulation with one more local expert.
 
 The maps used in the trial are centred on the middle of these areas and show border information within a 1.5km radius.
 
@@ -68,7 +68,7 @@ _Eligibility criteria_: Participants fall under three different groups.
 - Focus groups interviews will be conducted with young people aged 18-25 who have lived in the vicinity and on different sides of the identified social frontier for at least a year.
 
 
-_Intervention_: After a preliminary task to familiarise participants with the map interface, where participants are shown pairs of interactive maps with borders (Map A and Map B). Participants are asked to choose which map better represents distinct community borders in the selected area. The full description of the intervention and allocation mechanism is given in a separate document [here](#study-protocol-assignment.md).
+_Intervention_: After a preliminary task to familiarise participants with the map interface, where participants are shown pairs of interactive maps with borders (Map A and Map B). Participants are asked to choose which map better represents distinct community boundaries in terms of migration background in the selected area. The full description of the intervention and allocation mechanism is given in a separate document [here](#study-protocol-assignment.md).
 
 Pilot exercises were conducted before deployment, and the entire validation exercise takes under 10 minutes to complete.
 
@@ -102,8 +102,7 @@ Written in a seperate doc  [here](#study-protocol-assignment.md).
 
 ## Data collection
 
-_Collection and management_: Trial results data will be collected by the interview team (AP, ZR) and entered into a spreadsheet. AP will check a subset of results against the interview recordings for accuracy. MZ will store data on local machines with a cloud backup.
-[@Aneta] are we collecting any other data? e.g. demographic, age etc
+_Collection and management_: Trial results data will be collected by the interview team (AP, ZR) and entered into a spreadsheet. AP will check a subset of results against the interview recordings for accuracy. MZ will store data on local machines with a cloud backup. We plan to collect basic demographic information on participants in the residents interview.
 
 _Statistical analysis_: Analysis of the primary outcome will use a linear regression model with cluster robust standard errors. A t-test of the regression parameters will constitute a test of our null hypothesis. Missing data, including item non-response (e.g. skipping pairs), will be omitted. The full details are contained [here](#study-protocol-assignment.md). The interview team is unaware of the exact details of the statistical analysis since it may reveal the allocation mechanism.
 
@@ -136,7 +135,7 @@ _Dissemination_: TBD
 
 ## Author's contributions
 
-MZ originally conceived the validation study. AP and ZR designed the qualitative interviews, sampling design and the recruitment of participants. AP and ZR will conduct the interviews. LW and MZ created the research materials for the exercise. MZ, AP and LW are responsible for the write up of the study protocol and results. MZ provides statistical expertise and primary data analysis. AP and GP are grant holders.
+MZ originally conceived the validation study. AI (Aarti Iyer) and AP designed the qualitative interviews, sampling design and the recruitment of participants. AP, ZR and MO will conduct the interviews. LW and MZ created the research materials for the exercise. MZ, AP and LW are responsible for the write up of the study protocol and results. MZ provides statistical expertise and primary data analysis. AP and GP are grant holders.
 
 ## Funding
 
