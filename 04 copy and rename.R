@@ -19,6 +19,15 @@ nPairs <- 3
 thisMapOrder <-
   'cleaned data/map order 2021-07-30.rds'
 
+##  where's the prelim exercise?
+prelimTask_here <-
+  file.path(
+    origMaps_dir,
+    'Preliminary-Exercise.html' 
+  )
+
+
+
 
 # 1. Load set order + initialise folders ----------------------------------
 
@@ -67,10 +76,17 @@ for (set_i in 1:nSets){
     filter(set == set_i)
   
   ## create dir
-  set_i_dir %>% dir.create(show)
+  set_i_dir %>% dir.create()
 
+  ## Place the prelim exercise into each place 
+  file.copy(
+    from = prelimTask_here,
+    to = set_i_dir,
+    overwrite = T
+  )
 
   
+  ## Copying the maps and randomising
   ## locations  
   set_i_copyThese <- 
     file.path(
