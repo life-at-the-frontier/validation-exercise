@@ -63,11 +63,11 @@ all_pairs <-
 
 # 2. create the tmap objs  ---------------------------------------------------
 
-#tmap_mode('view')
+tmap_mode('view')
 
 
-pairMap1 <- 
-  tm_shape(centrePoint) + 
+pairMap1 <-
+  tm_shape(centrePoint) +
   tm_borders(alpha = 0.5) +
   tm_shape(
     pair_1
