@@ -26,6 +26,17 @@ shefBorders_Here <-
 shef_borders <-
   shefBorders_Here %>% readRDS
 
+
+# issue: duplciated borders -----------------------------------------------
+shef_borders  %>% head ## see lines 4-6
+
+st_geometry(shef_borders) <- NULL
+
+checkThis <- 
+  shef_borders %>% group_by(id, id.1) %>% summarise( n = n())
+checkThis %>% nrow
+shef_borders  %>% nrow
+
 ## Add percentile ranks
 
 shef_borders <-
