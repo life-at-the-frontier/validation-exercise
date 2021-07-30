@@ -17,7 +17,7 @@ tmap_mode('view')
 #Get map data for comparisons
 
 shefBorders_Here <-
-  'cleaned data/makeFile01 sheffield borders+frontiers.rds'
+  '../cleaned data/makeFile01 sheffield borders+frontiers.rds'
 shef_borders <-
   shefBorders_Here %>% readRDS
 
