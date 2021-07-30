@@ -34,16 +34,16 @@ setTable <-
   setList %>% bind_rows()
 
 ## save the randomised order
+
+orderSaveName <- 
+  paste0('cleaned data/map order ', Sys.Date(), '.rds')
+
+
+orderSaveName %>% print ## copy and pase into script 4
+
 setTable %>% 
   saveRDS(
-    'cleaned data/secret map order.rds'
+    orderSaveName 
   )
 
-##  save the digitial spreadsheet
-setTable %>% 
-  select(set, seenOrder, result) %>%
-  write.csv(
-    'docs/fillable results sheet.csv',
-    row.names = F
-  )
 

@@ -8,21 +8,42 @@ origMaps_dir <-
   'output pair alternatives'
 
 trialMaps_dir <-
-  'maps for experiment'
+  'rotherham experiment maps'
 
 ##  How many sets of experiments  -- copy from 03
 nSets <- 25
 nPairs <- 3
 
+##  which secret map order (use script 03)
+
+thisMapOrder <-
+  'cleaned data/map order 2021-07-30.rds'
+
 
 # 1. Load set order + initialise folders ----------------------------------
 
 ## load in the set order
-setTable <- 'cleaned data/secret map order.rds' %>% readRDS
+setTable <- 
+  thisMapOrder%>% 
+  readRDS
+
 
 ## create the trial folder
 trialMaps_dir %>% dir.create()
   
+## save the fillable form in the dir
+setTable %>% 
+  select(set, seenOrder, result) %>%
+  write.csv(
+    file.path(trialMaps_dir, 'fillable results sheet.csv'),
+    row.names = F
+  )
+
+## save the map order original name 
+cat(thisMapOrder, 
+    file = file.path(trialMaps_dir, "order ID.txt")
+    )
+
 
 # 2. add the filename for the pair maps to be extracted --------------
 
