@@ -1,14 +1,12 @@
 # wardenProject2021
-Repo for work related to the 2021 student summer project related to the Life at the Frontiers project
+Repo for work related to the 2021 summer project related to the Life at the Frontiers project
 
 
-
-[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgICBmcm9udGllcl9kYXRhW291dHNpZGUgZnJvbnRpZXIgZGF0YV1cbiAgICBtYWtlRmlsZTAxW21ha2VGaWxlMDEgZXh0cmFjdCBmcm9udGllcnNdXG4gICAgZnJvbnRpZXJfZGF0YSAtLi0-IHxyZWFkIGlufG1ha2VGaWxlMDFcbiAgICBtYWtlRmlsZTAxIC0tPiAwMVxuXG4gICAgc3ViZ3JhcGggcmFuZG9taXNlLW1hcHMgXG4gICAgMDFbMDEgZ2V0IG1hcCBkYXRhXVxuICAgIDAyWzAyIG1hcHMgKyByYW5kb21pc2UgKyByZW5kZXIgcm1kXVxuICAgIDAxIC0tPiAwMlxuICAgIGVuZFxuICAgIHN1YmdyYXBoIC9vdXRwdXQtbWFwc1xuICAgIDAyIC0uLT58cmVuZGVyc3xyZW5kZXJQYWlyMS5SbWRcbiAgICAwMiAtLi0-fHJlbmRlcnN8cmVuZGVyUGFpcjIuUm1kXG4gICAgMDIgLS4tPnxyZW5kZXJzfHJlbmRlclBhaXIzLlJtZFxuICAgIDAyIC0uLT58b3V0cHV0c3xvcmRlckZpbGVbbWFwIG9yZGVyLmNzdl1cbiAgICBlbmRcblxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/edit##eyJjb2RlIjoiZ3JhcGggVERcbiAgICBBW0NocmlzdG1hc10gLS0-fEdldCBtb25leXwgQihHbyBzaG9wcGluZylcbiAgICBCIC0tPiBDe0xldCBtZSB0aGlua31cbiAgICBDIC0tPnxPbmV8IERbTGFwdG9wXVxuICAgIEMgLS0-fFR3b3wgRVtpUGhvbmVdXG4gICAgQyAtLT58VGhyZWV8IEZbZmE6ZmEtY2FyIENhcl0iLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
-
+[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgICBmcm9udGllcl9kYXRhW291dHNpZGUgZnJvbnRpZXIgZGF0YV1cbiAgICBtYWtlRmlsZTAxW21ha2VGaWxlMDEgZXh0cmFjdCBmcm9udGllcnNdXG4gICAgZnJvbnRpZXJfZGF0YSAtLi0-IHxyZWFkIGlufG1ha2VGaWxlMDFcbiAgICBtYWtlRmlsZTAxIC0tPiAwMVxuXG4gICAgc3ViZ3JhcGggbWFrZU1hcHNcbiAgICAwMVswMSBtYXAgZGF0YV1cbiAgICAwMlswMiBtYWtlIGFsbCBtYXBdXG4gICAgMDEgLS0-IDAyXG4gICAgMDIgLS4tPiB8bWFudWFsbHkgZXhwb3J0fCAwMm91dFttYXAgcGFpcnMuaHRtbF1cbiAgICBlbmRcbiAgICBzdWJncmFwaCByYW5kb21pc2VcbiAgICAwM1swMyByYW5kb21pc2Ugb3JkZXJdXG4gICAgMDRbMDQgb3V0cHV0IG1hcHNdIFxuICAgIDAzIC0uLT4gfG1hcCBvcmRlci5yZHN8IDA0XG4gICAgMDJvdXQgLS4tPiAwNFxuICAgIGVuZFxuXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/edit##eyJjb2RlIjoiZ3JhcGggXG4gICAgZnJvbnRpZXJfZGF0YVtvdXRzaWRlIGZyb250aWVyIGRhdGFdXG4gICAgbWFrZUZpbGUwMVttYWtlRmlsZTAxIGV4dHJhY3QgZnJvbnRpZXJzXVxuICAgIGZyb250aWVyX2RhdGEgLS4tPiB8cmVhZCBpbnxtYWtlRmlsZTAxXG4gICAgbWFrZUZpbGUwMSAtLT4gMDFcblxuICAgIHN1YmdyYXBoIG1ha2VNYXBzXG4gICAgMDFbMDEgbWFwIGRhdGFdXG4gICAgMDJbMDIgbWFrZSBhbGwgbWFwXVxuICAgIDAxIC0tPiAwMlxuICAgIDAyIC0uLT4gfG1hbnVhbGx5IGV4cG9ydHwgMDJvdXRbbWFwIHBhaXJzLmh0bWxdXG4gICAgZW5kXG4gICAgc3ViZ3JhcGggcmFuZG9taXNlXG4gICAgMDNbMDMgcmFuZG9taXNlIG9yZGVyXVxuICAgIDA0WzA0IG91dHB1dCBtYXBzXSBcbiAgICAwMyAtLi0-IHxtYXAgb3JkZXIucmRzfCAwNFxuICAgIDAyb3V0IC0uLT4gMDRcbiAgICBlbmRcblxuIiwibWVybWFpZCI6IntcbiAgXCJ0aGVtZVwiOiBcImRlZmF1bHRcIlxufSIsInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
 # Intro
 This code produces maps for sharp boundaries (or social frontiers) for a validation exercise. 
 
-Trials of maps and important old code are tagged as archive/[branchname]. In case, they need to be checkedout.
+Trials of maps and important old code are tagged as archive/[branchname]. In case, they need to be checked out.
 
 # Folders
 
@@ -25,22 +23,24 @@ Frontiers are generated from measureFrontiers 04 UK script in nordF repo. Used i
 
 code for code map
 ```
-graph LR
+graph TD
     frontier_data[outside frontier data]
     makeFile01[makeFile01 extract frontiers]
     frontier_data -.-> |read in|makeFile01
     makeFile01 --> 01
 
-    subgraph randomise-maps 
-    01[01 get map data]
-    02[02 maps + randomise + render rmd]
+    subgraph makeMaps
+    01[01 map data]
+    02[02 make all map]
     01 --> 02
+    02 -.-> |manually export| 02out[map pairs.html]
     end
-    subgraph /output-maps
-    02 -.->|renders|renderPair1.Rmd
-    02 -.->|renders|renderPair2.Rmd
-    02 -.->|renders|renderPair3.Rmd
-    02 -.->|outputs|orderFile[map order.csv]
+    subgraph randomise
+    03[03 randomise order]
+    04[04 output maps] 
+    03 -.-> |map order.rds| 04
+    02out -.-> 04
     end
+
 
 ```
