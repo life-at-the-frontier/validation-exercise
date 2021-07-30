@@ -18,24 +18,19 @@ centrePoint <- mapdataList$centrePoint
 # mapD <- #NA
 
 
-nPairs <- 3 # number of pairs
 
-#Collate in pairs
-#set.seed(123)
-map_a_position <-
-  sample.int(2, nPairs, replace = T)
-
-#map_a_position
-
-map_b_position <-
-  ifelse(map_a_position == 2, 1, 2)
-
-
-pair_1 <-
+pair1_1 <-
   bind_rows(
-    mapdataList$a %>% mutate(type = map_a_position[1]),
-    mapdataList$b %>% mutate(type = map_b_position[1]),
+    mapdataList$a %>% mutate(type = 1),
+    mapdataList$b %>% mutate(type = 2),
   )
+
+pair1_2 <-
+  bind_rows(
+    mapdataList$a %>% mutate(type = 2),
+    mapdataList$b %>% mutate(type = 1),
+  )
+
 
 pair_2 <-
   bind_rows(
@@ -89,10 +84,7 @@ pairMap3 <-
   tm_facets('type', sync = T)
 
 
-pairMapList <-
-  list(
-    pairMap1,
-    pairMap2,
-    pairMap3,
-    pairMap4 =NA
-  )
+
+# Instruction: Export the maps by hand into /output pairs alternat --------
+
+

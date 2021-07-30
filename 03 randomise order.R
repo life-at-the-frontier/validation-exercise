@@ -1,7 +1,7 @@
 ##  0x Create a random order and save it 
 
 ##  1. How many sets of experiments 
-nSets <- 20
+nSets <- 25
 nPairs <- 3
 
 

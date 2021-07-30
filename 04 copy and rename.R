@@ -5,13 +5,13 @@
 # input: specify folders --------------------------------------------------
 
 origMaps_dir <-
-  'output maps'
+  'output pair alternatives'
 
 trialMaps_dir <-
   'maps for experiment'
 
-##  How many sets of experiments 
-nSets <- 20
+##  How many sets of experiments  -- copy from 03
+nSets <- 25
 nPairs <- 3
 
 
@@ -84,5 +84,6 @@ for (set_i in 1:nSets){
   print(set_i)
   print(set_i_renameTo %>% file.exists)
 }
+
 
 ### End
