@@ -11,8 +11,9 @@
 ## Drop the data here from the nordF project
 
 sfModels_path <- 
-  'temp data/uk frontier model list.rds'
-
+#  'temp data/uk frontier model list.rds'
+  'temp data/selected sf models.rds'
+  
 
 ## Output 
 shefBase_Here <- 
@@ -50,6 +51,7 @@ sfBorders <-
   frontier_as_sf(
     sfModels$Sheffield,
     non_frontiers = T,
+    method = 'forLoop',
     silent = T
   )
 
@@ -60,7 +62,7 @@ sfBorders <-
     lsoacd_1 = shef_sf$lsoa11cd[id],
     lsoacd_2 = shef_sf$lsoa11cd[id.1],
     diff_phi = abs(phi - phi.1),
-    std_diff_phi = diff_phi / sd(diff_phi)
+    std_diff_phi = diff_phi / sd( (phi - phi.1) )
   )
 
 
