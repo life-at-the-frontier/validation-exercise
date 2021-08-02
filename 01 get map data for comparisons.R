@@ -37,6 +37,62 @@ checkThis <-
 checkThis %>% nrow
 shef_borders  %>% nrow
 
+## do hotfix ------------------------------------------------------------
+
+hotfixDf <- 
+  shef_borders
+
+hotfixDf <-
+  hotfixDf %>%
+  mutate(
+    edgeID = paste(id, id.1)
+  )
+
+noGeom <- hotfixDf
+st_geometry(noGeom) <- NULL
+findDupes <- noGeom %>% group_by(edgeID) %>% summarise(n = n()) %>% filter(n > 1)
+
+
+
+hotfixDf_noDupe <-
+  hotfixDf %>%
+  filter(
+    !(edgeID %in% findDupes$edgeID)
+  )
+
+hotfixDf_Dupe <-
+  hotfixDf %>%
+  filter(
+    (edgeID %in% findDupes$edgeID)
+  )
+
+
+hotfixDf_Dupe <-
+  hotfixDf_Dupe %>%
+  group_by(edgeID) %>%
+  summarise_all(
+    function(x){unique(x)[1]} ## take the first element of unique
+  )
+  
+hotfixDf <- bind_rows(hotfixDf_noDupe, hotfixDf_Dupe)
+
+## Now add the correct stats
+hotfixDf <-
+  hotfixDf %>%
+  mutate(
+    diff_phi = abs(phi - phi.1),
+    std_diff_phi = diff_phi / sd( (phi - phi.1) )
+  )
+
+hotfixDf %>% saveRDS(
+    'cleaned data/makeFile01 sheffield borders+frontiers.rds'
+  
+)
+
+# End: Issue + hotfix -----------------------------------------------------
+
+
+
 ## Add percentile ranks
 
 shef_borders <-
@@ -45,6 +101,13 @@ shef_borders <-
   mutate(
     rank = ntile(std_diff_phi, 100)
   )
+
+
+shef_borders <-
+  shefBorders_Here %>% readRDS
+
+
+
 
 # 2. Pick a centrePoint ---------------------------------------------------
 
