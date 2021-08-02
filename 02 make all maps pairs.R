@@ -59,10 +59,11 @@ pair3_2 <-
 tmap_mode('view')
 
 # pair1_1
-  tm_shape(centrePoint) +
+tm_shape(centrePoint) +
   tm_borders(alpha = 0.5) +
   tm_shape(
-    pair1_1
+    pair1_1 %>% select(type),
+    name = 'borders'
   ) +
   tm_lines(lwd = 3) +
   tm_facets('type', sync = T)
@@ -71,7 +72,8 @@ tmap_mode('view')
   tm_shape(centrePoint) +
     tm_borders(alpha = 0.5) +
     tm_shape(
-      pair1_2
+      pair1_2 %>% select(type),
+      name = 'borders'
     ) +
     tm_lines(lwd = 3) +
     tm_facets('type', sync = T)
@@ -80,7 +82,8 @@ tmap_mode('view')
   tm_shape(centrePoint) +
     tm_borders(alpha = 0.5) +
     tm_shape(
-      pair2_1
+      pair2_1 %>% select(type),
+      name = 'borders'
     ) +
     tm_lines(lwd = 3) +
     tm_facets('type', sync = T)
@@ -89,7 +92,8 @@ tmap_mode('view')
   tm_shape(centrePoint) +
     tm_borders(alpha = 0.5) +
     tm_shape(
-      pair2_2
+      pair2_2 %>% select(type),
+      name = 'borders'
     ) +
     tm_lines(lwd = 3) +
     tm_facets('type', sync = T)
@@ -100,7 +104,8 @@ tmap_mode('view')
   tm_shape(centrePoint) +
     tm_borders(alpha = 0.5) +
     tm_shape(
-      pair3_1
+      pair3_1 %>% select(type),
+      name = 'borders'
     ) +
     tm_lines(lwd = 3) +
     tm_facets('type', sync = T)
@@ -109,7 +114,8 @@ tmap_mode('view')
   tm_shape(centrePoint) +
     tm_borders(alpha = 0.5) +
     tm_shape(
-      pair3_2
+      pair3_2 %>% select(type),
+      name = 'borders'
     ) +
     tm_lines(lwd = 3) +
     tm_facets('type', sync = T)
