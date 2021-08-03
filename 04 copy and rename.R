@@ -17,13 +17,13 @@ nPairs <- 3
 ##  which secret map order (use script 03)
 
 thisMapOrder <-
-  'cleaned data/map order 2021-07-30.rds'
+  "cleaned data/map order 2021-08-03.rds"
 
 ##  where's the prelim exercise?
 prelimTask_here <-
   file.path(
     origMaps_dir,
-    'Preliminary-Exercise.html' 
+    'Preliminary-Exercise-clean.html' 
   )
 
 
@@ -60,7 +60,7 @@ setTable <-
   setTable %>%
   mutate(
   choose_files =
-  paste0('pair', realPair, '_', mapA_position, '.html'),
+  paste0('pair', realPair, '_', mapA_position, '-clean.html'),
   rename_to = 
     paste0('pair', seenOrder, '.html')
 )

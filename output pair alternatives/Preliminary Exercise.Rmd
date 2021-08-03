@@ -6,6 +6,7 @@ output: html_document
 
 library(tidyverse)
 library(tmap)
+library(tmaptools)
 library(sf)
 
 sf::sf_use_s2(FALSE)
@@ -23,42 +24,79 @@ shef_borders <-
 
 ukgrid = "+init=epsg:27700"
 
-Rotherham_Centre <- c(442235, 392938)
 
-centrePoint <-
+## Get the points and make them them into geoms and attach to a sf obj
+rotherham_station  <- 
+  c(442547, 392958)
+other_point <- 
+  c(442632, 393131)
+
+p1 <-
   st_point(
-    Rotherham_Centre
-  )
+    rotherham_station
+  ) %>% 
+  st_buffer(10)
 
-centrePoint <-
-  centrePoint %>%
+p2 <-
+  st_point(
+    other_point
+  ) %>% 
+  st_buffer(10)
+
+## Set boundbox to fix issues
+bBox <- 
+  p2 %>%
+  st_buffer(2e3) %>%
   st_sfc(
     crs = st_crs(ukgrid)
   )
 
+points_geom <-
+  st_sfc(
+    p1,
+    p2,
+    crs = st_crs(ukgrid)
+  )
+
+points_sf <-
+  st_sf(
+    map = 2:1,
+    geometry = points_geom
+  )
+
+
 ```
 
-This initial exercise is in place to help you to familiarise yourself with using interactive maps ahead of the main exercise.
+
+**Introduction**
+
+As part of this research project, we've used a statistical model to predict borders that are likely to be distinct boundaries between communities. The statistical model uses census information on the proportion of non-UK born residents in different areas to make its predictions. We want your help to improve the statistical model.
+
+If it's okay, can we start with a short preliminary exercise to get you used to the interactive maps that we will be using? Please take your time.
 
 ``` {r make-map-quietly, echo = FALSE}
 
-centrePoint %>% qtm
+tm_shape(
+  points_sf,
+  name = 'Points',
+  bbox =tmaptools::bb(bBox)
+  ) +
+  tm_borders(
+#    size = 0.05, # default = 0.02
+    lwd = 10,
+    col = 'purple') +
+  tm_facets('map', sync = T) 
+
 
 ```
 
-Step 1: 
-Use the button pictured below to open the OpenStreetMap layer to enable you to view locations.
+**Instructions**: Look at the purple point in each map. Which map contains the point closest to Rotherham central station?
+
+**Hints**:
+
+- Use the button pictured to open the OpenStreetMap layer to enable you to view locations.
 ![](images/layers-picture.png)
 
+- Use the plus button in the top left hand corner to zoom in and the minus button to zoom out.
 
-Hint:
-Use the plus button in the top left hand corner to zoom in and the minus button to zoom out.
-
-Hint:
-Click and drag on the map to move the viewer.
-
-Step 2:
-Find Masbrough on the map.
-
-Step 3:
-Find Rotherham Central Train Station on the map.
+- Click and drag on the map to move the viewer.

@@ -113,6 +113,13 @@ rel_borders %>%
   select(std_diff_phi:length) %>%
   summarise_all( mean ) 
 
+# others
+rel_borders %>% 
+  group_by(xtile_rel) %>%
+  select(std_diff_phi:length) %>%
+  summarise_if( is.numeric, max ) 
+
+
 rel_borders %>% summary ## check for the stat vs the random map
 
 
