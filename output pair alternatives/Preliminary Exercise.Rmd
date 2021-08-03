@@ -6,6 +6,7 @@ output: html_document
 
 library(tidyverse)
 library(tmap)
+library(tmaptools)
 library(sf)
 
 sf::sf_use_s2(FALSE)
