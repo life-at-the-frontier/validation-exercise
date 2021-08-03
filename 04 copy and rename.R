@@ -8,16 +8,17 @@ origMaps_dir <-
   'output pair alternatives'
 
 trialMaps_dir <-
-  'rotherham experiment maps'
+  'docs/rotherham'
 
 ##  How many sets of experiments  -- copy from 03
-nSets <- 25
+nSets <- 5
 nPairs <- 3
 
 ##  which secret map order (use script 03)
 
 thisMapOrder <-
   "cleaned data/map order 2021-08-03.rds"
+
 
 ##  where's the prelim exercise?
 prelimTask_here <-
@@ -36,6 +37,7 @@ setTable <-
   thisMapOrder%>% 
   readRDS
 
+# setTable
 
 ## create the trial folder
 trialMaps_dir %>% dir.create()
