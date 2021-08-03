@@ -1,0 +1,19 @@
+---
+title: "Untitled"
+author: "Lydia Warden"
+date: "03/08/2021"
+output: html_document
+---
+Derry (Londonderry): background information (https://en.wikipedia.org/wiki/Derry)
+-	¬There is much contestation around the name of the city, officially named Londonderry but referred to as simply Derry by many. Derry City Council conducted an opinion poll in 2009 to gauge opinions on officially changing the city’s name to Derry. 75% of Catholics and 77% of Nationalists would accept the proposed change, compared to 6% of Protestants and 8% of Unionists. However, in everyday conversation, ‘Derry’ is used by most Protestant residents of the city.
+-	Derry played an important role in the Second World War, with large numbers of military personnel based there from a range of allied nations. This ‘substantially altered the character of the city’, increasing its diversity, cosmopolitanism and boosting the economy.
+-	The Troubles were widely believed to have started in Derry. During the early 1970s there was a strong military presence and widespread civil unrest. Several districts constructed barricades to control access and prevent forces from entering.
+-	2011 Census: 105,066 population. 75% Roman Catholic, 23% Protestant (an increase of 3 percent from 2001).
+-	The population of Protestants in the city has significantly decreased since the 1970s, with fears raised that the city could become permanently divided.
+-	Industry:
+o	There was previously a strong textiles industry in Derry, but this largely disappeared due to overseas competition.
+
+Waterside: background information
+-	The half of the city west of the river Foyle is known as the Cityside and the area east is called the Waterside. (https://en.wikipedia.org/wiki/Derry)
+-	Geography: Waterside refers to the part of Derry on the east bank of the Foyle. This ends at the Caw roundabout near Foyle Bridge. Areas including Eglinton and Limavady are not part of the Waterside. (https://en.wikipedia.org/wiki/Waterside,_Derry)
+-	The Waterside is mainly Protestant and unionist, whereas the rest of Derry is mainly Irish Catholic and nationalist. Waterside’s Protestant population grew during the Troubles. (https://en.wikipedia.org/wiki/Waterside,_Derry)
