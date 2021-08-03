@@ -67,7 +67,12 @@ points_sf <-
 
 ```
 
-This initial exercise is in place to help you to familiarise yourself with using interactive maps ahead of the main exercise.
+
+**Introduction**
+
+As part of this research project, we've used a statistical model to predict borders that are likely to be distinct boundaries between communities. The statistical model uses census information on the proportion of non-UK born residents in different areas to make its predictions. We want your help to improve the statistical model.
+
+If it's okay, can we start with a short preliminary exercise to get you used to the interactive maps that we will be using? Please take your time.
 
 ``` {r make-map-quietly, echo = FALSE}
 
