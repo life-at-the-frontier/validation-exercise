@@ -1,0 +1,45 @@
+---
+title: "Minority Communities in Derry/Londonderry"
+output: html_document
+---
+https://www.bbc.co.uk/northernireland/schools/11_16/citizenship/pdfs/ctz_eth_pg02_tn.pdf
+-	According to 2001 Census data, in Foyle (The parliamentary constituency in Derry), there are a total of 962 ethnic minority residents out of a population of 105,078 (0.92%).
+-	Due to its more remote physical location, political instability, and the fact that Northern Ireland is one of the poorest regions in the UK so there are a lack of jobs and business opportunities, Northern Ireland has never seen a significant inflow of people.
+-	Populations of Indian, Bangladeshi, Pakistani and Chinese immigrants (mostly from Hong Kong) migrated when their home countries were part of the British Empire. C.60% of Chinese people living in Northern Ireland were born there.
+-	Irish travellers are one of the largest ethnic groups in Northern Ireland.
+-	Nearly a third of those belonging to ethnic minority communities live in Belfast.
+-	The number of people born in non-UK EU Countries as of 2001 was 406 in Foyle (0.39%).
+
+
+Table showing the number of people identifying as different ethnic groups in the 2011 Census (Derry City and Strabane): https://www.ninis2.nisra.gov.uk/public/PivotGrid.aspx?ds=7468&lh=73&yn=2011&sk=136&sn=Census%202011&yearfilter=
+-	The population is 98.53% White, with the next largest communities being Indian (0.45%), Mixed (0.31%) and Chinese (0.2%).
+
+
+There are thought to be 30000 Polish people living in Northern Ireland, with many moving following Poland joining the EU in search of work. (As of 2007). (http://news.bbc.co.uk/1/hi/northern_ireland/6251117.stm; https://en.wikipedia.org/wiki/Immigrant_communities_in_Northern_Ireland).
+
+
+Derry City & Strabane District Council Good Relations Team Publication: https://www.derrystrabane.com/getmedia/c23b6fc6-c6e3-4095-a96c-c66026b8a7fd/Good-relations.pdf
+-	According to the 2011 Census there are 3696 people living in the area who were born outside of the UK and Republic of Ireland. This is 2.5% of the population, lower than the 4.5% average across Northern Ireland.
+o	Includes Asian (mainly Chinese, Indian and Filipino); Eastern European (mainly Polish); African and Middle Eastern Communities.
+o	2000 residents aged 3 and over have a language other than Enlgihs or Irish as their main language. Of them, 23% cannot speak English well or at all. Polish, Malayalam (an Indian language), Chinese and Tagalog (a Filipino language) are some of the main minority ethnic languages.
+o	Top reasons for moving were Family (41%), Work (29%) and Education (10%).
+-	921 racially motivated hate crimes were recorded in Northern Ireland in 2014/15. 110 of these were in the ‘G’ District that covers the North West. C.10% of these attacks were on children.
+https://www.bbc.co.uk/news/uk-northern-ireland-49435877
+In 2018, net migration to Northern Ireland reached a 10-year peak. It was the fifth year in a row in which the migrant population increased.
+Derry City was one of only two council districts to experience a net outflow of international migrants.
+
+Findings of the Northern Ireland Life and Times Survey showed high levels of racist, Islamophobic and xenophobic views among a significant minority (https://www.derryjournal.com/news/crime/race-hate-spike-in-derry-reported-alongside-intolerance-among-18-to-24-year-olds-against-eastern-europeans-and-muslims-3167339):
+-	Whilst there was a trend of decreasing levels of hate crimes across the north, Derry and Strabane recorded an increase.
+-	Fewer people reported having black friends than in previous years. Only 14% of respondents report having Black friends in 2019. This figure has steadily declined from 19% five years previously.
+-	There were high levels of slavophobia and intolerance towards other Eastern European peoples and nationalities amongst young people. The survey found that in 2017 38% of 18- to 24-year-olds would not accept an Eastern European as a friend. This fell to 13% in 2018 and 9% in 2019.
+-	Persistently high levels of Islamophobia were evident across the Six Counties. One third of 18- to 24-year-olds wouldn’t accept a Muslim as a neighbour in their local area, the only age group higher than this is the over 65s. 31% of respondents aged 18 to 24 said that they would not accept a Muslim as a close friend in 2019.
+o	This is particularly concerning as one third of Derry’s population are aged under 25, meaning that these responses represent a large proportion of the population (https://www.derryjournal.com/news/environment/opinion-derry-irelands-only-shrinking-city-steve-bradley-3171626).
+-	According to PSNI data, hate crime had increased in 2020. Although there was a reduction in racist incidents and crimes from January to December 2020, in Derry there was an increase of 12 racist incidents and an increase of 13 racist crimes in this time. Derry and Strabane saw the greatest increase in racist incidents from January 2019 to December 2020 and the second highest increase in racist crimes from January to December. This was during lockdown so was a particular cause for concern.
+-	By comparison, during the same period, the number of sectarian incidents in Derry and Strabane decreased by 49 cases and sectarian crimes decreased by 42 cases.
+-	Foyle Racial Equality Forum noted that there are a large number of cases that do not get reported.
+
+
+
+
+
+Report that may be useful – The Roma Community in Northern Ireland and housing: A Scoping Review (https://www.nihe.gov.uk/Documents/Research/Shared-Communities-Page/Roma-community-Northern-Ireland-and-Housing.aspx?ext=.)
