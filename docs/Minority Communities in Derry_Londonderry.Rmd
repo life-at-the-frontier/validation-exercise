@@ -11,6 +11,10 @@ https://www.bbc.co.uk/northernireland/schools/11_16/citizenship/pdfs/ctz_eth_pg0
 -	The number of people born in non-UK EU Countries as of 2001 was 406 in Foyle (0.39%).
 
 
+https://www.ninis2.nisra.gov.uk/public/PivotGrid.aspx?ds=1114&lh=37&yn=2007-2009&sk=74&sn=Population&yearfilter=
+-	As of 2009 there were 800 Central and Eastern European Migrants in Derry (0.7% of total population).
+
+
 Table showing the number of people identifying as different ethnic groups in the 2011 Census (Derry City and Strabane): https://www.ninis2.nisra.gov.uk/public/PivotGrid.aspx?ds=7468&lh=73&yn=2011&sk=136&sn=Census%202011&yearfilter=
 -	The population is 98.53% White, with the next largest communities being Indian (0.45%), Mixed (0.31%) and Chinese (0.2%).
 
@@ -28,6 +32,7 @@ https://www.bbc.co.uk/news/uk-northern-ireland-49435877
 In 2018, net migration to Northern Ireland reached a 10-year peak. It was the fifth year in a row in which the migrant population increased.
 Derry City was one of only two council districts to experience a net outflow of international migrants.
 
+
 Findings of the Northern Ireland Life and Times Survey showed high levels of racist, Islamophobic and xenophobic views among a significant minority (https://www.derryjournal.com/news/crime/race-hate-spike-in-derry-reported-alongside-intolerance-among-18-to-24-year-olds-against-eastern-europeans-and-muslims-3167339):
 -	Whilst there was a trend of decreasing levels of hate crimes across the north, Derry and Strabane recorded an increase.
 -	Fewer people reported having black friends than in previous years. Only 14% of respondents report having Black friends in 2019. This figure has steadily declined from 19% five years previously.
@@ -39,6 +44,18 @@ o	This is particularly concerning as one third of Derry’s population are aged 
 -	Foyle Racial Equality Forum noted that there are a large number of cases that do not get reported.
 
 
+https://www.derryjournal.com/news/politics/29-self-report-prejudice-against-minority-ethnic-groups-with-rise-in-racist-incidents-crimes-and-bullying-and-harassment-in-schools-3184979
+-	Graphic showing a breakdown of self-reported prejudice by gender, religion and age is included in the article.
+-	The results of the ‘Northern Ireland Racial Equality Indicators Report: 2014-2019’ were published in March 2021. It presents data measuring progress on the Racial Equality Strategy 2015 – 2025 on 4 key areas: equality of service provision; combating prejudice, racism and hate crime; participation, representation and belonging; respecting cultural diversity.
+-	In 2019, the proportion of respondents self-reporting prejudice against people from minority ethnic communities had increased significantly: in 2014 the baseline was 24%, this dropped to 20% in 2018 before rising again to 29% in 2019.
+-	In spite of this, there was a significant decrease in the proportion of respondents thinking that there is more racial prejudice against people from minority ethnic communities than 5 years ago (2014: 52%, 2018: 41%, 2019: 30%).
+-	The number of racist incidents reported has also increased from the baseline of 976 in 2013/14 to 1124 in 2018/19. The number of racist crimes also increased (2013/14: 688, 2018/19: 699). There was a significant increase in the proportion of respondents who reported that they had witnessed racist bullying or harassment in their school, with the figure for 2019 at 45%, compared to 39% in 2014.
+-	There has been an increase in the acceptance of some groups, with willingness to accept Eastern European, Irish Traveller and Muslims as residents, work colleagues or family members all increasing significantly since the baseline.
+-	There appears to have been improvement in the educational attainment for all groups, but gaps in achievement and inequality persist. Since 2013/14, there has been an increase of around 7% for both White and minority ethnic pupils leaving school with 5 GCSEs (Grade A*-C). White: 86.5%, minority ethnic: 82.4%. There has been little change in the proportion of White school leaves with no qualifications (2013/14: 0.7%; 2018/19: 0.6%) and a decrease in the percentage of minority ethnic school leavers with no qualifications (2013/14: 5.8%, 2018/19: 2.2%).
+-	Compared to the baseline, there has been a significant decrease in the proportion of respondents who thought that minority ethnic people participated ‘a little’ or ‘a lot’ in public life: 2014: 71%, 2019: 57%.
+-	A significantly higher proportion of respondents aged 16 years in 2019 said that they socialised or played sport with people from a different ethnic background than in 2014 – increased from 54% to 62%.
+-	Following the basline, there has been no significant change in the percentage of respondents who agreed that the culture and traditions of the minority ethnic community added to the richness and diversity of Northern Ireland (2014: 59%; 2019: 61%). However, there was a significant decrease from 2018 to 2019 (2018: 65%).
+-	The percentage of people with friends from minority ethnic communities has increased from the baseline of 42% to 53%.
 
 
 
