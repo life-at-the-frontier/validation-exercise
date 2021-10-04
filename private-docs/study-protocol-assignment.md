@@ -1,3 +1,8 @@
+---
+html:
+  embed_local_images: true
+---
+
 ## Methods: Assignment of intervention
 
 **Intervention**
