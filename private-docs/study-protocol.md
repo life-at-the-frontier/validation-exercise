@@ -1,3 +1,9 @@
+---
+html:
+  embed_local_images: true
+---
+
+
 # Using residents and experts validate a border detection algorithm
 Full title:  A discrete choice experiment using residents and experts to evaluate the validity of a border detection algorithm.
 
@@ -7,26 +13,7 @@ Versions:
 
 Note: Based on SPIRIT checklist here (https://www.spirit-statement.org/about-spirit/).
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Using local residents and experts validate a border detection algorithm](#using-local-residents-and-experts-validate-a-border-detection-algorithm)
-- [Introduction](#introduction)
-- [Methods](#methods)
-	- [Participants, interventions and outcomes](#participants-interventions-and-outcomes)
-	- [Evaluation criteria](#evaluation-criteria)
-	- [outcomes](#outcomes)
-	- [participant timeline](#participant-timeline)
-	- [sample size](#sample-size)
-	- [recruitment](#recruitment)
-	- [Assignment of interventions](#assignment-of-interventions)
-	- [Study setting](#study-setting)
-	- [Monitoring](#monitoring)
-- [Ethics and Dissemination](#ethics-and-dissemination)
-- [Appendices](#appendices)
-	- [Author's contributions](#authors-contributions)
-	- [Funding](#funding)
-
-<!-- /TOC -->
 
 
 # Introduction
