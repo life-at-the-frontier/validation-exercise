@@ -56,40 +56,75 @@ frontier_as_sf
 
 
 
-# [Issue] using purr branch it doesn't work -------------------------------
-library(purrr)
+# [Hotfix Issue] use this code from ni-03 -------------------------------
+frontier_as_sf_HOTFIX <- 
+  function (frontier_model, convert2Line = T, non_frontiers = F, 
+            silent = F) {
+    data.class <- class(frontier_model)
+    if (!("frontier_model" %in% data.class)) 
+      stop("Not a frontier_model object; please run frontier_detect()")
+    egdelist_frontier <- which(frontier_model$W.frontiers == 
+                                 0, arr.ind = T) %>% data.frame(frontier = T)
+    egdelist_nonfrontier <- which(frontier_model$W.frontiers == 
+                                    1, arr.ind = T) %>% data.frame(frontier = F)
+    if (non_frontiers == T) {
+      edgelist_borders <- egdelist_frontier %>% rbind(egdelist_nonfrontier)
+    }
+    else {
+      edgelist_borders <- egdelist_frontier
+    }
+    data.for.borders <- frontier_model$data %>% mutate(phi = frontier_model$phi[["Median"]]) %>% 
+      select(id, phi)
+    borders.sf <- list(NULL)
+    x <- proc.time()
+    for (i in 1:nrow(edgelist_borders)) {
+      zone1 <- edgelist_borders$col[i]
+      zone2 <- edgelist_borders$row[i]
+      borders.sf[[i]] <- data.for.borders[zone1, ] %>% 
+        st_intersection(data.for.borders[zone2, ])
+      
+      
+      
+      if (!silent & (i%%10 == 0)) {
+        print(i)
+      }
+    }
+    
+    borders.sf <- do.call(rbind, borders.sf)
+    print(proc.time() - x)
+    
+    
+    #    borders.sf$frontier <- edgelist_borders$frontier
+    
+    
+    if (convert2Line) {
+      borders.sf <- st_collection_extract(borders.sf, type = "LINE")
+    }
+    class(borders.sf) <- c("frontier_sf", class(borders.sf))
+    return(borders.sf)
+  }  
+
+###### [END hotfix]
 
 
 ## extracting all borders may take a while
 sfBorders <-
-  frontier_as_sf(
-    sfModels$catholics_model,
+  frontier_as_sf_HOTFIX(
+    sfModels$cob_model,
     non_frontiers = T,
 #    method = 'forLoop',
     silent = T
   )
 
-## error message = 
-# user  system elapsed 
-# 3.63    0.05    3.68 
-# Warning messages:
-#   1: In st_collection_extract.sf(borders.sf, type = "LINE") :
-#   x contains no geometries of specified type
-# 2: In st_collection_extract.sf(borders.sf, type = "LINE") :
-#   x contains no geometries of specified type
-
-# end issue ---------------------------------------------------------------
 
 
+## adhoc (can remove without effect); save area code
 
-
-
-## adhoc (can remove without effect); save LSOA11cd
 sfBorders <-
   sfBorders %>%
   mutate(
-    lsoacd_1 = shef_sf$lsoa11cd[id],
-    lsoacd_2 = shef_sf$lsoa11cd[id.1],
+    zone_1 = derry_sf$sa_id[id],
+    zone_2 = derry_sf$sa_id[id.1],
     diff_phi = abs(phi - phi.1),
     std_diff_phi = diff_phi / sd( (phi - phi.1) )
   )
@@ -99,5 +134,5 @@ sfBorders <-
 # 3. Save the data --------------------------------------------------------
 
 sfBorders %>% saveRDS(
-  shefBorders_Here
+  derryBorders_Here
 )
