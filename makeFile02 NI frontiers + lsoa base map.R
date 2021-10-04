@@ -38,6 +38,7 @@ derry_sf <-
   sfModels$cob_model$data
 
 
+
 ##  save this to cleaned data
 derry_sf %>% saveRDS(
   derryBase_Here
@@ -115,6 +116,19 @@ sfBorders <-
 #    method = 'forLoop',
     silent = T
   )
+
+
+
+# [ISSUE] not every border gets extracted by the routine ------------------
+
+
+# not every border is here!
+sfModels$cob_model %>% summary
+sfBorders %>% nrow
+
+
+# [end issue --------------------------------------------------------------
+
 
 
 
