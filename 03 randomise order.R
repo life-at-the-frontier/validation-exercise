@@ -36,7 +36,7 @@ setTable <-
 ## save the randomised order
 
 orderSaveName <- 
-  paste0('cleaned data/map order ', Sys.Date(), '.rds')
+  paste0('cleaned data/ni map order ', Sys.Date(), '.rds')
 
 
 orderSaveName %>% print ## copy and pase into script 4
