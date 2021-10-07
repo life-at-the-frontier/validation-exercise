@@ -1,0 +1,110 @@
+---
+title: "Preliminary Exercise"
+output: html_document
+---
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(tmap)
+library(tmaptools)
+library(sf)
+
+sf::sf_use_s2(FALSE)
+
+tmap_mode('view')
+```
+
+```{r load-data-quietly, echo=FALSE}
+#Get map data for comparisons
+
+derryBorders_Here <-
+  '../../cleaned data/makeFile02 derry borders+frontiers.rds'
+derry_borders <-
+  derryBorders_Here %>% readRDS
+
+
+## transform to uk grid
+ukgrid = "+init=epsg:27700"
+derry_borders <-
+  derry_borders %>%
+  st_transform(st_crs(ukgrid))
+
+
+
+## Get the points and make them them into geoms and attach to a sf obj
+derry_station  <- 
+  c(060322, 579420)
+
+## other point = spencer rd high street
+other_point <- 
+  c(060287, 579098)
+
+p1 <-
+  st_point(
+    derry_station
+  ) %>% 
+  st_buffer(10)
+
+p2 <-
+  st_point(
+    other_point
+  ) %>% 
+  st_buffer(10)
+
+## Set boundbox to fix issues
+bBox <- 
+  p2 %>%
+  st_buffer(2e3) %>%
+  st_sfc(
+    crs = st_crs(ukgrid)
+  )
+
+points_geom <-
+  st_sfc(
+    p1,
+    p2,
+    crs = st_crs(ukgrid)
+  )
+
+points_sf <-
+  st_sf(
+    map = 2:1,
+    geometry = points_geom
+  )
+
+
+```
+
+
+**Introduction**
+
+As part of this research project, we've used a statistical model to predict borders that are likely to be distinct boundaries between communities. The statistical model uses census information on the proportion of non-UK born residents in different areas to make its predictions. We want your help to improve the statistical model.
+
+If it's okay, can we start with a short preliminary exercise to get you used to the interactive maps that we will be using? Please take your time.
+
+``` {r make-map-quietly, echo = FALSE}
+
+tm_shape(
+  points_sf,
+  name = 'Points',
+  bbox =tmaptools::bb(bBox)
+  ) +
+  tm_borders(
+#    size = 0.05, # default = 0.02
+    lwd = 10,
+    col = 'purple') +
+  tm_facets('map', sync = T) 
+
+
+```
+
+**Instructions**: Look at the purple point in each map. Which map contains the point closest to Derry train station?
+
+**Hints**:
+
+- Use the button pictured to open the OpenStreetMap layer to enable you to view locations.
+![](images/layers-picture.png)
+
+- Use the plus button in the top left hand corner to zoom in and the minus button to zoom out.
+
+- Click and drag on the map to move the viewer.
