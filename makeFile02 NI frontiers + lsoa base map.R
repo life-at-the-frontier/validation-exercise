@@ -46,86 +46,28 @@ derry_sf %>% saveRDS(
 
 # 2. Extract borders incld. frontiers -------------------------------------
 
-## [Debug script] issue found when converting lines due to bad geoms?
-##  using code from issue8: purr+map2 function
 
+# frontier_sf [hotfixes] --------------------------------------------------
 
-frontier_model = sfModels$cob_model
-non_frontiers = T
-silent = F
+# [Issue] In summary, NI polygons are a bit jank and there are improper intersections
+##  fixed =
+##  1. buffer the polygons
+##  2. don't convert to lines in frontier_as_sf
 
-
-data.class <- class(frontier_model)
-if (!("frontier_model" %in% data.class)) 
-  stop("Not a frontier_model object; please run frontier_detect()")
-egdelist_frontier <- which(frontier_model$W.frontiers == 
-                             0, arr.ind = T) %>% data.frame(frontier = T)
-egdelist_nonfrontier <- which(frontier_model$W.frontiers == 
-                                1, arr.ind = T) %>% data.frame(frontier = F)
-if (non_frontiers == T) {
-  edgelist_borders <- egdelist_frontier %>% rbind(egdelist_nonfrontier)
-}
-else {
-  edgelist_borders <- egdelist_frontier
-}
-data.for.borders <- frontier_model$data %>% mutate(phi = frontier_model$phi[["Median"]]) %>% 
-  select(id, phi)
-edgelist <- data.frame(id = data.for.borders$id[edgelist_borders$col], 
-                       id.1 = data.for.borders$id[edgelist_borders$row], phi = data.for.borders$phi[edgelist_borders$col], 
-                       phi.1 = data.for.borders$phi[edgelist_borders$row])
-
-
-## Check edgelist
-edgelist %>% str
-frontier_model %>% summary
-## above is correct
-
-
-if (edgelistOnly == T) {
-  return(edgelist)
-}
-x <- proc.time()
-zones1 <- data.for.borders[edgelist_borders$col, ] %>% st_geometry()
-zones2 <- data.for.borders[edgelist_borders$row, ] %>% st_geometry()
-borders_geomlist <- purrr::map2(zones1, zones2, st_intersection)
-
-border_sfc <- st_sfc(borders_geomlist)
-st_geometry(edgelist) <- border_sfc
-st_crs(edgelist) <- st_crs(data.for.borders)
-
-
-borders.sf <- edgelist
-print(proc.time() - x)
-borders.sf$frontier <- edgelist_borders$frontier
+## First use this version of frontier_as_sf
+##  [frontier_as_sf version = issue8;purr hotfix]
+# require(devtools)
+# install_github(
+#   "https://github.com/MengLeZhang/socialFrontiers/tree/issue8-purrr+map2",
+#   build_opts = c("--no-resave-data", "--no-manual"),
+#   build_vignettes = TRUE
+# )
 
 
 
-### [ISSUE found]: this geometry collect is janky; also this line need to be taken out
-# borders.sf <- st_collection_extract(borders.sf, type = "LINE")# this line is superfluous 
-
-## [Solution] -- 
-##  1. fix frontier_as_Sf to get rid of creating geom collect 
-##  2. Buffer the polygons in the model by 1m to make sure intersections happen 
-##  This doesn't affect the underlying model but fixes the visual display
-## Example: insert
-## frontier_model$data <- sfModels$cob_model$data %>% st_buffer(1)
-
-
-
-if (convert2Line) {
-  borders.sf <- st_collection_extract(borders.sf, type = "LINE")
-  borders.sf <- borders.sf %>% group_by(id, id.1, phi, 
-                                        phi.1) %>% summarise(hotfix = T) %>% ungroup %>% 
-    select(-hotfix)
-}
-class(borders.sf) <- c("frontier_sf", class(borders.sf))
-return(borders.sf)
-}
-
-
-# [END] debug -------------------------------------------------------------
-
-
+# [HOTFIX] buffer polygons to fix intersections
+sfModels$cob_model$data <- 
+  sfModels$cob_model$data %>% st_buffer(1)
 
 
 ## extracting all borders may take a while
@@ -133,23 +75,16 @@ sfBorders <-
   frontier_as_sf(
     sfModels$cob_model,
     non_frontiers = T,
-#    method = 'forLoop',
-    silent = T
+    silent = T,
+    convert2Line = F # [HOTFIX]
   )
 
 
 
-# [ISSUE] not every border gets extracted by the routine ------------------
+# [Check] does every border get extracted ------------------
 
-
-# not every border is here!
 sfModels$cob_model %>% summary
 sfBorders %>% nrow
-
-
-# [end issue --------------------------------------------------------------
-
-
 
 
 ## adhoc (can remove without effect); save area code
