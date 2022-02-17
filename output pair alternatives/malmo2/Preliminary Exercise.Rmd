@@ -1,0 +1,113 @@
+---
+title: "Preliminary Exercise"
+output: html_document
+---
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(tmap)
+library(tmaptools)
+library(sf)
+
+sf::sf_use_s2(FALSE)
+
+tmap_mode('view')
+```
+
+```{r load-data-quietly, echo=FALSE}
+#Get map data for comparisons for the CRS
+
+cityBorders_Here <-
+  '../../cleaned data/makeFile03 malmo borders+frontiers.rds'
+cityBorders <-
+  cityBorders_Here %>% readRDS
+
+useCRS = 
+#  "+init=epsg:27700" ## Ukgrid
+#  "+init=epsg:3006" ## sweden?
+'+init=epsg:4326' ## google earth longlat
+
+## Get the points and make them them into geoms and attach to a sf obj
+# malmo castle
+right_point  <- 
+  c(12.987766264299355, 55.604833803359625)
+
+## other point = malmo uni library
+other_point <- 
+  c(12.994989228034365, 55.611252073232315)
+
+## make points
+p1 <-
+  st_point(
+    right_point
+  ) 
+p2 <-
+  st_point(
+    other_point
+  ) 
+
+points_geom <-
+  st_sfc(
+    p1,
+    p2,
+    crs = useCRS
+  )
+
+## change CRS and buffer
+points_geom <-
+  points_geom %>%
+  st_transform(
+    crs = st_crs(cityBorders)
+  ) %>%
+  st_buffer(10)
+
+
+points_sf <-
+  st_sf(
+    map = 2:1,
+    geometry = points_geom
+  )
+
+
+## Set boundbox to fix issues
+bBox <- 
+  points_sf[[2]] %>%
+  st_buffer(2e3) 
+
+
+
+```
+
+
+**Introduction**
+
+As part of this research project, we've used a statistical model to predict borders that are likely to be distinct boundaries between communities. The statistical model uses Swedish register information on the proportion of foreign born residents in different areas to make its predictions. We want your help to improve the statistical model.
+
+If it's okay, can we start with a short preliminary exercise to get you used to the interactive maps that we will be using? Please take your time.
+
+``` {r make-map-quietly, echo = FALSE}
+
+tm_shape(
+  points_sf,
+  name = 'Points',
+  bbox =st_bbox(bBox)
+  ) +
+  tm_borders(
+#    size = 0.05, # default = 0.02
+    lwd = 10,
+    col = 'purple') +
+  tm_facets('map', sync = T) 
+
+
+```
+
+**Instructions**: Look at the purple point in each map. Which map contains the point closest to Malmo castle?
+
+**Hints**:
+
+- Use the button pictured to open the OpenStreetMap layer to enable you to view locations.
+![](images/layers-picture.png)
+
+- Use the plus button in the top left hand corner to zoom in and the minus button to zoom out.
+
+- Click and drag on the map to move the viewer.
