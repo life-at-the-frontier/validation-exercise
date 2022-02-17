@@ -61,7 +61,8 @@ st_crs(useCRS) == st_crs(cityBorders)
 thisPoint <- 
 #  c(441515, 393038) ###Centre of Kimberworth = S61 1PB
 #  c(12.97675485643831, 55.58121116338579) #ICA Supermarket Bellvuegården, longlat; malmo1 centre
-  c(13.050361623150145, 55.58577738389587)  #rosengardklikin hospital
+# c(13.050361623150145, 55.58577738389587)  #rosengardklikin hospital
+  c(13.048543257476156, 55.58228679878846) # primary school 
 
 ##  Create gis obj for centre
 centrePoint <-
@@ -83,7 +84,7 @@ centrePoint <-
 ## nuffer using easting norting crs
 centrePoint <-
   centrePoint %>% 
-  st_buffer(1500)
+  st_buffer(1800)
 
 tmap_mode('view')
 centrePoint %>% qtm(alpha = 0.2)
