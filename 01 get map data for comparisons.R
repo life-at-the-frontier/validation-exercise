@@ -10,11 +10,15 @@
 
 ## input: 
 ## Base only if we can to map prop Foreigners
-# shefBase_Here <- 
-#   'cleaned data/makeFile01 sheffield ttwa lsoa.rds'
 
-shefBorders_Here <-
-  'cleaned data/makeFile01 sheffield borders+frontiers.rds'
+## fill these fields in:
+
+cityName <- 
+#  'sheffield'
+#  'malmo1'
+
+cityBorders_Here <-
+  # 'cleaned data/makeFile01 sheffield borders+frontiers.rds' #used for sheffield
 
 
 
@@ -23,13 +27,13 @@ shefBorders_Here <-
 # shef_sf <-
 #   shefBase_Here %>% readRDS
 
-shef_borders <-
-  shefBorders_Here %>% readRDS
+cityBorders <-
+  cityBorders_Here %>% readRDS
 
 ## Add percentile ranks
 
-shef_borders <-
-  shef_borders %>%
+cityBorders <-
+  cityBorders %>%
   arrange(std_diff_phi) %>%
   mutate(
     rank = ntile(std_diff_phi, 100)
@@ -38,45 +42,27 @@ shef_borders <-
 # 2. Pick a centrePoint ---------------------------------------------------
 
 
-ukgrid = "+init=epsg:27700"
 
-#Find coord for S61 1LZ
-##  example code for check postcode
-# pcd_df <- read.csv('temp data/NSPL_FEB_2020_UK/Data/NSPL_FEB_2020_UK.csv')
-# pcd_df %>% head
-# pcd_df$pcd %>% grep('S61 1LZ', x = .) #1981275
-# pcd_df$oseast1m[1981275] #441515
-# pcd_df$osnrth1m[1981275] #393038
-
-
+## Trial here:
 ##  Find coordinates of postcode point to centre
-# Centre of Masborough, Henley and Ferham = S61 1LZ
-S61_1LZ <- 
-  c(441515, 393038)
-###Centre of Kimberworth = S61 1PB
-S61_1PB <-
-  c(440243, 393689)
-###Centre of Crookes = S10 1TE
-S10_1TE <-
-    c(432798, 387752)
-##  Sheff uni = S10 2TN
-shef_uni <-
-    c(434120, 387290)
-# RUCT =  S60 1AH
-RUCST <-
-    c(442732, 392677)
+#  example: Centre of Masborough, Henley and Ferham = S61 1LZ
 
+useCRS = 
+  "+init=epsg:27700" ## Ukgrid
+
+thisPoint <- 
+  c(441515, 393038) ###Centre of Kimberworth = S61 1PB
 
 ##  Create gis obj for centre
 centrePoint <-
   st_point(
-    S61_1LZ
+    thisPoint
   )
 
 centrePoint <-
   centrePoint %>%
   st_sfc(
-    crs = st_crs(ukgrid)
+    crs = st_crs(useCRS)
   )
 
 # buffer point ------------------------------------------------------------
@@ -90,7 +76,7 @@ centrePoint %>% qtm
 # 3. subset borders and make xtiles ---------------------------------------
 
 rel_borders <-
-  shef_borders %>%
+  cityBorders %>%
   st_intersection(centrePoint)
 
 rel_borders 

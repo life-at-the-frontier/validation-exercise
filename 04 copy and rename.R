@@ -4,6 +4,13 @@
 
 # input: specify folders --------------------------------------------------
 
+## check cityName is 
+if (exists('cityName') == F) stop('Define cityName in script01')
+print(
+  paste('is this', cityName)
+)
+
+###
 origMaps_dir <-
   'output pair alternatives'
 
@@ -15,9 +22,12 @@ nSets <- 25
 nPairs <- 3
 
 ##  which secret map order (use script 03)
+orderSaveName # is the latest order 
 
+## must manually enter to be 100% sure
 thisMapOrder <-
-  "cleaned data/map order 2021-08-03.rds"
+#  "cleaned data/map order 2021-08-03.rds"
+  
 
 ##  where's the prelim exercise?
 prelimTask_here <-

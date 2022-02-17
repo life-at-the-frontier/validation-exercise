@@ -17,7 +17,7 @@ Trials of maps and important old code are tagged as archive/[branchname]. In cas
 
 
 # data source
-Frontiers are generated from measureFrontiers 04 UK script in nordF repo. Used in makeFile01
+Frontiers are generated from measureFrontiers 04 UK script in nordF repo. Used in makeFile[0x] (i.e. 01 for Sheffield)
 
 ## misc
 
