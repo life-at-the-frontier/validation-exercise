@@ -1,4 +1,16 @@
-##  0x Create a random order and save it 
+##  03 Create a random order and save it 
+
+
+# input -------------------------------------------------------------------
+
+## check cityName is 
+if (exists('cityName') == F) stop('Define cityName in script01')
+print(
+  paste('is this', cityName)
+  )
+
+####
+
 
 ##  1. How many sets of experiments 
 nSets <- 25
@@ -36,7 +48,7 @@ setTable <-
 ## save the randomised order
 
 orderSaveName <- 
-  paste0('cleaned data/map order ', Sys.Date(), '.rds')
+  paste0('cleaned data/map order ', cityName, ' ', Sys.Date(), '.rds')
 
 
 orderSaveName %>% print ## copy and pase into script 4
