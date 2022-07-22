@@ -90,11 +90,14 @@ Pilot exercises were conducted before deployment, and the entire validation exer
 
 [@ fill in how the maps were created after the results are collected]
 
-The algorithm
-
 We will check that all the maps are similar with respect attributes (e.g. total border lengths) to omit alternative explanations. The pair of interactive maps are synced so scrolling and moving Map A also moved the area viewed in Map B.
 
+[Inset table of map statistics]
+
 The maps are created in R and exported as leaflet maps within html files. The code to recreate the maps are found at: https://github.com/MengLeZhang/wardenProject2021.
+
+
+
 
 
 ## Assignment of maps
@@ -126,7 +129,7 @@ For each pair, we measure the agreement rate: proportion of participants who pre
 
 Missing data, including item non-response (e.g. skipping pairs), will be omitted. We will test the effect of item non-response by using partial identification to calculate the lower and upper bounds for the agreement rate (e.g. non-responders are always agree or disagree).
 
-We conduct additional tests for sequencing, ordering, and better agreement over time. Sequencing tests for whether participant engagement wanes during the exercises due to distractions or boredom (which will reduce the agreement rate). If engagement does not wane then the sequence that which pairs are shown should not affect agreement (e.g. pair 1 should not have a higher amount of agreement than pair 3). Ordering tests whether participants are more or less likely to pick the left map in pair (order): this may suggest that participants want to complete the exercise quickly (e.g. lack of engagement). Finally we test whether agreement rates change over time. Higher agreement rate for later participants suggests that the interview team may be nudging participants towards 'correct' response (despite our attempt to blind the interview team). Since the order of participation is not random, this test could also reflect changes over time in participation (e.g. expert interviews occurred first, later participant may be less willing).
+We conduct additional tests for sequencing, ordering, and better agreement over time. Sequencing tests for whether participant engagement wanes during the exercises due to distractions or boredom (which will reduce the agreement rate). If engagement does not wane then the sequence that which pairs are shown should not affect agreement (e.g. pair 1 should not have a higher amount of agreement than pair 3). Ordering tests whether participants are more or less likely to pick the left map in a pair: this may suggest that participants want to complete the exercise quickly (e.g. lack of engagement). Under the null hypothesis, the chance of participants picking the left map is equal to the chance that the left map contains the 'correct' response. Finally we test whether agreement rates change over time. Higher agreement rate for later participants suggests that the interview team may be nudging participants towards 'correct' response (despite our attempt to blind the interview team). Since the order of participation is not random, this test could also reflect changes over time in participation (e.g. expert interviews occurred first, later participant may be less willing).
 
 ## Ethics and consent
 
@@ -147,12 +150,18 @@ In addition, the presence of others (co-workers, family members) in the room dur
 
 # Results
 
-The agreement rates for each map pair are: 40% (p = 0.317, pair 1), 32% (pair p = 0.2) and 48% (pair 3).
+The agreement rates for each map pair are: 40% (p = 0.317, pair 1), 32% (pair p = 0.2) and 48% (pair 3, p = 0.841). The overall agreement is 40%. In all cases, we cannot reject the null hypothesis that local residents do not recognise frontiers as more distinct community borders (compared to borders with lower levels of sharpness).
+
+Testing the robustness of our study, we do not find any statistically significant sequencing effects (fisher exact test, p = 0.145); ordering effectts (fisher exact test, p = 0.157); or changes in agreement rate over time (p = 0.640). Our robustness tests combines responses from all map pairs and do not adjust for clustering (i.e. each participant contributes 3 responses). The results do not change, we do tests individually for each map pair.
+
+All our results tables are included in the supplementary materials.
 
 
 # Discussion
 
-Future work etc etc
+To our knowledge, experiments in Urban Studies and Human Geography are rare and this is one of a few studies to empirically test the validity of border detection algorithms. The study does have a number of limitations. The sample size is much smaller than initially anticipated which limits our ability to detect smaller effect sizes. Although we do not find any issues with the robustness of the study design, this does not mean issues are not present. Finally, frontier may be valid but local residents are unable to distinguish them. As mentioned before, this seems contrary to the theoretical statement put forward by Legewie and Schaeffer and Dean et al.
+
+Further work can be done to scale up the validation exercise in order to detect smaller differences in agreement rates. Furthermore, the same research design can be used to establish the validity of different border detection algorithm against each other.
 
 # Conclusions
 
@@ -242,7 +251,7 @@ sample estimates:
 odds ratio
 0.489756
 
-# Sequence
+# over tinme
 
 splitTime agreeN disagreeN
 <lgl>      <int>     <int>
