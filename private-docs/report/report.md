@@ -90,9 +90,7 @@ Pilot exercises were conducted before deployment, and the entire validation exer
 
 [@ fill in how the maps were created after the results are collected]
 
-We will check that all the maps are similar with respect attributes (e.g. total border lengths) to omit alternative explanations. The pair of interactive maps are synced so scrolling and moving Map A also moved the area viewed in Map B.
-
-[Inset table of map statistics]
+We will check that all the maps are similar with respect attributes (e.g. total border lengths) to omit alternative explanations (see supplementary materials). The pair of interactive maps are synced so scrolling and moving Map A also moved the area viewed in Map B.
 
 The maps are created in R and exported as leaflet maps within html files. The code to recreate the maps are found at: https://github.com/MengLeZhang/wardenProject2021.
 
@@ -192,7 +190,7 @@ Legewie, Joscha, and Merlin Schaeffer. 2016. ‘Contested Boundaries: Explaining
 
 ----
 
-# Appendix
+# Supplementary materials
 
 # Research materials
 ## Preliminary exercise
