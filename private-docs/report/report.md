@@ -3,6 +3,18 @@ html:
   embed_local_images: true
 ---
 
+# An experiment using residents and experts to evaluate the validity of a border detection algorithm.
+
+Meng Le Zhang$^1$$^*$, Aneta Piekut, Zaneb Rasool, Lydia Warden, and Gwilym Pryce
+
+[1]
+[2]
+
+* Corresponding Author
+Email: meng_le.zhang@sheffield.ac.uk (MZ) 
+
+
+-----
 
 # Using residents and experts validate a border detection algorithm
 Full title:  An experiment using residents and experts to evaluate the validity of a border detection algorithm.
@@ -18,9 +30,12 @@ Study preregistration: https://osf.io/yzw8u/ (29/07/2021)
 A number of studies have used computer algorithms with areal-level data to detect community borders. One such study (Dean et al. @2019) uses a statistical model to detect sharp community boundaries, referred to as social frontiers. However, to date, none of these studies has validated the accuracy of their algorithms externally using human participants or other means. Therefore, the evidence base for the usefulness of these algorithms for policy and researchers has not been developed yet. Furthermore, data and algorithmic issues could lead to i) misleading inferential results using these borders and ii) misinformation once the results of these algorithms are made available to the public and policymakers. The study pre-registered and protocol is available at [https://osf.io/yzw8u/ (29/07/2021)].
 
 ## Literature review
-The existence of a boundary between two communities could lead to several positive or negative outcomes. [Add in rationale for GP and Aarti's article]
+
+The existence of a boundary between two communities could lead to several positive or negative outcomes. Past studies in Northern Ireland, where a concept of “interface areas” was coined have demonstrated that frontiers are contested areas, “spaces where the terrain is marked in ways that reflect the specific claims of competing groups” (Leonard 2006: 227), of less frequent interaction resulting in poorer familiarity with each other (Boal and Livingstone (1984), and as such, more likely to be sites of tensions and conflict. Because social forces represent wider social inequalities, including ethnic hierarchies, they are never settled and fixed, hence might provide “an excellent opportunity for mutual interpenetration and sway” (Kristof 1959: 273). This dual nature of the frontiers comes in the results of quantitative geography studies. While Legewie and Schaeffer (@2016) study in New York, USA, revealed more neighbourhood tension when boundaries were blurred and and between-community boundaries less defines, but Dean et al. (@2019) found more crime closes to more steep frontiers in Sheffield, UK. However, when repeating the study in Czechia using Dean et al. (@2019) method Křížková et al. (@2021) did not found significant relationship between the location of frontiers and crime. Maguire, French, and O’Reilly (@2016) did not used any boundary-detection algorithm, but found correlation between ‘peace lines’ and poorer mental health (higher depression and axiety).
 
 Studies using algorithms to detect community boundaries have found that these boundaries are associated with more or less crime/ public disorder. Legewie and Schaeffer (@2016) use an edge detection algorithm from image processing whilst Dean et al. (@2019) chose borders based on a Bayesian statistical model. However, neither study validated their algorithm nor described how they picked most of the tuning parameters in their model.
+
+[Insert Aneta's review]
 
 ## Rationale for a trial
 The need for external validation of the results of algorithms is well accepted in fields like machine learning. Similarly, the validation of measurement instruments is commonplace in psychology. The lack of external validation leads to misleading results as well as a range of scientific issues ranging from measurement error to fundamental scientific issues such as a lack of falsifiability. This trial will establish an evidence base for the external validity of these detection algorithms starting with the sharp border detection algorithm in Dean et al. (@2019). The measure of sharpness is based on the proportion of foreign-born residents on either side of a border in 2011. Sharper borders are theorised to indicate the location of strong community borders or social frontiers.
@@ -53,16 +68,24 @@ Due to practical issues, we were only able to collect data from one site. This l
 
 ## Study setting
 
-The study is carried out as part of online and face-to-face interviews with residents and experts living within areas with a high number of sharp community boundaries (as detected by the algorithm). In the study protocol, the proposed areas were Rotherham (England), Derry (Northern Ireland), 2 undetermined sites in Norway and 2 undetermined sites in Sweden.
 
-A number of factors determined the choice of areas. First, each city was chosen due to their higher than average degree of segregation, the proportion of foreign-born residents, and the research team's prior links and collaborations. MZ gave AP a map of social frontiers in each city. Finally, AP and expert ZR chose an area in Rotherham with an above-average number of defined community borders and MO and GH in Derry.
+The study is carried out as part of a qualitative study with residents and experts living within areas with a high number of sharp community boundaries (as detected by the algorithm). In the study protocol, the proposed areas were Rotherham (England), Derry (Northern Ireland), 2 undetermined sites in Norway and 2 undetermined sites in Sweden.
 
-The maps used in the trial are centred on the middle of these areas and show border information within a 1.5km radius.
+A number of factors determined the choice of areas. First, each city was chosen due to their higher than average degree of segregation, the proportion of foreign-born residents, and the research team's prior links and collaborations. Rotherham – a town in South Yorkshire, and (London)Derry in Northern Ireland were selected as two case studies on the basis of literature and conversations with local stakeholders. As of 2011 Census, 92% Rotherham population was White British; it has a substantial settled British Pakistani population and more recent, i.e. post-2004 EU extension immigration from Eastern Europe. While (London)Derry’s segregation is largely along the religion line (Catholics vs. Protestants), we wanted to see to what extent any new emerging frontiers along the migration status and ethnicity lines were visible to residents. As such, the selection of two sides with social frontiers was purposeful in order to make the fieldwork more time efficient. We decided on the final boundaries of the studied areas after producing maps with social frontiers for Rotherham West and (London)Derry (based on 2011 Census data – add footnote?). MZ gave AP a map of social frontiers in each city. Finally, AP and expert ZR chose an area in Rotherham with an above-average number of defined community borders and MO and GH in Derry. The maps used in the trial are centred on the middle of these areas and show border information within a 1.5km radius.
+Ethical approval from the University of Sheffield was secured on 30th July 2021.
 
-The timeline of data collection was::
+
+The originally planned timeline of data collection was:
 - Phase 1: Expert interviews (5 x 2 areas - July-August 2021) - online
 - Phase 2: Individual interviews with residents (10-12 x 2 areas - August-October 2021) - face-to-face or online.
 - Phase 3: Focus group interviews, FGIs (2 x 2 areas - November-December 2021) - face-to-face - focus group interviews with young people (aged 18-25) of each selected area; 4-5 participants in each group.
+The fieldwork was disrupted and delayed by travel restrictions during the Covid-19 pandemic, and we decided to focus our resources on the Rotherham case – much more accessible from Sheffield.
+- Phase 1: Expert interviews (5 interviews – 9 September-2 November 2021) - online
+- Phase 2: Individual interviews with residents (XX interviews – 25 October 2021 – XX September 2022) - face-to-face.
+- Phase 3: Focus group interviews, FGIs (??? - September 2022) - face-to-face – TBC as we planned to focus on immigrants in group interviews.
+
+Table 1. Summary of socio-demographic profile of respondents
+[insert]
 
 
 ## Eligibility criteria
@@ -70,7 +93,7 @@ The timeline of data collection was::
 Participants fall under three different groups.
 - Local experts (adults, 18+) recruited among local community workers, housing associations, advocacy groups, third sector organisations, and various agencies involved in the support and integration of migrant communities in each selected case study area.
 - Residents (adults, 18+) for individual interviews will be residents of the case study area who live in the vicinity and on different sides of the identified social frontier. We will invite residents living 1 km radius from the frontier, who have lived in the area for at least a year.
-- Focus groups interviews will be conducted with young people aged 18-25 who have lived in the vicinity and on different sides of the identified social frontier for at least a year.
+- [REVISE] Focus groups interviews will be conducted with young people aged 18-25 who have lived in the vicinity and on different sides of the identified social frontier for at least a year.
 
 
 ## Recruitment
