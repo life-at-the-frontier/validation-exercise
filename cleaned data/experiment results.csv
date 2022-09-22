@@ -1,0 +1,94 @@
+set,seenOrder,result,start_time_pe,start_time_map1,end_time,duration1,duration2,date,prelim_excercise,interview_id,interviewer,mode,
+1,1,1,01:03:24,01:06:20,01:09:14,0:05:50,0:02:54,09/09/2021,during_interview,EXp_UK_R_01,Aneta,online,
+1,2,2,01:03:24,01:06:20,01:09:14,0:05:50,0:02:54,09/09/2021,during_interview,EXP_UK_R_01,Aneta,online,
+1,3,1,01:03:24,01:06:20,01:09:14,0:05:50,0:02:54,09/09/2021,during_interview,EXP_UK_R_01,Aneta,online,
+2,1,1,01:01:31,01:05:57,01:14:49,0:13:18,0:08:52,21/09/2021,during_interview,EXP_UK_R_02,Aneta,online,
+2,2,2,01:01:31,01:05:57,01:14:49,0:13:18,0:08:52,21/09/2021,during_interview,EXP_UK_R_02,Aneta,online,
+2,3,1,01:01:31,01:05:57,01:14:49,0:13:18,0:08:52,21/09/2021,during_interview,EXP_UK_R_02,Aneta,online,
+3,1,2,00:52:15,00:55:08,01:01:34,0:09:19,0:06:26,06/10/2021,during_interview,EXP_UK_R_03,Aneta,online,
+3,2,1,00:52:15,00:55:08,01:01:34,0:09:19,0:06:26,06/10/2021,during_interview,EXP_UK_R_03,Aneta,online,
+3,3,2,00:52:15,00:55:08,01:01:34,0:09:19,0:06:26,06/10/2021,during_interview,EXP_UK_R_03,Aneta,online,
+4,1,1,00:54:30,00:56:56,00:59:50,0:05:20,0:02:54,25/10/2021,during_interview,RES_UK_R_01,Aneta,facetoface,
+4,2,2,00:54:30,00:56:56,00:59:50,0:05:20,0:02:54,25/10/2021,during_interview,RES_UK_R_01,Aneta,facetoface,
+4,3,1,00:54:30,00:56:56,00:59:50,0:05:20,0:02:54,25/10/2021,during_interview,RES_UK_R_01,Aneta,facetoface,
+5,1,2,00:58:00,01:00:33,01:05:19,0:07:19,0:04:46,25/10/2021,during_interview,RES_UK_R_02,Aneta,facetoface,Aneta navigated map
+5,2,1,00:58:00,01:00:33,01:05:19,0:07:19,0:04:46,25/10/2021,during_interview,RES_UK_R_02,Aneta,facetoface,Aneta navigated map
+5,3,1,00:58:00,01:00:33,01:05:19,0:07:19,0:04:46,25/10/2021,during_interview,RES_UK_R_02,Aneta,facetoface,Aneta navigated map
+6,1,2,00:52:56,00:54:12,00:59:02,0:06:06,0:04:50,28/10/2021,during_interview,RES_UK_R_03,Aneta,facetoface,Aneta navigated map
+6,2,2,00:52:56,00:54:12,00:59:02,0:06:06,0:04:50,28/10/2021,during_interview,RES_UK_R_03,Aneta,facetoface,Aneta navigated map
+6,3,1,00:52:56,00:54:12,00:59:02,0:06:06,0:04:50,28/10/2021,during_interview,RES_UK_R_03,Aneta,facetoface,Aneta navigated map
+7,1,2,01:02:10,01:04:35,01:07:10,0:05:00,0:02:35,28/10/2021,during_interview,RES_UK_R_04,Aneta,facetoface,Aneta navigated map
+7,2,2,01:02:10,01:04:35,01:07:10,0:05:00,0:02:35,28/10/2021,during_interview,RES_UK_R_04,Aneta,facetoface,Aneta navigated map
+7,3,1,01:02:10,01:04:35,01:07:10,0:05:00,0:02:35,28/10/2021,during_interview,RES_UK_R_04,Aneta,facetoface,Aneta navigated map
+8,1,2,00:55:26,00:57:06,01:01:39,0:06:13,0:04:33,28/10/2021,during_interview,EXP_UK_R_04,Aneta,online,Interview via telephone and links sent via email at the end of the interview
+8,2,1,00:55:26,00:57:06,01:01:39,0:06:13,0:04:33,28/10/2021,during_interview,EXP_UK_R_04,Aneta,online,Interview via telephone and links sent via email at the end of the interview
+8,3,2,00:55:26,00:57:06,01:01:39,0:06:13,0:04:33,28/10/2021,during_interview,EXP_UK_R_04,Aneta,online,Interview via telephone and links sent via email at the end of the interview
+9,1,2,,,,0:00:00,0:00:00,01/11/2021,during_interview,RES_UK_R_05,Aneta,facetoface,Aneta navigated map
+9,2,2,,,,0:00:00,0:00:00,01/11/2021,during_interview,RES_UK_R_05,Aneta,facetoface,Aneta navigated map
+9,3,1,,,,0:00:00,0:00:00,01/11/2021,during_interview,RES_UK_R_05,Aneta,facetoface,Aneta navigated map
+10,1,1,,,,0:00:00,0:00:00,01/11/2021,during_interview,RES_UK_R_06,Aneta,facetoface,Aneta navigated map
+10,2,2,,,,0:00:00,0:00:00,01/11/2021,during_interview,RES_UK_R_06,Aneta,facetoface,Aneta navigated map
+10,3,2,,,,0:00:00,0:00:00,01/11/2021,during_interview,RES_UK_R_06,Aneta,facetoface,Aneta navigated map
+11,1,2,,,,0:00:00,0:00:00,05/11/2021,during_interview,RES_UK_R_07,Aneta,facetoface,Aneta navigated map
+11,2,1,,,,0:00:00,0:00:00,05/11/2021,during_interview,RES_UK_R_07,Aneta,facetoface,Aneta navigated map
+11,3,2,,,,0:00:00,0:00:00,05/11/2021,during_interview,RES_UK_R_07,Aneta,facetoface,Aneta navigated map
+12,1,2,,,,0:00:00,0:00:00,08/11/2021,during_interview,RES_UK_R_08,Aneta,facetoface,Aneta navigated map
+12,2,2,,,,0:00:00,0:00:00,08/11/2021,during_interview,RES_UK_R_08,Aneta,facetoface,Aneta navigated map
+12,3,1,,,,0:00:00,0:00:00,08/11/2021,during_interview,RES_UK_R_08,Aneta,facetoface,Aneta navigated map
+13,1,2,,,,0:00:00,0:00:00,08/11/2021,during_interview,RES_UK_R_09,Aneta,facetoface,Aneta navigated map
+13,2,2,,,,0:00:00,0:00:00,08/11/2021,during_interview,RES_UK_R_09,Aneta,facetoface,Aneta navigated map
+13,3,1,,,,0:00:00,0:00:00,08/11/2021,during_interview,RES_UK_R_09,Aneta,facetoface,Aneta navigated map
+14,1,1,00:00:35,00:04:21,00:07:18,0:06:43,0:02:57,09/11/2021,during_interview,EXP_UK_R_05,Aneta,online,"Recorded seperately, different day"
+14,2,2,00:00:35,00:04:21,00:07:18,0:06:43,0:02:57,09/11/2021,during_interview,EXP_UK_R_05,Aneta,online,"Recorded seperately, different day"
+14,3,2,00:00:35,00:04:21,00:07:18,0:06:43,0:02:57,09/11/2021,during_interview,EXP_UK_R_05,Aneta,online,"Recorded seperately, different day"
+15,1,1,,,,0:00:00,0:00:00,18/11/2021,during_interview,RES_UK_R_10,Aneta,facetoface,Aneta navigated map
+15,2,1,,,,0:00:00,0:00:00,18/11/2021,during_interview,RES_UK_R_10,Aneta,facetoface,Aneta navigated map
+15,3,2,,,,0:00:00,0:00:00,18/11/2021,during_interview,RES_UK_R_10,Aneta,facetoface,Aneta navigated map
+16,1,2,,,,0:00:00,0:00:00,22/11/2021,during_interview,RES_UK_R_11,Aneta,facetoface,Aneta navigated map
+16,2,2,,,,0:00:00,0:00:00,22/11/2021,during_interview,RES_UK_R_11,Aneta,facetoface,Aneta navigated map
+16,3,2,,,,0:00:00,0:00:00,22/11/2021,during_interview,RES_UK_R_11,Aneta,facetoface,Aneta navigated map
+17,1,2,,,,0:00:00,0:00:00,24/11/2021,,RES_UK_R_12,Aneta,facetoface,Aneta navigated map
+17,2,2,,,,0:00:00,0:00:00,24/11/2021,,RES_UK_R_12,Aneta,facetoface,Aneta navigated map
+17,3,1,,,,0:00:00,0:00:00,24/11/2021,,RES_UK_R_12,Aneta,facetoface,Aneta navigated map
+18,1,2,,,,0:00:00,0:00:00,02/12/2021,,RES_UK_R_13,Aneta,facetoface,Aneta navigated map
+18,2,2,,,,0:00:00,0:00:00,02/12/2021,,RES_UK_R_13,Aneta,facetoface,Aneta navigated map
+18,3,1,,,,0:00:00,0:00:00,02/12/2021,,RES_UK_R_13,Aneta,facetoface,Aneta navigated map
+19,1,1,,,,0:00:00,0:00:00,03/12/2021,,RES_UK_R_14,Aneta,facetoface,Aneta navigated map
+19,2,1,,,,0:00:00,0:00:00,03/12/2021,,RES_UK_R_14,Aneta,facetoface,Aneta navigated map
+19,3,2,,,,0:00:00,0:00:00,03/12/2021,,RES_UK_R_14,Aneta,facetoface,Aneta navigated map
+20,1,2,,,,0:00:00,0:00:00,06/12/2021,,RES_UK_R_15,Aneta,facetoface,Aneta navigated map
+20,2,2,,,,0:00:00,0:00:00,06/12/2021,,RES_UK_R_15,Aneta,facetoface,Aneta navigated map
+20,3,1,,,,0:00:00,0:00:00,06/12/2021,,RES_UK_R_15,Aneta,facetoface,Aneta navigated map
+21,1,2,,,,0:00:00,0:00:00,08/12/2021,,RES_UK_R_16,Aneta,facetoface,Aneta navigated map
+21,2,2,,,,0:00:00,0:00:00,08/12/2021,,RES_UK_R_16,Aneta,facetoface,Aneta navigated map
+21,3,1,,,,0:00:00,0:00:00,08/12/2021,,RES_UK_R_16,Aneta,facetoface,Aneta navigated map
+22,1,2,,,,0:00:00,0:00:00,31/01/2022,,RES_UK_R_17,Aneta,facetoface,Aneta navigated map
+22,2,2,,,,0:00:00,0:00:00,31/01/2022,,RES_UK_R_17,Aneta,facetoface,Aneta navigated map
+22,3,2,,,,0:00:00,0:00:00,31/01/2022,,RES_UK_R_17,Aneta,facetoface,Aneta navigated map
+23,1,1,,,,0:00:00,0:00:00,04/02/2022,,RES_UK_R_18,Aneta,facetoface,Aneta navigated map
+23,2,1,,,,0:00:00,0:00:00,04/02/2022,,RES_UK_R_18,Aneta,facetoface,Aneta navigated map
+23,3,2,,,,0:00:00,0:00:00,04/02/2022,,RES_UK_R_18,Aneta,facetoface,Aneta navigated map
+24,1,2,,,,0:00:00,0:00:00,16/02/2022,,RES_UK_R_19,Aneta,facetoface,
+24,2,1,,,,0:00:00,0:00:00,16/02/2022,,RES_UK_R_19,Aneta,facetoface,
+24,3,2,,,,0:00:00,0:00:00,16/02/2022,,RES_UK_R_19,Aneta,facetoface,
+25,1,1,,,,0:00:00,0:00:00,28/02/2022,,RES_UK_R_20,Aneta,facetoface,
+25,2,1,,,,0:00:00,0:00:00,28/02/2022,,RES_UK_R_20,Aneta,facetoface,
+25,3,2,,,,0:00:00,0:00:00,28/02/2022,,RES_UK_R_20,Aneta,facetoface,
+1,1,1,,,,0:00:00,0:00:00,15/03/2022,,RES_UK_R_21,Aneta,facetoface,
+1,2,1,,,,0:00:00,0:00:00,15/03/2022,,RES_UK_R_21,Aneta,facetoface,
+1,3,1,,,,0:00:00,0:00:00,15/03/2022,,RES_UK_R_21,Aneta,facetoface,
+1,1,1,,,,0:00:00,0:00:00,21/07/2022,during_interview,RES_UK_R_22,Henry,facetoface,
+1,2,1,,,,0:00:00,0:00:00,21/07/2022,during_interview,RES_UK_R_22,Henry,facetoface,
+1,3,2,,,,0:00:00,0:00:00,21/07/2022,during_interview,RES_UK_R_22,Henry,facetoface,
+2,1,1,00:57:15,01:01:34,01:05:59,0:08:44,0:04:25,30/08/2022,during_interview,EXP_UK_R_06,Aneta,online,He opened maps
+2,2,2,00:57:15,01:01:34,01:05:59,0:08:44,0:04:25,30/08/2022,during_interview,EXP_UK_R_06,Aneta,online,He opened maps
+2,3,1,00:57:15,01:01:34,01:05:59,0:08:44,0:04:25,30/08/2022,during_interview,EXP_UK_R_06,Aneta,online,He opened maps
+3,1,2,,,,,,08/09/2022,during_interview,EXP_UK_R_07,Henry,facetoface,
+3,2,1,,,,,,08/09/2022,during_interview,EXP_UK_R_07,Henry,facetoface,
+3,3,2,,,,,,08/09/2022,during_interview,EXP_UK_R_07,Henry,facetoface,
+4,1,1,,,,,,08/09/2022,during_interview,EXP_UK_R_08,Henry,facetoface,
+4,2,1,,,,,,08/09/2022,during_interview,EXP_UK_R_08,Henry,facetoface,
+4,3,1,,,,,,08/09/2022,during_interview,EXP_UK_R_08,Henry,facetoface,
+5,1,2,,,,,,08/09/2022,during_interview,RES_UK_R_23,Henry,facetoface,She did not do the preliminary exercise (I don't think). I did the zooming/ changed the map overaly
+5,2,1,,,,,,08/09/2022,during_interview,RES_UK_R_23,Henry,facetoface,
+5,3,1,,,,,,08/09/2022,during_interview,RES_UK_R_23,Henry,facetoface,
