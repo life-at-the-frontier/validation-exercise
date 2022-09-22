@@ -23,7 +23,13 @@ result_df <-
       select(-result)
   )
 
+## Check for missingness 
+result_df %>% summary
 
+## unique ids: 
+result_df$interview_id %>% table # check all had 3...
+(result_df$interviewer %>% table)/3 # Check how many were done by whom
+(result_df$set %>% table) / 3 ## okay so we can see set 1 was used 3 time as Henry and Aneta attest
 
 # out %>%
 #   group_by(realPair) %>%

@@ -10,6 +10,21 @@ library(tidyverse)
 result_df <-
   read_csv('cleaned data/makeFile03 cleaned experiment data.csv')
 
+## mapA_position is the location of the algo predicted higher borders
+##  The maps are divided in tertiles: A, B ,C (A = highest frontier)
+## The pairs compare: 
+##  1: A vs B
+##  2: A vs C 
+##  3: B vs C
+
+# 0. omit cases where the respondent did not pass initial prelim exercise -----
+noPrelim <- c('RES_UK_R_23')
+
+result_df <-
+  result_df %>%
+  filter(
+    !(interview_id %in% noPrelim)
+    )
 
 # 1. analysis -------------------------------------------------------------
 
@@ -77,7 +92,10 @@ order_df %>%
 
 timing_df <-
   result_df %>%
-  mutate(splitTime = set > nCases/2) %>%
+  
+  mutate(
+    splitTime = set > nCases/2
+    ) %>%
   group_by(splitTime) %>%
   summarise(
     agreeN = sum(mapA_position == result),

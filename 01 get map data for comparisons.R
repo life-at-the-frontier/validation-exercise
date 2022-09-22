@@ -14,11 +14,11 @@
 ## fill these fields in:
 
 cityName <- 
-#  'sheffield'
+  'sheffield'
 #  'malmo1'
 
 cityBorders_Here <-
-  # 'cleaned data/makeFile01 sheffield borders+frontiers.rds' #used for sheffield
+   'cleaned data/makeFile01 sheffield borders+frontiers.rds' #used for sheffield
 
 
 
@@ -96,11 +96,12 @@ rel_borders$length <-
 ##  Summaries; Q1 = highest percentile group
 rel_borders %>% 
   group_by(xtile_rel) %>%
-  select(std_diff_phi:length) %>%
+  select(std_diff_phi:length, - geometry) %>%
   summarise_all( mean ) 
 
-# others
+# other stats
 rel_borders %>% 
+  as.data.frame() %>%
   group_by(xtile_rel) %>%
   select(std_diff_phi:length) %>%
   summarise_if( is.numeric, max ) 
