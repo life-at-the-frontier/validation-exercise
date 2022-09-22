@@ -5,44 +5,17 @@
 
 library(tidyverse)
 
-
-# create fake data (result_df) -----------------------------------------------
-
-
-nSets <- 25
-nPairs <- 3
-
-setList <- list(NA)
-for (set_i in 1:nSets){
-  
-  mapA_position <-
-    sample.int(2, nPairs, replace = T)
-  
-  pair_order <- 
-    sample.int(nPairs, nPairs)
-  
-  setList[[set_i]]<-
-    data.frame(
-      set = set_i,
-      seenOrder = 1:3,
-      realPair = pair_order,
-      mapA_position = mapA_position,
-      result = NA
-    )
-  
-}
+# read the data -----------------------------------------------
 
 result_df <-
-  setList %>% bind_rows()
-
-result_df$result <- sample.int(2, result_df %>% nrow(), replace = T)
+  read_csv('cleaned data/makeFile03 cleaned experiment data.csv')
 
 
 # 1. analysis -------------------------------------------------------------
 
 ## Estimate the the aggrement rate 
 
-nCases <- result_df$set %>% unique %>% length ## number of participants
+nCases <- result_df$interview_id %>% unique %>% length ## number of participants
 
 agreement_df <-
   result_df %>%
@@ -60,8 +33,7 @@ agreement_df <-
     p.value = 2 * ( 1 - abs(agreeRate - 0.5) %>% pnorm(sd = se) )
     )
 
-0.5 - sqrt(0.25/ 25) * 1.96
- 
+agreement_df
 
 # 2. check other stats -------------------------------------------------------
 
@@ -75,28 +47,32 @@ sequence_df <-
     agreeRate = agreeN / (agreeN +  disagreeN)
   )
 
-sequence_df
+sequence_df ## i.e. does right answers change with the seen order 
 
 sequence_df %>%
   select(agreeN, disagreeN) %>%
   fisher.test()
 
-## order 
+## order -------------------------------------------
 
-order_df <-
+result_df$mapA_position %>% table ## half the time the right map was on lhs
+## the data is random with respect to order 
+order_df <- 
   result_df %>%
-  group_by(mapA_position) %>%
+  group_by(realPair) %>%
   summarise(
-    result1 = sum(result ==1),
-    result2 = sum(result ==2)
-  )
+    result1 = sum(result == 1),
+    result2 = sum(result == 2),
+    )## pretty much 50 - 50
+##
 
-order_df
 order_df %>%
   select(result1, result2) %>%
   fisher.test()
 
-## aggreement over time 
+## No ordering effects
+
+## aggreement over time ----------------------------------------
 ## split the data into two halves 
 
 timing_df <-
@@ -108,9 +84,9 @@ timing_df <-
     disagreeN = sum(mapA_position != result)
   )
 
-timing_df
 timing_df %>% 
   select(agreeN, disagreeN) %>%
   fisher.test()
 
 ## done. 
+## No changes in agreement over time
