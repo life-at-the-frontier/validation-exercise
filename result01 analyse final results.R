@@ -32,6 +32,12 @@ result_df <-
 
 nCases <- result_df$interview_id %>% unique %>% length ## number of participants
 
+## Calculate the pvalue from a binomial dist with prob = 50% 
+pVal_binom <-
+  function(nSuccess, nTrials){
+    1 - 2 * abs(0.5 - pbinom(nSuccess, nTrials, prob = 0.5))
+    }
+
 agreement_df <-
   result_df %>%
   group_by(realPair) %>%
@@ -45,10 +51,12 @@ agreement_df <-
   agreement_df %>%
   mutate(
     se = sqrt(0.25/ n),
-    p.value = 2 * ( 1 - abs(agreeRate - 0.5) %>% pnorm(sd = se) )
+#    p.value = 2 * ( 1 - abs(agreeRate - 0.5) %>% pnorm(sd = se) ), #based on the normal distribution
+    p.value = pVal_binom(agreeN, n) #based on the actual binomial dist 
     )
 
-agreement_df
+
+
 
 # 2. check other stats -------------------------------------------------------
 
