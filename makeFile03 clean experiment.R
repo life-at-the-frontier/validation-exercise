@@ -15,8 +15,6 @@ mapOrderDf <-
   )
 
 # code --------------------------------------------------------------------
-
-
 result_df <- 
   result_df %>%
   left_join(
@@ -43,27 +41,34 @@ result_df$interview_id %>% table # check all had 3...
 
 
 # convert durations to seconds --------------------------------------------
-
+## we use lubriate to extract time from a hms class 
 names(result_df)
 result_df ## duration1 = total start and end time; duration2 =  time from map 1 to end
 
 convertToSecs <-
   function(durationStr){
-    (durationStr %>% substr(4,5) %>% as.numeric)*60 + ## minutes
-      (durationStr %>% substr(7,8) %>% as.numeric) #seconds
+    minute(durationStr)*60 + ## minutes
+      second(durationStr) #seconds
     }
 
+convertToMinutes <-
+  function(durationStr){
+    hour(durationStr)*60 + ## minutes
+      minute(durationStr) #seconds
+  }
 
 result_df <-
   result_df %>%
   mutate(
     duration1 = duration1 %>% convertToSecs(),
     duration2 = duration2 %>% convertToSecs(),
+    start_time_pe = start_time_pe %>%  convertToMinutes()
   ) %>%
 ## Set zero duration to NA
   mutate(
     duration1 = ifelse(duration1 == 0, NA, duration1),
-    duration2 = ifelse(duration2 == 0, NA, duration2)
+    duration2 = ifelse(duration2 == 0, NA, duration2),
+    start_time_pe = ifelse(start_time_pe == 0, NA, start_time_pe)
     )
 
 # order by date and add in order index ------------------------------------
@@ -78,15 +83,29 @@ date_order <-
   group_by(interview_id) %>%
   arrange(date) %>%
   summarise(
-    chron_id = NA
+    chronological_id = NA
   )
 
-date_order$chron_id = 1:nrow(date_order)
+date_order$chronological_id = 1:nrow(date_order)
 
 result_df <-
   result_df %>%
   left_join(date_order)
 
+## Reorder some cols for easier checking ------------------------------------
+result_df <-
+  result_df %>% 
+  relocate(
+    interview_id, chronological_id,  
+    set,
+    seenOrder,
+    realPair,
+    result,
+    mapA_position,
+    start_time_pe,
+    duration1
+           )
+ 
 # save output -------------------------------------------------------------
 
 result_df %>%

@@ -92,15 +92,15 @@ order_df %>%
 
 timing_df <-
   result_df %>%
-  
   mutate(
-    splitTime = set > nCases/2
+    splitTime = cut(chronological_id, 2)
     ) %>%
   group_by(splitTime) %>%
   summarise(
     agreeN = sum(mapA_position == result),
     disagreeN = sum(mapA_position != result)
   )
+
 
 timing_df %>% 
   select(agreeN, disagreeN) %>%
