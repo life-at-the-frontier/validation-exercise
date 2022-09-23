@@ -50,13 +50,10 @@ agreement_df <-
 agreement_df <-
   agreement_df %>%
   mutate(
-    se = sqrt(0.25/ n),
+    se = sqrt(0.25/ n), 
 #    p.value = 2 * ( 1 - abs(agreeRate - 0.5) %>% pnorm(sd = se) ), #based on the normal distribution
     p.value = pVal_binom(agreeN, n) #based on the actual binomial dist 
     )
-
-
-
 
 # 2. check other stats -------------------------------------------------------
 
