@@ -55,6 +55,7 @@ agreement_df <-
     p.value = pVal_binom(agreeN, n) #based on the actual binomial dist 
     )
 
+agreement_df
 # 2. check other stats -------------------------------------------------------
 
 ## sequence 
@@ -79,15 +80,16 @@ result_df$mapA_position %>% table ## half the time the right map was on lhs
 ## the data is random with respect to order 
 order_df <- 
   result_df %>%
-  group_by(realPair) %>%
+  group_by(mapA_position) %>%
   summarise(
-    result1 = sum(result == 1),
-    result2 = sum(result == 2),
+    agreeN = sum(result == mapA_position),
+    disagreeN = sum(result != mapA_position),
     )## pretty much 50 - 50
 ##
+order_df
 
 order_df %>%
-  select(result1, result2) %>%
+  select(agreeN, disagreeN) %>%
   fisher.test()
 
 ## No ordering effects
@@ -106,6 +108,7 @@ timing_df <-
     disagreeN = sum(mapA_position != result)
   )
 
+timing_df
 
 timing_df %>% 
   select(agreeN, disagreeN) %>%

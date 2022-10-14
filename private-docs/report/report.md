@@ -1,33 +1,39 @@
 ---
-html:
-  embed_local_images: true
+output: word_document
+bibliography: assets/manuscript-biblio.bib
+csl: assets/plos-one.csl
 ---
 
-# An experiment using residents and experts to evaluate the validity of a border detection algorithm.
+# Using residents and experts to evaluate the validity of a border detection algorithm: a small-scale feasibility study
 
-Meng Le Zhang$^1$$^*$, Aneta Piekut, Zaneb Rasool, Lydia Warden, and Gwilym Pryce
+Meng Le Zhang$^1$$^*$, Aneta Piekut, Zaneb Rasool, Lydia Warden, Henry Staples and Gwilym Pryce
 
 [1]
 [2]
 
 * Corresponding Author
-Email: meng_le.zhang@sheffield.ac.uk (MZ) 
+Email: meng_le.zhang@sheffield.ac.uk (MZ)
 
 
 -----
 
-# Using residents and experts validate a border detection algorithm
-Full title:  An experiment using residents and experts to evaluate the validity of a border detection algorithm.
+# Using residents and experts to evaluate the validity of a border detection algorithm: a small-scale feasibility study
+
+Full title: Using residents and experts to evaluate the validity of a border detection algorithm: a small-scale feasibility study
+
 
 Authors: Meng Le Zhang, Aneta Piekut, Zaneeb Rasool, Lydia Warden, and Gwilym Pryce
 Versions:
+- Revised with real results - 23 Aug 2022
 - Original- 29 July 2021
 
 Study preregistration: https://osf.io/yzw8u/ (29/07/2021)
 
 # Introduction
 
-A number of studies have used computer algorithms with areal-level data to detect community borders. One such study (Dean et al. @2019) uses a statistical model to detect sharp community boundaries, referred to as social frontiers. However, to date, none of these studies has validated the accuracy of their algorithms externally using human participants or other means. Therefore, the evidence base for the usefulness of these algorithms for policy and researchers has not been developed yet. Furthermore, data and algorithmic issues could lead to i) misleading inferential results using these borders and ii) misinformation once the results of these algorithms are made available to the public and policymakers. The study pre-registered and protocol is available at [https://osf.io/yzw8u/ (29/07/2021)].
+A number of studies have used computer algorithms with areal-level data to detect community borders. One such study (Dean et al. @2019) uses a statistical model to detect sharp community boundaries, referred to as social frontiers. However, to date, none of these studies has validated the accuracy of their algorithms externally using human participants or other means. Therefore, the evidence base for the usefulness of these algorithms for policy, researchers and the public has not been developed yet. Data and algorithmic issues could lead to i) misleading inferential results using these borders and ii) misinformation once the results of these algorithms are made available to the public and policymakers.
+
+This current study uses local residents and experts in Rotherham, England to test the validity of social frontiers producted by a border detection algorithm. We used the algorithm to create three sets of borders with high, medium and low levels of sharpness. All else being equal, we expect sharper borders are more likely to correspond to potential communities boundaries. Participants were shown several pairs of maps with borders at random and asked which map in each pair best corresponds to the local of community borders. We find that participants overwhelmingly tend to choose the set of borders with a high degree of sharpness however there is limited evidence that participants would choose medium borders over low sharpness borders. Due to implementation issues, we did not achieve the desired sample size set out in our protocol. We discuss limitations and directions for future research. The study pre-registered and protocol is available at [https://osf.io/yzw8u/ (29/07/2021)].
 
 ## Literature review
 
@@ -48,7 +54,7 @@ If both claims are true, it should be possible for local residents to distinguis
 
 _Primary objective_: Determine whether residents and experts perceive sharper borders (as determined by the algorithm) as indicative of more clearly defined community borders.
 
-_Hypothesis_: The algorithm predicts which borders are more likely to be clearly defined community borders. The hypothesis is that participants will agree with the predictions of the algorithm.
+_Hypothesis_: The algorithm can predict which borders are more likely to be clearly defined community borders. The hypothesis is that participants will agree with the predictions of the algorithm.
 
 _Secondary objective_: Determine the feasibility of this type of trial for future research.
 
@@ -61,7 +67,7 @@ The study was designed to be a multi-site trial across six communities in the UK
 
 For each map pair, there is agreement if participants choose the map with sharper boundaries (as defined by the algorithm, e.g. A over B). Our test statistic is the rate of agreement: under the null hypothesis the agreement rate is 50 percent.
 
-Due to practical issues, we were only able to collect data from one site. This leads to less statistical power than anticipated in the original protocol (e.g. lower likelihood of rejecting the null hypothesis). A study protocol including analysis plan was created before data collection [https://osf.io/yzw8u/].
+Due to implementation issues, we were only able to collect data from one site. This leads to less statistical power than anticipated in the original protocol (e.g. lower likelihood of rejecting the null hypothesis). A study protocol including analysis plan was created before data collection [https://osf.io/yzw8u/].
 
 # Methods
 
@@ -97,11 +103,11 @@ Participants fall under three different groups.
 
 
 ## Recruitment
-- Local experts for expert interviews will be recruited via our local contacts in Rotherham and Derry, identified by desk research and by snowball sampling (i.e. further contacts gained from initial interviews).
+Local experts for expert interviews were recruited via our local contacts in Rotherham, identified by desk research and by snowball sampling (i.e. further contacts gained from initial interviews).
 
 - Residents of two selected areas. We will ask each expert to point us to any community webpages, groups or centres which are most suitable to recruit participants. We will create a leaflet with information about the research to be distributed via identified channels, online and offline, and interested participants can come back to us via email and telephone.
 
-- Group interviews participants - will be recruited via our local contacts in Rotherham (RCUST) and Derry (i.e. The North West Migrants Forum).
+Group interviews participants were recruited via our local contacts in Rotherham (RCUST).
 
 
 
@@ -127,15 +133,13 @@ The maps are created in R and exported as leaflet maps within html files. The co
 All participants will be shown all three pairs of maps after an initial preliminary task. The order of maps and the sequence of pairs is chosen at random by the statistical software R.
 
 **Concealment mechanism and blinding**
-The order and sequence is saved onto a file and not shown to the any member of the research team until the data has been collected. This includes member of the data analysis team who will only access the sequencing information after an interview to check the automated routine has not failed. The interview team, they will not see the order/sequence until all the data has been collected. The participants and the interview team will be unaware of how the maps in the exercise have been generated.
+The order and sequence is saved onto a file and not shown to the any member of the research team until the data has been collected. This includes member of the data analysis team who will only access the sequencing information after an interview to check the automated routine has not failed. The interview team are blind to the order/sequence until all the data has been collected. The participants and the interview team were unaware of how the maps in the exercise have been generated.
 
 ## Outcomes
 The main outcome are the preferred maps chosen by each participant. This is recorded by the interview team along (with the entire semi-structured interview). Metadata about the exercise (e.g. how long participants spent on each task) was also recorded. Data about the random ordering of the exercise is automatically generated and saved using R.
 
 ## Sample size
-The validation exercise was created as an add-on to a longer qualitative interview. Therefore, the sample size determined by the qualitative research design. In the protocol, the original sample was composed of respondents from six areas chosen across three countries (see below). Each selected area will have 15 participants involved in one-to-one interviews (five experts and ten residents). A simulation of 15 participants (e.g. single site only) shows that we would be able to detect an agreement rate of 73% (single map pair) at the usual level of statistical significance ($p < 0.05$).
-
-[The final study?]
+The validation exercise was created as an add-on to a longer qualitative interview. Therefore, the sample size determined by the qualitative research design. In the protocol, the original sample was composed of respondents from six sites. The final sample consists of 31 participants from Rotherham, England. We are left with 30 participatns after eliminating ineligible responses (i.e. respondents who did not complete the preliminary exercise).
 
 
 ## Data collection and statistical analysis
@@ -164,25 +168,22 @@ Participants could find parts of the interview distressing, e.g. emotionally sen
 
 In addition, the presence of others (co-workers, family members) in the room during the interview might impact the conversation. To meet these challenges, the interviewer will inform the participants that the interview can be paused at any time and ask participants to, if possible, find a private space.
 
-----
-
-[here's some fake results jus to have something to write about]
-
-
 # Results
 
-The agreement rates for each map pair are: 40% (p = 0.317, pair 1), 32% (pair p = 0.2) and 48% (pair 3, p = 0.841). The overall agreement is 40%. In all cases, we cannot reject the null hypothesis that local residents do not recognise frontiers as more distinct community borders (compared to borders with lower levels of sharpness).
+The agreement rates for each map pair are: 96.7% (p < 0.001, pair 1), 96.7% (pair p < 0.001) and 60% (pair 3, p = 0.20).  We can reject the null hypothesis that participants do not recognise borders with high sharpness as more distinct community borders. However, we cannot reject the null hypothesis that participants recognise medium borders as more distinct community borders compared to low borders.
 
-Testing the robustness of our study, we do not find any statistically significant sequencing effects (fisher exact test, p = 0.145); ordering effectts (fisher exact test, p = 0.157); or changes in agreement rate over time (p = 0.640). Our robustness tests combines responses from all map pairs and do not adjust for clustering (i.e. each participant contributes 3 responses). The results do not change, we do tests individually for each map pair.
+Testing the robustness of our study, we do not find any statistically significant sequencing effects (fisher exact test, p = 0.667); ordering effectts (fisher exact test, p = 0.570); or changes in agreement rate over time (p = 0.384). Our robustness tests combines responses from all map pairs.
 
 All our results tables are included in the supplementary materials.
 
 
 # Discussion
 
-To our knowledge, experiments in Urban Studies and Human Geography are rare and this is one of a few studies to empirically test the validity of border detection algorithms. The study does have a number of limitations. The sample size is much smaller than initially anticipated which limits our ability to detect smaller effect sizes. Although we do not find any issues with the robustness of the study design, this does not mean issues are not present. Finally, frontier may be valid but local residents are unable to distinguish them. As mentioned before, this seems contrary to the theoretical statement put forward by Legewie and Schaeffer and Dean et al.
+To our knowledge, experiments in Urban Studies and Human Geography are rare and this is one of a few studies to empirically test the validity of border detection algorithms. The magnitude of the effect size was far larger than we anticipated (96.7% agreement rate) and the completion time for the exercise was shorter than anticipated.
 
-Further work can be done to scale up the validation exercise in order to detect smaller differences in agreement rates. Furthermore, the same research design can be used to establish the validity of different border detection algorithm against each other.
+The study does have a number of limitations. The sample size is much smaller than initially anticipated which limits our ability to detect smaller effect sizes. Although we do not find any issues with the robustness of the study design, this does not mean issues are not present. Finally, even if they are not validated by residents, frontier may be valid for other purposes (e.g. prediction of crime hotspots). However, there is no evidence for the effiacy of frontiers for other purposes and is outside the scope of the current study.
+
+Further work can be done to scale up the validation exercise in order to detect smaller differences in agreement rates especially given the faster than anticipated completion times. Furthermore, the same research design can be used to establish the validity of different border detection algorithm against each other.
 
 # Conclusions
 
@@ -235,60 +236,52 @@ Legewie, Joscha, and Merlin Schaeffer. 2016. ‘Contested Boundaries: Explaining
 
 # Agreement
 
-realPair     n agreeN agreeRate    se p.value
-   <int> <int>  <int>     <dbl> <dbl>   <dbl>
-1        1    25     10      0.4    0.1  0.317
-2        2    25      8      0.32   0.1  0.0719
-3        3    25     12      0.48   0.1  0.841
+realPair     n agreeN agreeRate     se       p.value
+        1    30     29     0.967 0.0913 0.00000000186
+        2    30     29     0.967 0.0913 0.00000000186
+        3    30     18     0.6   0.0913 0.200
 
 # Sequence
 
 seenOrder agreeN disagreeN agreeRate
-    <int>  <int>     <int>     <dbl>
-1         1     14        11      0.56
-2         2      9        16      0.36
-3         3      7        18      0.28
+1         1     27         3     0.9
+2         2     24         6     0.8
+3         3     25         5     0.833
 
 Fisher's Exact Test for Count Data
 
-data:  .
-p-value = 0.1453
+p-value = 0.6673
 alternative hypothesis: two.sided
 
 # order
-mapA_position result1 result2
-        <int>   <int>   <int>
-1             1      15      16
-2             2      29      15
 
+Choice of map position
+1  2
+44 46
+
+mapA_position agreeN disagreeN
+        <dbl>  <int>     <int>
+             1     36         8
+             2     40         6
 Fisher's Exact Test for Count Data
 
-data:  .
-p-value = 0.157
-alternative hypothesis: true odds ratio is not equal to 1
-95 percent confidence interval:
-0.1705639 1.3755335
-sample estimates:
-odds ratio
-0.489756
+  data:  .
+  p-value = 0.5693
+  alternative hypothesis: true odds ratio is not equal to 1
+  95 percent confidence interval:
+  0.1756629 2.4746366
 
 # over tinme
 
-splitTime agreeN disagreeN
-<lgl>      <int>     <int>
-1 FALSE         13        23
-2 TRUE          17        22
+splitTime    agreeN disagreeN
+<fct>         <int>     <int>
+1 (0.971,15.5]     40         5
+2 (15.5,30]        36         9
 
 Fisher's Exact Test for Count Data
 
 data:  .
-p-value = 0.6379
-alternative hypothesis: true odds ratio is not equal to 1
-95 percent confidence interval:
-0.259976 2.041504
-sample estimates:
-odds ratio
-0.7345308
+p-value = 0.3837
 
 
 ````
