@@ -33,7 +33,7 @@ Study preregistration: https://osf.io/yzw8u/ (29/07/2021)
 
 A number of studies have used computer algorithms with areal-level data to detect community borders. One such study @deanFrontiersResidentialSegregation2019 uses a statistical model to detect sharp community boundaries, referred to as social frontiers. However, to date, none of these studies has validated the accuracy of their algorithms externally using human participants or other means. Therefore, the evidence base for the usefulness of these algorithms for policy, researchers and the public has not been developed yet. Data and algorithmic issues could lead to i) misleading inferential results using these borders and ii) misinformation once the results of these algorithms are made available to the public and policymakers.
 
-This current study uses local residents and experts in Rotherham, England to test the validity of social frontiers producted by a border detection algorithm. We used the algorithm to create three sets of borders with high, medium and low levels of sharpness. All else being equal, we expect sharper borders are more likely to correspond to potential communities boundaries. Participants were shown several pairs of maps with borders at random and asked which map in each pair best corresponds to the local of community borders. We find that participants overwhelmingly tend to choose the set of borders with a high degree of sharpness however there is limited evidence that participants would choose medium borders over low sharpness borders. Due to implementation issues, we did not achieve the desired sample size set out in our protocol. We discuss limitations and directions for future research. The study was pre-registered @zhangDiscreteChoiceExperiment.
+This current study uses local residents and experts in Rotherham, England to test the validity of social frontiers producted by a border detection algorithm. The sharpness of a boundary is defined by the difference in the proportion of foreign-born residents across two adjacent areas (after accounting for spatial autocorrelation and population size). All else being equal, larger differences lead to sharper boundaries and we expect sharper borders are more likely to correspond to potential communities boundaries. We used the algorithm to find three maps: map A had the sharpest borders, C had the least sharp borders and B had borders that were in between. Participants were shown several pairs of maps and asked which map in each pair best corresponds to the local community borders. We found that participants overwhelmingly tend to choose the set of borders with a high degree of sharpness however there is limited evidence that participants would choose medium borders over low sharpness borders. Due to implementation issues, we did not achieve the desired sample size set out in our protocol. We discuss limitations and directions for future research. The study was pre-registered @zhangDiscreteChoiceExperiment.
 
 ## Literature review
 
@@ -41,10 +41,9 @@ The existence of a boundary between two communities could lead to several positi
 
 Studies using algorithms to detect community boundaries have found that these boundaries are associated with more or less crime/ public disorder. Legewie and Schaeffer @legewieContestedBoundariesExplaining2016 use an edge detection algorithm from image processing whilst Dean et al. @deanFrontiersResidentialSegregation2019 chose borders based on a Bayesian statistical model. However, neither study validated their algorithm nor described how they picked most of the tuning parameters in their model.
 
-[Insert Aneta's review]
 
 ## Rationale for a trial
-The need for external validation of the results of algorithms is well accepted in fields like machine learning. Similarly, the validation of measurement instruments is commonplace in psychology. The lack of external validation leads to misleading results as well as a range of scientific issues ranging from measurement error to fundamental scientific issues such as a lack of falsifiability. This trial will establish an evidence base for the external validity of these detection algorithms starting with the sharp border detection algorithm in Dean et al. @deanFrontiersResidentialSegregation2019. The measure of sharpness is based on the proportion of foreign-born residents on either side of a border in 2011. Sharper borders are theorised to indicate the location of strong community borders or social frontiers.
+The need for external validation of the results of algorithms is well accepted in fields like machine learning. Similarly, the validation of measurement instruments is commonplace in psychology. The lack of external validation leads to misleading results as well as a range of scientific issues ranging from measurement error to fundamental scientific issues such as a lack of testable hypotheses. This trial will establish an evidence base for the external validity of these detection algorithms starting with the sharp border detection algorithm in Dean et al. @deanFrontiersResidentialSegregation2019. The measure of sharpness is based on the proportion of foreign-born residents on either side of a border in 2011. Sharper borders are theorised to indicate the location of strong community borders or social frontiers.
 
 The main claim behind boundary detection studies is that these boundaries can be detected using secondary data analysis (@legewieContestedBoundariesExplaining2016, @deanFrontiersResidentialSegregation2019). The same studies will implicitly or explicitly claim that these community boundaries are at least noticeable to people in the local area. [insert list quotes].
 
@@ -63,36 +62,17 @@ _Secondary objective_: Determine the feasibility of this type of trial for futur
 
 We use the boundaries detection algorithm to create three maps (A, B, and C) of the same geographical area. The maps are ranked in order of how much they reflect sharp community boundaries (according to the algorithm, A > B > C). The maps then form the basis of our validation exercise with human participants.
 
-The study was designed to be a multi-site trial across six communities in the UK, Norway and Sweden. In each site, particiants would be recruited from experts and residents from the local community. Participants are given a discrete choice given a pair of maps (e.g. map A and B, C and B etc) and asked to pick which map represents more defined community borders. Each participant is given three pair sets to complete. The pair sequence shown to particiants (and the order of maps within each pair) are randomised. The exercise is conducted as part of a longer semi-structured qualitative interview. The exercise is given at either the beginning or end of the interview (depending on whether experts or residents).
+The study was originally designed to be a multi-site trial across six communities in the UK, Norway and Sweden. In each site, particiants would be recruited from experts and residents from the local community. Participants are given a discrete choice given a pair of maps (e.g. map A and B, C and B etc) and asked to pick which map represents more defined community borders. Each participant is given three pair sets to complete. The pair sequence shown to particiants (and the order of maps within each pair) are randomised. The exercise is conducted as part of a longer semi-structured qualitative interview. The exercise is given at either the beginning or end of the interview (depending on whether experts or residents).
 
 For each map pair, there is agreement if participants choose the map with sharper boundaries (as defined by the algorithm, e.g. A over B). Our test statistic is the rate of agreement: under the null hypothesis the agreement rate is 50 percent.
 
-Due to implementation issues, we were only able to collect data from one site. This leads to less statistical power than anticipated in the original protocol (e.g. lower likelihood of rejecting the null hypothesis). A study protocol including analysis plan was created before data collection @zhangDiscreteChoiceExperiment.
+Due to implementation issues, we were only able to collect data from one site: Rotherham, UK. This leads to less statistical power than anticipated in the original protocol (e.g. lower likelihood of rejecting the null hypothesis). A study protocol including analysis plan was created before data collection @zhangDiscreteChoiceExperiment.
 
 # Methods
 
-
 ## Study setting
 
-
-The study is carried out as part of a qualitative study with residents and experts living within areas with a high number of sharp community boundaries (as detected by the algorithm). In the study protocol, the proposed areas were Rotherham (England), Derry (Northern Ireland), 2 undetermined sites in Norway and 2 undetermined sites in Sweden.
-
-A number of factors determined the choice of areas. First, each city was chosen due to their higher than average degree of segregation, the proportion of foreign-born residents, and the research team's prior links and collaborations. Rotherham – a town in South Yorkshire, and (London)Derry in Northern Ireland were selected as two case studies on the basis of literature and conversations with local stakeholders. As of 2011 Census, 92% Rotherham population was White British; it has a substantial settled British Pakistani population and more recent, i.e. post-2004 EU extension immigration from Eastern Europe. While (London)Derry’s segregation is largely along the religion line (Catholics vs. Protestants), we wanted to see to what extent any new emerging frontiers along the migration status and ethnicity lines were visible to residents. As such, the selection of two sides with social frontiers was purposeful in order to make the fieldwork more time efficient. We decided on the final boundaries of the studied areas after producing maps with social frontiers for Rotherham West and (London)Derry (based on 2011 Census data – add footnote?). MZ gave AP a map of social frontiers in each city. Finally, AP and expert ZR chose an area in Rotherham with an above-average number of defined community borders and MO and GH in Derry. The maps used in the trial are centred on the middle of these areas and show border information within a 1.5km radius.
-Ethical approval from the University of Sheffield was secured on 30th July 2021.
-
-
-The originally planned timeline of data collection was:
-- Phase 1: Expert interviews (5 x 2 areas - July-August 2021) - online
-- Phase 2: Individual interviews with residents (10-12 x 2 areas - August-October 2021) - face-to-face or online.
-- Phase 3: Focus group interviews, FGIs (2 x 2 areas - November-December 2021) - face-to-face - focus group interviews with young people (aged 18-25) of each selected area; 4-5 participants in each group.
-The fieldwork was disrupted and delayed by travel restrictions during the Covid-19 pandemic, and we decided to focus our resources on the Rotherham case – much more accessible from Sheffield.
-- Phase 1: Expert interviews (5 interviews – 9 September-2 November 2021) - online
-- Phase 2: Individual interviews with residents (XX interviews – 25 October 2021 – XX September 2022) - face-to-face.
-- Phase 3: Focus group interviews, FGIs (??? - September 2022) - face-to-face – TBC as we planned to focus on immigrants in group interviews.
-
-Table 1. Summary of socio-demographic profile of respondents
-[insert]
-
+The study is carried out as part of a qualitative study with residents and experts living within areas with a high number of sharp community boundaries (as detected by the algorithm). A number of factors determined the choice of areas. First, each city was chosen due to their higher than average degree of segregation, the proportion of foreign-born residents, and the research team's prior links and collaborations. Rotherham – a town in South Yorkshire was selected as a case study on the basis of literature and conversations with local stakeholders. As of 2011 Census, 92% Rotherham population was White British; it has a substantial settled British Pakistani population and more recent, i.e. post-2004 EU extension immigration from Eastern Europe. We decided on the final boundaries of the studied areas after producing maps with social frontiers for Rotherham West (based on 2011 Census data – add footnote?). Author MZ gave AP a map of social frontiers in each city. Finally, AP and expert ZR chose an area in Rotherham with an above-average number of defined community borders. The maps used in the trial are centred on the middle of these areas and show border information within a 1.5km radius.
 
 ## Eligibility criteria
 
@@ -109,22 +89,17 @@ Local experts for expert interviews were recruited via our local contacts in Rot
 
 Group interviews participants were recruited via our local contacts in Rotherham (RCUST).
 
+Table 1. Summary of socio-demographic profile of respondents
+[insert]
 
 
 ## Validation task
 
 After a preliminary task to familiarise participants with the map interface, where participants are shown pairs of interactive maps with borders (Map A and Map B). Participants are asked to choose which map better represents distinct community boundaries in terms of migration background in the selected area. The full description of the intervention and allocation mechanism is given in a separate document [here](#study-protocol-assignment.md).
 
-Pilot exercises were conducted before deployment, and the entire validation exercise takes under 10 minutes to complete.
-
-[@ fill in how the maps were created after the results are collected]
-
-We will check that all the maps are similar with respect attributes (e.g. total border lengths) to omit alternative explanations (see supplementary materials). The pair of interactive maps are synced so scrolling and moving Map A also moved the area viewed in Map B.
+Pilot exercises were conducted before deployment, and the entire validation exercise takes under 10 minutes to complete. We will checked that all the maps are similar with respect attributes (e.g. total border lengths) to omit alternative explanations (see supplementary materials). The pair of interactive maps are synced so scrolling and moving Map A also moved the area viewed in Map B.
 
 The maps are created in R and exported as leaflet maps within html files. The code to recreate the maps are found on GitHub. https://github.com/MengLeZhang/wardenProject2021.
-
-
-
 
 
 ## Assignment of maps
@@ -148,7 +123,9 @@ _Collection and management_: Trial results data were the interview team (AP, ZR)
 
 _Statistical analysis_: There are three sets of map pairs comparing:
 
-[XXX]
+- A and B (pair 1)
+- A and C (pair 2)
+- B and C (pair 1)
 
 For each pair, we measure the agreement rate: proportion of participants who prefer the map with the sharpest borders. We wil refer this rate as $P_j$ where $j$ denotes map pairing. We calculate $Z_j$ where $Z_j =  P_{j} - 0.5$. Under the null hypothesis, $Z_j$ will be approximately normally distributed with a mean of 0 and standard error of $\sqrt{0.25 / n}$ (given our sample size is large enough, n > 25). We use this distribution to calculate our $p$ values with $p < 0.05$ as our threshold for statistical significance. With our final sample, for each map pair, agreement rates higher than 69.6% (or lower than 30.4%) are statistically significant ($p < 0.05$). We can also calulate the overall agreement rate across all map pairs (i.e. mean of $Z_j$).
 
@@ -168,14 +145,18 @@ Participants could find parts of the interview distressing, e.g. emotionally sen
 
 In addition, the presence of others (co-workers, family members) in the room during the interview might impact the conversation. To meet these challenges, the interviewer will inform the participants that the interview can be paused at any time and ask participants to, if possible, find a private space.
 
+## Project timelines
+
+Recruitment of participants for the qualitative interviews began in XXX. The validation exercise design and materials were created between June and August 2021.  Ethical approval from the University of Sheffield was secured on 30th July 2021. The interviews for Rotherham took place between September 2021 and the end of September 2022.
+
+
 # Results
 
-The agreement rates for each map pair are: 96.7% (p < 0.001, pair 1), 96.7% (pair p < 0.001) and 60% (pair 3, p = 0.20).  We can reject the null hypothesis that participants do not recognise borders with high sharpness as more distinct community borders. However, we cannot reject the null hypothesis that participants recognise medium borders as more distinct community borders compared to low borders.
+The agreement rates for each map pair are: 96.7% (p < 0.001, A vs B), 96.7% (p < 0.001, A vs C) and 60% (p = 0.20, B vs C).  We can reject the null hypothesis that participants do not recognise borders with high sharpness as more distinct community borders. However, we cannot reject the null hypothesis that participants recognise medium borders as more distinct community borders compared to low borders.
 
-Testing the robustness of our study, we do not find any statistically significant sequencing effects (fisher exact test, p = 0.667); ordering effectts (fisher exact test, p = 0.570); or changes in agreement rate over time (p = 0.384). Our robustness tests combines responses from all map pairs.
+Testing the robustness of our study, we do not find any statistically significant sequencing effects (fisher exact test, p = 0.667); ordering effects (fisher exact test, p = 0.570); or changes in agreement rate over time (p = 0.384). Our robustness tests combines responses from all map pairs. All our results tables are included in the supplementary materials.
 
-All our results tables are included in the supplementary materials.
-
+From the qualitative interviews, we do not find any evidence of inattention amongst participants. [Add how the interviewee felt]. The exercise was designed to be completed within 10 minutes, however participants completed the exercise quickers than ancitipated.
 
 # Discussion
 
@@ -204,12 +185,6 @@ MZ originally conceived the validation study. AI (Aarti Iyer) and AP designed th
 ## Funding
 
 This study is funded by Nordforsk as part of the life at the frontiers project (project number 95193). For more details, see [here](https://www.nordforsk.org/projects/life-frontier-impact-social-frontiers-social-mobility-and-integration-migrants). LW's time on the study is funded by Sheffield University.
-
-# References
-
-Dean, Nema, Guanpeng Dong, Aneta Piekut, and Gwilym Pryce. 2019. ‘Frontiers in Residential Segregation: Understanding Neighbourhood Boundaries and Their Impacts’. Tijdschrift Voor Economische En Sociale Geografie 110 (3): 271–88. https://doi.org/10.1111/tesg.12316.
-
-Legewie, Joscha, and Merlin Schaeffer. 2016. ‘Contested Boundaries: Explaining Where Ethnoracial Diversity Provokes Neighborhood Conflict’. American Journal of Sociology, 37.
 
 
 ----
