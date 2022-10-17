@@ -14,7 +14,6 @@ Meng Le Zhang$^1$$^*$, Aneta Piekut, Zaneb Rasool, Lydia Warden, Henry Staples a
 * Corresponding Author
 Email: meng_le.zhang@sheffield.ac.uk (MZ)
 
-
 -----
 
 # Using residents and experts to evaluate the validity of a border detection algorithm: a small-scale feasibility study
@@ -37,7 +36,7 @@ This current study uses local residents and experts in Rotherham, England to tes
 
 ## Literature review
 
-The existence of a boundary between two communities could lead to several positive or negative outcomes. Past studies in Northern Ireland, where a concept of “interface areas” was coined have demonstrated that frontiers are contested areas, “spaces where the terrain is marked in ways that reflect the specific claims of competing groups” (@leonardTeensTerritoryContested2006 227), of less frequent interaction resulting in poorer familiarity with each other @boalFrontierCityEthnonationalism1984, and as such, more likely to be sites of tensions and conflict. Because social forces represent wider social inequalities, including ethnic hierarchies, they are never settled and fixed, hence might provide “an excellent opportunity for mutual interpenetration and sway” (@kristof1959nature: 273). This dual nature of the frontiers comes in the results of quantitative geography studies. While Legewie and Schaeffer @legewieContestedBoundariesExplaining2016 study in New York, USA, revealed more neighbourhood tension when boundaries were blurred and and between-community boundaries less defines, but Dean et al. @deanFrontiersResidentialSegregation2019 found more crime closes to more steep frontiers in Sheffield, UK. However, when repeating the study in Czechia using Dean et al. method @deanFrontiersResidentialSegregation2019, Křížková et al. @krizkovaSocialFrontiersEstimating2021 did not found significant relationship between the location of frontiers and crime. Maguire, French, and O’Reilly @maguireResidentialSegregationDividing2016 did not used any boundary-detection algorithm, but found correlation between ‘peace lines’ and poorer mental health (higher depression and axiety).
+The existence of a boundary between two communities could lead to several positive or negative outcomes. Past studies in Northern Ireland, where a concept of “interface areas” was coined have demonstrated that frontiers are contested areas, “spaces where the terrain is marked in ways that reflect the specific claims of competing groups” (@leonardTeensTerritoryContested2006 p.227), of less frequent interaction resulting in poorer familiarity with each other @boalFrontierCityEthnonationalism1984, and as such, more likely to be sites of tensions and conflict. Because social forces represent wider social inequalities, including ethnic hierarchies, they are never settled and fixed, hence might provide “an excellent opportunity for mutual interpenetration and sway” (@kristof1959nature p.273). This dual nature of the frontiers comes in the results of quantitative geography studies. While Legewie and Schaeffer @legewieContestedBoundariesExplaining2016 study in New York, USA, revealed more neighbourhood tension when boundaries were blurred and and between-community boundaries less defines, but Dean et al. @deanFrontiersResidentialSegregation2019 found more crime closes to more steep frontiers in Sheffield, UK. However, when repeating the study in Czechia using Dean et al. method @deanFrontiersResidentialSegregation2019, Křížková et al. @krizkovaSocialFrontiersEstimating2021 did not found significant relationship between the location of frontiers and crime. Maguire, French, and O’Reilly @maguireResidentialSegregationDividing2016 did not used any boundary-detection algorithm, but found correlation between ‘peace lines’ and poorer mental health (higher depression and axiety).
 
 Studies using algorithms to detect community boundaries have found that these boundaries are associated with more or less crime/ public disorder. Legewie and Schaeffer @legewieContestedBoundariesExplaining2016 use an edge detection algorithm from image processing whilst Dean et al. @deanFrontiersResidentialSegregation2019 chose borders based on a Bayesian statistical model. However, neither study validated their algorithm nor described how they picked most of the tuning parameters in their model.
 
@@ -95,20 +94,37 @@ Table 1. Summary of socio-demographic profile of respondents
 
 ## Validation task
 
-After a preliminary task to familiarise participants with the map interface, where participants are shown pairs of interactive maps with borders (Map A and Map B). Participants are asked to choose which map better represents distinct community boundaries in terms of migration background in the selected area. The full description of the intervention and allocation mechanism is given in a separate document [here](#study-protocol-assignment.md).
+After a preliminary task to familiarise participants with the map interface, where participants are shown pairs of interactive maps with borders (Map A and Map B). Participants are asked to choose which map better represents distinct community boundaries in terms of migration background in the selected area.
 
 Pilot exercises were conducted before deployment, and the entire validation exercise takes under 10 minutes to complete. We will checked that all the maps are similar with respect attributes (e.g. total border lengths) to omit alternative explanations (see supplementary materials). The pair of interactive maps are synced so scrolling and moving Map A also moved the area viewed in Map B.
 
-The maps are created in R and exported as leaflet maps within html files. The code to recreate the maps are found on GitHub. https://github.com/MengLeZhang/wardenProject2021.
+
+**Intervention**
+
+We wish to test if social frontiers produced by the Dean et al. routine are more plausible than those produced by an alternative algorithm such as sampling borders at random. Since the interview team chose the area selected for the qualitative interviews based on having social frontiers, a simple random selection of borders will contain many sharp borders by chance. Furthermore, the interview team has already seen a map of social frontiers, which will affect the possibility of having a double-blind.
+
+To address these issues, we designed an exercie that made it difficult for the interview team to detect the 'correct' map whilst also allowing inferences to be made.
+
+For borders in the target area, we calculate a measure of sharpness based on the absolute difference in the proportion of foreign-born in LSOAs on each side of the border (the true measure is more complicated @deanFrontiersResidentialSegregation2019). We then standardise this measure and denote it as $\Phi$ where large values indicate sharper boundaries. $\Phi$ is the basis of Dean et al.'s algorithm: any border with a value of $\Phi > 1.96$ was considered substantial and likely to be a social frontier.
+
+Then we group borders into tertiles and create three maps; where map A contains the sharpest set of borders (highest tertile), map B contains the middle tertile and Map C contains the lowest tertile. We then compare maps from each tertile against each other in pairs:
+
+- A and B (pair 1)
+- A and C (pair 2)
+- B and C (pair 3)
 
 
-## Assignment of maps
+For each pair, we measure the proportion of participants who prefer the map with the sharpest borders (i.e. map A in pair 1). If the algorithm produces meaningless borders (i.e. the null hypothesis) then the choice of preferred map will be random.
+
+We will check that all the maps are similar with respect attributes (e.g. total border lengths) to omit alternative explanations. The pair of interactive maps are synced so scrolling and moving Map A also moved the area viewed in Map B.
+
+The maps are created in R and exported as leaflet maps within html files. The code to recreate the maps are found at: https://github.com/MengLeZhang/wardenProject2021.
 
 **Allocation**
 All participants will be shown all three pairs of maps after an initial preliminary task. The order of maps and the sequence of pairs is chosen at random by the statistical software R.
 
 **Concealment mechanism and blinding**
-The order and sequence is saved onto a file and not shown to the any member of the research team until the data has been collected. This includes member of the data analysis team who will only access the sequencing information after an interview to check the automated routine has not failed. The interview team are blind to the order/sequence until all the data has been collected. The participants and the interview team were unaware of how the maps in the exercise have been generated.
+The order and sequence is saved onto a file and not shown to the any member of the research team until the data has been collected. The interview team was blind to the order/sequence until after data collection. The participants and the interview team were unaware of how the maps in the exercise have been generated.
 
 ## Outcomes
 The main outcome are the preferred maps chosen by each participant. This is recorded by the interview team along (with the entire semi-structured interview). Metadata about the exercise (e.g. how long participants spent on each task) was also recorded. Data about the random ordering of the exercise is automatically generated and saved using R.
