@@ -135,15 +135,9 @@ The validation exercise was created as an add-on to a longer qualitative intervi
 
 ## Data collection and statistical analysis
 
-_Collection and management_: Trial results data were the interview team (AP, ZR) and entered into a spreadsheet. The interview team checked a subset of results against the interview recordings for accuracy. We plan to collect basic demographic information on participants in the residents interview [@Aneta did we?].
+_Collection and management_: Trial results data were the interview team (AP, ZR) and entered into a spreadsheet. The interview team checked a subset of results against the interview recordings for accuracy. We plan to collect basic demographic information on participants in the residents interview [!Aneta did we?].
 
-_Statistical analysis_: There are three sets of map pairs comparing:
-
-- A and B (pair 1)
-- A and C (pair 2)
-- B and C (pair 1)
-
-For each pair, we measure the agreement rate: proportion of participants who prefer the map with the sharpest borders. We wil refer this rate as $P_j$ where $j$ denotes map pairing. We calculate $Z_j$ where $Z_j =  P_{j} - 0.5$. Under the null hypothesis, $Z_j$ will be approximately normally distributed with a mean of 0 and standard error of $\sqrt{0.25 / n}$ (given our sample size is large enough, n > 25). We use this distribution to calculate our $p$ values with $p < 0.05$ as our threshold for statistical significance. With our final sample, for each map pair, agreement rates higher than 69.6% (or lower than 30.4%) are statistically significant ($p < 0.05$). We can also calulate the overall agreement rate across all map pairs (i.e. mean of $Z_j$).
+_Statistical analysis_: There are three sets of map pairs. For each pair, we measure the agreement rate: proportion of participants who prefer the map with the sharpest borders. We wil refer this rate as $P_j$ where $j$ denotes map pairing. We calculate $Z_j$ where $Z_j =  P_{j} - 0.5$. Under the null hypothesis, $Z_j$ will be approximately normally distributed with a mean of 0 and standard error of $\sqrt{0.25 / n}$ (given our sample size is large enough, n > 25). We use this distribution to calculate our $p$ values with $p < 0.05$ as our threshold for statistical significance. With our final sample, for each map pair, agreement rates higher than 69.6% (or lower than 30.4%) are statistically significant ($p < 0.05$). We can also calulate the overall agreement rate across all map pairs (i.e. mean of $Z_j$).
 
 Missing data, including item non-response (e.g. skipping pairs), will be omitted. We will test the effect of item non-response by using partial identification to calculate the lower and upper bounds for the agreement rate (e.g. non-responders are always agree or disagree).
 
@@ -276,3 +270,7 @@ p-value = 0.3837
 
 
 ````
+
+---
+
+# References

@@ -105,7 +105,15 @@ result_df <-
     start_time_pe,
     duration1
            )
- 
+
+
+# omit identifiers --------------------------------------------------------
+
+## mostly just date 
+result_df <- 
+  result_df %>%
+  select(-date)
+
 # save output -------------------------------------------------------------
 
 result_df %>%
