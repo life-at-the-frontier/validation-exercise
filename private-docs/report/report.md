@@ -107,7 +107,11 @@ To address these issues, we designed an exercie that made it difficult for the i
 
 For borders in the target area, we calculate a measure of sharpness based on the absolute difference in the proportion of foreign-born in LSOAs on each side of the border (the true measure is more complicated @deanFrontiersResidentialSegregation2019). We then standardise this measure and denote it as $\Phi$ where large values indicate sharper boundaries. $\Phi$ is the basis of Dean et al.'s algorithm: any border with a value of $\Phi > 1.96$ was considered substantial and likely to be a social frontier.
 
-Then we group borders into tertiles and create three maps; where map A contains the sharpest set of borders (highest tertile), map B contains the middle tertile and Map C contains the lowest tertile. We then compare maps from each tertile against each other in pairs:
+Then we group borders into tertiles and create three maps; where map A contains the sharpest set of borders (highest tertile), map B contains the middle tertile and Map C contains the lowest tertile. The maps are shown in figure [!XX].
+
+![](assets/fig-maps.png)
+
+ We then compare maps from each tertile against each other in pairs:
 
 - A and B (pair 1)
 - A and C (pair 2)
@@ -119,6 +123,7 @@ For each pair, we measure the proportion of participants who prefer the map with
 We will check that all the maps are similar with respect attributes (e.g. total border lengths) to omit alternative explanations. The pair of interactive maps are synced so scrolling and moving Map A also moved the area viewed in Map B.
 
 The maps are created in R and exported as leaflet maps within html files. The code to recreate the maps are found at: https://github.com/MengLeZhang/wardenProject2021.
+
 
 **Allocation**
 All participants will be shown all three pairs of maps after an initial preliminary task. The order of maps and the sequence of pairs is chosen at random by the statistical software R.
