@@ -53,11 +53,7 @@ firstLayer +
 ## Get LSOA data from somewhere else in the LATF 
 
 lsoa <- 
-  readRDS(url('https://github.com/life-at-the-frontier/detect-uk-frontiers/raw/main/output/lsoa%20layer.rds'))
-
-lsoa <-
-  lsoa %>%
-  filter(ttwa == 'Sheffield (2011)')
+  readRDS(url('https://github.com/life-at-the-frontier/detect-uk-frontiers/raw/main/output/sheffield%20lsoa%20layer.rds'))
 
 lsoa <-
   lsoa %>%
@@ -74,6 +70,7 @@ firstLayer +
     lsoa
   ) +
   tm_fill(col = 'Prop. Foreign born', style = 'cont',
+          alpha = 0.8,
            legend.is.portrait = T) +
   # tm_layout(legend.outside.position = "bottom",
   #           legend.outside.size = 0.35,
