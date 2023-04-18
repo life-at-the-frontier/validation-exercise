@@ -208,6 +208,83 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>
+window.initializeCodeFolding = function(show) {
+
+  // handlers for show-all and hide all
+  $("#rmd-show-all-code").click(function() {
+    $('div.r-code-collapse').each(function() {
+      $(this).collapse('show');
+    });
+  });
+  $("#rmd-hide-all-code").click(function() {
+    $('div.r-code-collapse').each(function() {
+      $(this).collapse('hide');
+    });
+  });
+
+  // index for unique code element ids
+  var currentIndex = 1;
+
+  // select all R code blocks
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia, pre.foldable');
+  rCodeBlocks.each(function() {
+    // skip if the block has fold-none class
+    if ($(this).hasClass('fold-none')) return;
+
+    // create a collapsable div to wrap the code in
+    var div = $('<div class="collapse r-code-collapse"></div>');
+    var showThis = (show || $(this).hasClass('fold-show')) && !$(this).hasClass('fold-hide');
+    var id = 'rcode-643E0F36' + currentIndex++;
+    div.attr('id', id);
+    $(this).before(div);
+    $(this).detach().appendTo(div);
+
+    // add a show code button right above
+    var showCodeText = $('<span>' + (showThis ? 'Hide' : 'Code') + '</span>');
+    var showCodeButton = $('<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm code-folding-btn pull-right float-right"></button>');
+    showCodeButton.append(showCodeText);
+    showCodeButton
+        .attr('data-toggle', 'collapse')
+        .attr('data-bs-toggle', 'collapse') // BS5
+        .attr('data-target', '#' + id)
+        .attr('data-bs-target', '#' + id)   // BS5
+        .attr('aria-expanded', showThis)
+        .attr('aria-controls', id);
+
+    var buttonRow = $('<div class="row"></div>');
+    var buttonCol = $('<div class="col-md-12"></div>');
+
+    buttonCol.append(showCodeButton);
+    buttonRow.append(buttonCol);
+
+    div.before(buttonRow);
+
+    // show the div if necessary
+    if (showThis) div.collapse('show');
+
+    // update state of button on show/hide
+    //   * Change text
+    //   * add a class for intermediate states styling
+    div.on('hide.bs.collapse', function () {
+      showCodeText.text('Code');
+      showCodeButton.addClass('btn-collapsing');
+    });
+    div.on('hidden.bs.collapse', function () {
+      showCodeButton.removeClass('btn-collapsing');
+    });
+    div.on('show.bs.collapse', function () {
+      showCodeText.text('Hide');
+      showCodeButton.addClass('btn-expanding');
+    });
+    div.on('shown.bs.collapse', function () {
+      showCodeButton.removeClass('btn-expanding');
+    });
+
+  });
+
+}
+</script>
 <style type="text/css">.hljs-literal {
 color: #990073;
 }
@@ -555,6 +632,9 @@ display: none;
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -571,6 +651,14 @@ display: none;
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Analysis report book</h1>
@@ -579,10 +667,125 @@ display: none;
 </div>
 
 
-<div id="view-results-data" class="section level2">
-<h2>View results data</h2>
-<p>The results data are kept in table. Each row corresponds to one map
-pair:</p>
+<p>Note: This report was generated in R markdown</p>
+<div id="map-data" class="section level1">
+<h1>Map data</h1>
+<pre class="r"><code># input -------------------------------------------------------------------
+
+mapdataList &lt;- readRDS(&#39;cleaned data/01 data for trial maps.rds&#39;)
+
+# data wrangling ----------------------------------------------------------
+
+mapdata &lt;- bind_rows(
+  a = mapdataList$a,
+  b = mapdataList$b,
+  c = mapdataList$c,
+  .id = &#39;map&#39;
+)</code></pre>
+<pre class="r"><code># summaries ---------------------------------------------------------------
+
+
+# other stats
+mapdata %&gt;% 
+  as.data.frame() %&gt;%
+  group_by(map) %&gt;%
+  select(std_diff_phi:length, -xtile_rel) %&gt;%
+  summarise_if( 
+    is.numeric, 
+    list(mean = mean) 
+#         `min/ max` = function(x){paste(min(x), &#39;/&#39; , max(x))})
+  ) %&gt;%
+  table_me(
+    digits = 2,
+    col.name = c(&#39;map&#39;, &#39;mean phi (steepness, standardised)&#39;, &#39;mean rank of steepness (compared to region)&#39;, &#39;mean line length&#39;),
+    caption = &#39;Summary of border line characteristics (a = steepest map)&#39;
+    )</code></pre>
+<pre><code>## Adding missing grouping variables: `map`</code></pre>
+<table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Summary of border line characteristics (a = steepest map)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+map
+</th>
+<th style="text-align:right;">
+mean phi (steepness, standardised)
+</th>
+<th style="text-align:right;">
+mean rank of steepness (compared to region)
+</th>
+<th style="text-align:right;">
+mean line length
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+a
+</td>
+<td style="text-align:right;">
+3.01
+</td>
+<td style="text-align:right;">
+97.42
+</td>
+<td style="text-align:right;">
+726.7215 [m]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+b
+</td>
+<td style="text-align:right;">
+1.21
+</td>
+<td style="text-align:right;">
+78.75
+</td>
+<td style="text-align:right;">
+627.9631 [m]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:right;">
+0.20
+</td>
+<td style="text-align:right;">
+28.36
+</td>
+<td style="text-align:right;">
+662.6201 [m]
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>## Rank is their rank in the entire Sheffield and Rotherham area</code></pre>
+</div>
+<div id="results-data" class="section level1">
+<h1>Results data</h1>
+<pre class="r"><code># read the data -----------------------------------------------
+
+result_df &lt;-
+  read_csv(&#39;cleaned data/makeFile03 cleaned experiment data.csv&#39;)
+
+
+# 0. omit cases where the respondent did not pass initial prelim exercise
+noPrelim &lt;- c(&#39;RES_UK_R_23&#39;)
+
+result_df &lt;-
+  result_df %&gt;%
+  filter(
+    !(interview_id %in% noPrelim)
+    )</code></pre>
+<p>The results data are kept in a csv table. Each row corresponds to one
+map pair:</p>
 <ul>
 <li>interview_id = id of the participant</li>
 <li>chronological_id = id number in chronological order (1 = earliest
@@ -604,6 +807,13 @@ preliminary task)</li>
 <li>mode = whether interview was conducted face-to-face, online or via
 other means</li>
 </ul>
+<pre class="r"><code>result_df %&gt;% 
+  select(interview_id, chronological_id, seenOrder, 
+         realPair, result, mapA_position, duration1, interviewer, mode) %&gt;%
+  head(9) %&gt;%
+  table_me(
+    caption = &#39;Results example table&#39;
+  )</code></pre>
 <table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Results example table
@@ -906,6 +1116,41 @@ online
 </div>
 <div id="agreement-rate" class="section level1">
 <h1>Agreement rate</h1>
+<pre class="r"><code># 1. analysis -------------------------------------------------------------
+
+## Estimate the the aggrement rate 
+
+nCases &lt;- result_df$interview_id %&gt;% unique %&gt;% length ## number of participants
+
+## Calculate the pvalue from a binomial dist with prob = 50% 
+pVal_binom &lt;-
+  function(nSuccess, nTrials){
+    1 - 2 * abs(0.5 - pbinom(nSuccess, nTrials, prob = 0.5))
+    }
+
+agreement_df &lt;-
+  result_df %&gt;%
+  mutate(`Map Pair` = realPair) %&gt;%
+  group_by(`Map Pair`) %&gt;%
+  summarise(
+    n = n(),
+    `n. agreed` = sum(mapA_position == result),
+    `agreement rate` = `n. agreed` / n 
+    )
+
+agreement_df &lt;-
+  agreement_df %&gt;%
+  mutate(
+    se = sqrt(0.25/ n), 
+#    p.value = 2 * ( 1 - abs(agreeRate - 0.5) %&gt;% pnorm(sd = se) ), #based on the normal distribution
+    `p value` = pVal_binom(`n. agreed`, n) #based on the actual binomial dist 
+    )
+
+agreement_df %&gt;% 
+  table_me(
+    caption = &#39;Table of agreement rates&#39;,
+    digits = 4
+  )</code></pre>
 <table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Table of agreement rates
@@ -1005,6 +1250,26 @@ Map pairs legend:</li>
 </ul>
 <div id="sequencing-effects" class="section level2">
 <h2>Sequencing effects</h2>
+<pre class="r"><code># 2. check other stats -------------------------------------------------------
+
+## seenorder = 
+
+## sequence 
+sequence_df &lt;-
+  result_df %&gt;%
+  group_by(seenOrder) %&gt;%
+  summarise(
+    agreeN = sum(mapA_position == result),
+    disagreeN = sum(mapA_position != result),
+    agreeRate = agreeN / (agreeN +  disagreeN)
+  )
+
+
+sequence_df %&gt;% 
+  table_me(
+    caption = &#39;Agreement rate by sequence&#39;,
+    digits = 4
+  )  ## i.e. does right answers change with the seen order (i.e. do we get higher agreement on the first maps seen)</code></pre>
 <table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Agreement rate by sequence
@@ -1074,6 +1339,9 @@ agreeRate
 first, second and third. We can use a Fischer exact test to check if the
 agreement rate differs (not significant). We find no evidence of any
 sequencing effects.</p>
+<pre class="r"><code> sequence_df %&gt;%
+  select(agreeN, disagreeN) %&gt;%
+  fisher.test() </code></pre>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 
@@ -1083,6 +1351,14 @@ sequencing effects.</p>
 </div>
 <div id="order" class="section level2">
 <h2>Order</h2>
+<pre class="r"><code>## order -------------------------------------------
+
+result_df$mapA_position %&gt;% 
+  table %&gt;% 
+  table_me(
+    col.names = c(&#39;Side (1 = left, 2 = right)&#39;, &#39;Freq&#39;),
+    caption = &#39;Side of steeper map&#39;
+  ) ## half the time the right map was on lhs</code></pre>
 <table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Side of steeper map
@@ -1116,6 +1392,22 @@ Freq
 </tr>
 </tbody>
 </table>
+<pre class="r"><code>## the data is random with respect to order 
+order_df &lt;- 
+  result_df %&gt;%
+  group_by(mapA_position) %&gt;%
+  summarise(
+    agreeN = sum(result == mapA_position),
+    disagreeN = sum(result != mapA_position),
+    agreeRate = agreeN / (agreeN + disagreeN)
+    )## pretty much 50 - 50
+##
+order_df %&gt;%
+  table_me(
+    col.names = c(&#39;side&#39;, &#39;n agree&#39;, &#39;n disagree&#39;, &#39;agreement rate&#39;),
+    caption = &#39;Agreement by order (i.e. whether steeper map is left or right) (1 = left, 2 = right)&#39;,
+    digits = 3
+  )</code></pre>
 <table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Agreement by order (i.e. whether steeper map is left or right) (1 =
@@ -1173,6 +1465,9 @@ likely to be on the left side and 2) whether the side affects agreement
 rates. The Fischer exact tests the null hypothesis that there is no
 difference in agreement rates (not statistically significant). We find
 no evidence of any ordering effects.</p>
+<pre class="r"><code>order_df %&gt;%
+  select(agreeN, disagreeN) %&gt;%
+  fisher.test()</code></pre>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 
@@ -1191,6 +1486,29 @@ no evidence of any ordering effects.</p>
 in half with one half consisting of the earliest interviews. We check
 whether the agreement rate differs across the two halves. We find no
 evidence of any changes in agreement rate over time.</p>
+<pre class="r"><code>## aggreement over time ----------------------------------------
+## split the data into two halves 
+
+timing_df &lt;-
+  result_df %&gt;%
+  mutate(
+    splitTime = cut(chronological_id, 2)
+    ) %&gt;%
+  group_by(splitTime) %&gt;%
+  summarise(
+    agreeN = sum(mapA_position == result),
+    disagreeN = sum(mapA_position != result),
+    agreeRate = agreeN / (agreeN + disagreeN)
+  )
+
+timing_df %&gt;%
+  mutate(time = c(&#39;Earliest&#39;, &#39;Later&#39;)) %&gt;%
+  select(time, agreeN:agreeRate) %&gt;%
+  table_me(
+    caption = &#39;Agreement rate over time&#39;,
+    col.names = c(&#39;Timing&#39;, &#39;n agree&#39;, &#39;n disagree&#39;, &#39;agree rate&#39;),
+    digits = 4
+    )</code></pre>
 <table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Agreement rate over time
@@ -1242,6 +1560,9 @@ Later
 </tr>
 </tbody>
 </table>
+<pre class="r"><code>timing_df %&gt;% 
+  select(agreeN, disagreeN) %&gt;%
+  fisher.test()</code></pre>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 
@@ -1253,6 +1574,8 @@ Later
 ## sample estimates:
 ## odds ratio 
 ##   1.984821</code></pre>
+<pre class="r"><code>## done. 
+## No changes in agreement over time</code></pre>
 </div>
 </div>
 
@@ -1289,6 +1612,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

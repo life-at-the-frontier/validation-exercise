@@ -1,34 +1,26 @@
 ---
 title: "Analysis report book"
-output: html_document
+output: 
+  html_document:
+    code_folding: hide
 date: "`r Sys.Date()`"
 ---
 
+Note: This report was generated in R markdown
+
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = F # default hgid source code
+  echo = T # default hgid source code
   )
 
 # input/output ------------------------------------------------------------
 
 library(tidyverse)
+library(sf)
 library(knitr)
 library(kableExtra)
-
-# read the data -----------------------------------------------
-
-result_df <-
-  read_csv('cleaned data/makeFile03 cleaned experiment data.csv')
-
-
-# 0. omit cases where the respondent did not pass initial prelim exercise -----
-noPrelim <- c('RES_UK_R_23')
-
-result_df <-
-  result_df %>%
-  filter(
-    !(interview_id %in% noPrelim)
-    )
 
 
 ### make a function for our tables -------------------------------------
@@ -40,10 +32,68 @@ table_me <-
 
 ```
 
+# Map data 
 
-## View results data 
+```{r message = F}
+# input -------------------------------------------------------------------
 
-The results data are kept in table. Each row corresponds to one map pair:
+mapdataList <- readRDS('cleaned data/01 data for trial maps.rds')
+
+# data wrangling ----------------------------------------------------------
+
+mapdata <- bind_rows(
+  a = mapdataList$a,
+  b = mapdataList$b,
+  c = mapdataList$c,
+  .id = 'map'
+)
+```
+
+```{r}
+# summaries ---------------------------------------------------------------
+
+
+# other stats
+mapdata %>% 
+  as.data.frame() %>%
+  group_by(map) %>%
+  select(std_diff_phi:length, -xtile_rel) %>%
+  summarise_if( 
+    is.numeric, 
+    list(mean = mean) 
+#         `min/ max` = function(x){paste(min(x), '/' , max(x))})
+  ) %>%
+  table_me(
+    digits = 2,
+    col.name = c('map', 'mean phi (steepness, standardised)', 'mean rank of steepness (compared to region)', 'mean line length'),
+    caption = 'Summary of border line characteristics (a = steepest map)'
+    )
+
+## Rank is their rank in the entire Sheffield and Rotherham area
+```
+
+
+
+# Results data 
+
+```{r message=F}
+# read the data -----------------------------------------------
+
+result_df <-
+  read_csv('cleaned data/makeFile03 cleaned experiment data.csv')
+
+
+# 0. omit cases where the respondent did not pass initial prelim exercise
+noPrelim <- c('RES_UK_R_23')
+
+result_df <-
+  result_df %>%
+  filter(
+    !(interview_id %in% noPrelim)
+    )
+```
+
+The results data are kept in a csv table. Each row corresponds to one map pair:
 
 - interview_id = id of the participant 
 - chronological_id = id number in chronological order (1 = earliest interview)
@@ -57,6 +107,8 @@ The results data are kept in table. Each row corresponds to one map pair:
 - duration1 = time in seconds taken to complete exercise (including preliminary task)
 - interviewer = interview
 - mode = whether interview was conducted face-to-face, online or via other means
+
+
 
 
 ```{r}
