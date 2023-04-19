@@ -1,5 +1,5 @@
 ---
-title: "Analysis report book"
+title: "Supplement S2: Results notebook"
 output: 
   html_document:
     code_folding: hide
@@ -8,7 +8,7 @@ date: "`r Sys.Date()`"
 
 Note: This report was generated in R markdown
 
-
+# R code for setting up notebook
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
