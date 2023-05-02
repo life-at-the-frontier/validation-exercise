@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2023-04-19" />
+<meta name="date" content="2023-05-02" />
 
 <title>Supplement S2: Results notebook</title>
 
@@ -662,7 +662,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">Supplement S2: Results notebook</h1>
-<h4 class="date">2023-04-19</h4>
+<h4 class="date">2023-05-02</h4>
 
 </div>
 
@@ -770,6 +770,344 @@ c
 </tbody>
 </table>
 <pre class="r"><code>## Rank is their rank in the entire Sheffield and Rotherham area</code></pre>
+</div>
+<div id="participant-data" class="section level1">
+<h1>Participant data</h1>
+<pre class="r"><code>participant_df &lt;-
+  read_csv(&#39;cleaned data/participant info.csv&#39;)</code></pre>
+<pre><code>## Rows: 23 Columns: 6
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (6): Interview code, Gender, Age group, Ethnic background, How long live...
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code># 0. omit cases where the respondent did not pass initial prelim exercise
+noPrelim &lt;- c(&#39;RES_UK_R_23&#39;)
+
+participant_df &lt;- 
+  participant_df %&gt;%
+  filter(
+    !(`Interview code`%in% noPrelim)
+  )
+
+## pivot to long form then get summaries of counts
+
+participant_df &lt;-
+  participant_df %&gt;%
+  pivot_longer(-`Interview code`) 
+
+participant_df %&gt;%
+  group_by(name, value) %&gt;%
+  summarise(
+    n = n()
+  ) %&gt;%
+  table_me()</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;name&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:left;">
+value
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Age group
+</td>
+<td style="text-align:left;">
+18 - 29
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age group
+</td>
+<td style="text-align:left;">
+30 - 39
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age group
+</td>
+<td style="text-align:left;">
+40 - 49
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age group
+</td>
+<td style="text-align:left;">
+50 - 59
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age group
+</td>
+<td style="text-align:left;">
+60 +
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ethnic background
+</td>
+<td style="text-align:left;">
+Non-white
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ethnic background
+</td>
+<td style="text-align:left;">
+White
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gender
+</td>
+<td style="text-align:left;">
+Man
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gender
+</td>
+<td style="text-align:left;">
+Woman
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (bands)
+</td>
+<td style="text-align:left;">
+1 - 9
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (bands)
+</td>
+<td style="text-align:left;">
+10 - 19
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (bands)
+</td>
+<td style="text-align:left;">
+20 +
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (bands)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+15 years
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+2 years
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+2008-2018
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+27 years
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+40 years
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+5 years
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+6 years
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+7 years
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+Most of her life
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+Since 3yo
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+Since early age
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+Whole life
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+How long lived in the area (raw)
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="results-data" class="section level1">
 <h1>Results data</h1>

@@ -72,7 +72,37 @@ mapdata %>%
 ## Rank is their rank in the entire Sheffield and Rotherham area
 ```
 
+# Participant data 
 
+
+```{r}
+participant_df <-
+  read_csv('cleaned data/participant info.csv')
+
+
+# 0. omit cases where the respondent did not pass initial prelim exercise
+noPrelim <- c('RES_UK_R_23')
+
+participant_df <- 
+  participant_df %>%
+  filter(
+    !(`Interview code`%in% noPrelim)
+  )
+
+## pivot to long form then get summaries of counts
+
+participant_df <-
+  participant_df %>%
+  pivot_longer(-`Interview code`) 
+
+participant_df %>%
+  group_by(name, value) %>%
+  summarise(
+    n = n()
+  ) %>%
+  table_me()
+
+```
 
 # Results data 
 
