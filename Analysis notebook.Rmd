@@ -143,8 +143,6 @@ The results data are kept in a csv table. Each row corresponds to one map pair:
 
 ```{r}
 result_df %>% 
-  select(interview_id, chronological_id, seenOrder, 
-         realPair, result, mapA_position, duration1, interviewer, mode) %>%
   head(9) %>%
   table_me(
     caption = 'Results example table'

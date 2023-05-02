@@ -114,6 +114,16 @@ result_df <-
   result_df %>%
   select(-date)
 
+## select only relevant areas for storing
+
+result_df <-
+  result_df %>%
+  select(
+    interview_id, chronological_id, seenOrder, realPair,
+    result, mapA_position, interviewer,
+    mode
+  )
+
 # save output -------------------------------------------------------------
 
 result_df %>%

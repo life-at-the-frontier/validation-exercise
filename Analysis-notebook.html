@@ -1149,8 +1149,6 @@ preliminary task)</li>
 other means</li>
 </ul>
 <pre class="r"><code>result_df %&gt;% 
-  select(interview_id, chronological_id, seenOrder, 
-         realPair, result, mapA_position, duration1, interviewer, mode) %&gt;%
   head(9) %&gt;%
   table_me(
     caption = &#39;Results example table&#39;
@@ -1178,9 +1176,6 @@ result
 </th>
 <th style="text-align:right;">
 mapA_position
-</th>
-<th style="text-align:right;">
-duration1
 </th>
 <th style="text-align:left;">
 interviewer
@@ -1210,9 +1205,6 @@ EXP_UK_R_01
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:right;">
-350
-</td>
 <td style="text-align:left;">
 Aneta
 </td>
@@ -1239,9 +1231,6 @@ EXP_UK_R_01
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:right;">
-350
-</td>
 <td style="text-align:left;">
 Aneta
 </td>
@@ -1268,9 +1257,6 @@ EXP_UK_R_01
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:right;">
-350
-</td>
 <td style="text-align:left;">
 Aneta
 </td>
@@ -1296,9 +1282,6 @@ EXP_UK_R_02
 </td>
 <td style="text-align:right;">
 1
-</td>
-<td style="text-align:right;">
-798
 </td>
 <td style="text-align:left;">
 Aneta
@@ -1325,9 +1308,6 @@ EXP_UK_R_02
 </td>
 <td style="text-align:right;">
 2
-</td>
-<td style="text-align:right;">
-798
 </td>
 <td style="text-align:left;">
 Aneta
@@ -1355,9 +1335,6 @@ EXP_UK_R_02
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:right;">
-798
-</td>
 <td style="text-align:left;">
 Aneta
 </td>
@@ -1384,9 +1361,6 @@ EXP_UK_R_03
 <td style="text-align:right;">
 2
 </td>
-<td style="text-align:right;">
-559
-</td>
 <td style="text-align:left;">
 Aneta
 </td>
@@ -1413,9 +1387,6 @@ EXP_UK_R_03
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:right;">
-559
-</td>
 <td style="text-align:left;">
 Aneta
 </td>
@@ -1441,9 +1412,6 @@ EXP_UK_R_03
 </td>
 <td style="text-align:right;">
 2
-</td>
-<td style="text-align:right;">
-559
 </td>
 <td style="text-align:left;">
 Aneta
