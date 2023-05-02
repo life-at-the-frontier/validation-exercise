@@ -1,0 +1,321 @@
+---
+title: "Supplement S2: Results notebook"
+output: 
+  html_document:
+    code_folding: hide
+date: "`r Sys.Date()`"
+---
+
+Note: This report was generated in R markdown
+
+# R code for setting up notebook
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = T # default hgid source code
+  )
+
+# input/output ------------------------------------------------------------
+
+library(tidyverse)
+library(sf)
+library(knitr)
+library(kableExtra)
+
+
+### make a function for our tables -------------------------------------
+table_me <-
+  function(...){
+      kable(...) %>%
+      kable_classic(c("striped", "hover"), full_width = F)
+  }
+
+```
+
+# Map data 
+
+```{r message = F}
+# input -------------------------------------------------------------------
+
+mapdataList <- readRDS('cleaned data/01 data for trial maps.rds')
+
+# data wrangling ----------------------------------------------------------
+
+mapdata <- bind_rows(
+  a = mapdataList$a,
+  b = mapdataList$b,
+  c = mapdataList$c,
+  .id = 'map'
+)
+```
+
+```{r}
+# summaries ---------------------------------------------------------------
+
+
+# other stats
+mapdata %>% 
+  as.data.frame() %>%
+  group_by(map) %>%
+  select(std_diff_phi:length, -xtile_rel) %>%
+  summarise_if( 
+    is.numeric, 
+    list(mean = mean) 
+#         `min/ max` = function(x){paste(min(x), '/' , max(x))})
+  ) %>%
+  table_me(
+    digits = 2,
+    col.name = c('map', 'mean phi (steepness, standardised)', 'mean rank of steepness (compared to region)', 'mean line length'),
+    caption = 'Summary of border line characteristics (a = steepest map)'
+    )
+
+## Rank is their rank in the entire Sheffield and Rotherham area
+```
+
+# Participant data 
+
+
+```{r}
+participant_df <-
+  read_csv('cleaned data/participant info.csv')
+
+
+# 0. omit cases where the respondent did not pass initial prelim exercise
+noPrelim <- c('RES_UK_R_23')
+
+participant_df <- 
+  participant_df %>%
+  filter(
+    !(`Interview code`%in% noPrelim)
+  )
+
+## pivot to long form then get summaries of counts
+
+participant_df <-
+  participant_df %>%
+  pivot_longer(-`Interview code`) 
+
+participant_df %>%
+  group_by(name, value) %>%
+  summarise(
+    n = n()
+  ) %>%
+  table_me()
+
+```
+
+# Results data 
+
+```{r message=F}
+# read the data -----------------------------------------------
+
+result_df <-
+  read_csv('cleaned data/makeFile03 cleaned experiment data.csv')
+
+
+# 0. omit cases where the respondent did not pass initial prelim exercise
+noPrelim <- c('RES_UK_R_23')
+
+result_df <-
+  result_df %>%
+  filter(
+    !(interview_id %in% noPrelim)
+    )
+```
+
+The results data are kept in a csv table. Each row corresponds to one map pair:
+
+- interview_id = id of the participant 
+- chronological_id = id number in chronological order (1 = earliest interview)
+- seenOrder = denotes whether a map pair was shown 1st, 2nd or 3rd
+- realPair = denotes which pair of maps was shown
+  - 1: A vs B
+  - 2: A vs C 
+  - 3: B vs C
+- result = which map did participants pick (1 = left, 2 = right)
+- mapA_position = which map had the steepest borders (1 = left, 2 = right)
+- duration1 = time in seconds taken to complete exercise (including preliminary task)
+- interviewer = interview
+- mode = whether interview was conducted face-to-face, online or via other means
+
+
+
+
+```{r}
+result_df %>% 
+  head(9) %>%
+  table_me(
+    caption = 'Results example table'
+  )
+```
+
+# Agreement rate
+
+```{r, results = 'asis'}
+
+
+# 1. analysis -------------------------------------------------------------
+
+## Estimate the the aggrement rate 
+
+nCases <- result_df$interview_id %>% unique %>% length ## number of participants
+
+## Calculate the pvalue from a binomial dist with prob = 50% 
+pVal_binom <-
+  function(nSuccess, nTrials){
+    1 - 2 * abs(0.5 - pbinom(nSuccess, nTrials, prob = 0.5))
+    }
+
+agreement_df <-
+  result_df %>%
+  mutate(`Map Pair` = realPair) %>%
+  group_by(`Map Pair`) %>%
+  summarise(
+    n = n(),
+    `n. agreed` = sum(mapA_position == result),
+    `agreement rate` = `n. agreed` / n 
+    )
+
+agreement_df <-
+  agreement_df %>%
+  mutate(
+    se = sqrt(0.25/ n), 
+#    p.value = 2 * ( 1 - abs(agreeRate - 0.5) %>% pnorm(sd = se) ), #based on the normal distribution
+    `p value` = pVal_binom(`n. agreed`, n) #based on the actual binomial dist 
+    )
+
+agreement_df %>% 
+  table_me(
+    caption = 'Table of agreement rates',
+    digits = 4
+  )
+```
+Map pairs legend:
+
+  - 1: A vs B
+  - 2: A vs C 
+  - 3: B vs C
+
+## Sequencing effects
+
+```{r}
+
+# 2. check other stats -------------------------------------------------------
+
+## seenorder = 
+
+## sequence 
+sequence_df <-
+  result_df %>%
+  group_by(seenOrder) %>%
+  summarise(
+    agreeN = sum(mapA_position == result),
+    disagreeN = sum(mapA_position != result),
+    agreeRate = agreeN / (agreeN +  disagreeN)
+  )
+
+
+sequence_df %>% 
+  table_me(
+    caption = 'Agreement rate by sequence',
+    digits = 4
+  )  ## i.e. does right answers change with the seen order (i.e. do we get higher agreement on the first maps seen)
+
+```
+The above table shows the agreement rates maps pairs that are seen first, second and third. We can use a Fischer exact test to check if the agreement rate differs (not significant). We find no evidence of any sequencing effects. 
+
+```{r}
+ sequence_df %>%
+  select(agreeN, disagreeN) %>%
+  fisher.test() 
+
+
+```
+
+
+
+## Order
+
+
+```{r}
+## order -------------------------------------------
+
+result_df$mapA_position %>% 
+  table %>% 
+  table_me(
+    col.names = c('Side (1 = left, 2 = right)', 'Freq'),
+    caption = 'Side of steeper map'
+  ) ## half the time the right map was on lhs
+
+```
+
+```{r}
+## the data is random with respect to order 
+order_df <- 
+  result_df %>%
+  group_by(mapA_position) %>%
+  summarise(
+    agreeN = sum(result == mapA_position),
+    disagreeN = sum(result != mapA_position),
+    agreeRate = agreeN / (agreeN + disagreeN)
+    )## pretty much 50 - 50
+##
+order_df %>%
+  table_me(
+    col.names = c('side', 'n agree', 'n disagree', 'agreement rate'),
+    caption = 'Agreement by order (i.e. whether steeper map is left or right) (1 = left, 2 = right)',
+    digits = 3
+  )
+
+
+```
+The above tables check 1) whether the steeper map was more or less likely to be on the left side and 2) whether the side affects agreement rates. The Fischer exact tests the null hypothesis that there is no difference in agreement rates (not statistically significant). We find no evidence of any ordering effects.
+
+```{r}
+order_df %>%
+  select(agreeN, disagreeN) %>%
+  fisher.test()
+```
+
+
+## Agreement over time 
+
+To check whether agreement rates rise over time, we split the sample in half with one half consisting of the earliest interviews. We check whether the agreement rate differs across the two halves. We find no evidence of any changes in agreement rate over time.
+
+```{r}
+## aggreement over time ----------------------------------------
+## split the data into two halves 
+
+timing_df <-
+  result_df %>%
+  mutate(
+    splitTime = cut(chronological_id, 2)
+    ) %>%
+  group_by(splitTime) %>%
+  summarise(
+    agreeN = sum(mapA_position == result),
+    disagreeN = sum(mapA_position != result),
+    agreeRate = agreeN / (agreeN + disagreeN)
+  )
+
+timing_df %>%
+  mutate(time = c('Earliest', 'Later')) %>%
+  select(time, agreeN:agreeRate) %>%
+  table_me(
+    caption = 'Agreement rate over time',
+    col.names = c('Timing', 'n agree', 'n disagree', 'agree rate'),
+    digits = 4
+    )
+
+```
+
+```{r}
+timing_df %>% 
+  select(agreeN, disagreeN) %>%
+  fisher.test()
+
+## done. 
+## No changes in agreement over time
+
+```
+

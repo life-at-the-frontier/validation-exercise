@@ -5,8 +5,6 @@
 
 mapdataList <- readRDS('cleaned data/01 data for trial maps.rds')
 
-
-
 # data wrangling ----------------------------------------------------------
 
 mapdata <- bind_rows(
@@ -15,7 +13,6 @@ mapdata <- bind_rows(
   c = mapdataList$c,
   .id = 'map'
 )
-?bind_rows
 
 # summaries ---------------------------------------------------------------
 
@@ -38,6 +35,7 @@ mapdata %>%
 ## Rank is their rank in the entire Sheffield and Rotherham area
 
 ## Graphs
+## note: densities for rank and std_phi shouldn't overlap in reality 
 mapdata %>% 
   as.data.frame() %>%
   ggplot(aes(x = rank)) +
@@ -62,16 +60,3 @@ mapdata %>%
     alpha = 0.2
   )
 
-mapdata %>% 
-  as.data.frame() %>%
-  ggplot(aes(x = length)) +
-  geom_density(
-    aes(group = map, fill = map),
-    alpha = 0.2
-  )
-
-
-# interactive map ---------------------------------------------------------
-tmap_mode('view')
-qtm(mapdata, lines.col = 'map')
-## There is honestly no goo

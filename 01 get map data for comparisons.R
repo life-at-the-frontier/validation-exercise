@@ -77,9 +77,9 @@ centrePoint %>% qtm
 
 rel_borders <-
   cityBorders %>%
+  st_transform(crs = st_crs(useCRS)) %>%
   st_intersection(centrePoint)
 
-rel_borders 
 # create xtile group based on std_diff_phi 
 ##  See ntile for making quartiles, thirds etc
 rel_borders <-
