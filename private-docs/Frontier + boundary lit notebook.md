@@ -4,8 +4,48 @@ Lit review method:
 	 - legewie 
 	 - dean et al 
 - follow key references 
-- use research rabbit
+	- [x] legewie and schaffer 2016
+		- [x] No validations
+	- [x] kim and hipp 2021 
+		- [ ] Another [edge paper](https://www.semanticscholar.org/paper/The-edge-effect%3A-Exploring-high-crime-zones-near-Song-Spicer/6d120cb1e0c64b352f44a64bb714c54b3e469c16)
+		- [ ] https://www.semanticscholar.org/paper/Crime-on-the-edges%3A-patterns-of-crime-and-land-use-Song-Andresen/b7f8f0ac40d3acb16c78d9aa9aeb9af678e8a1b0
+	- [x] Logan et al  2011
+	- [ ] Dean et al 2019
+	- [x] legewie 2018
+		- [ ] checkcontest [edge paper](https://www.sciencedirect.com/science/article/abs/pii/S0264275123000720)
+
+- use cinected papers
 - check citations 
+
+
+/other edge stuff:
+~~[nightlight gradients](https://www.mdpi.com/2072-4292/11/17/1958)~~
+- [x] rory's [work](https://www.semanticscholar.org/paper/Defensible-Spaces-in-Philadelphia%3A-Exploring-Kramer/5e6a4cd0c7a71c9fe09107ad3c27c9d8921fb212)
+- [x] Ananat, Elizabeth Oltmans. 2011. “The Wrong  
+Side(s) of the Tracks: The Causal Effects of Ra-  
+cial Segregation on Urban Poverty and Inequal-  
+ity.” American Economic Journal: Applied Eco-  
+nomics 3(2): 34–6
+- [ ] Roberto, Elizabeth. 2015. “Spatial Boundaries and  
+the Local Context of Residential Segregation.”  
+Cornell University Library. Accessed July 25,  
+2016. http://arxiv.org/abs/1509.02574.
+- [ ] McCartan, Brown and Imai: https://arxiv.org/pdf/2110.14014.pdf
+[Grannis:](https://d1wqtxts1xzle7.cloudfront.net/34626518/T-Communities-libre.pdf?1409824462=&response-content-disposition=inline%3B+filename%3DT_Communities_Pedestrian_Street_Networks.pdf&Expires=1684165209&Signature=BpWUbeXuINnkrGZYnpnJEgohP4Gh9NtJ6m5XPZt02dADPe2ocAbkC1IUk9FJVVieiTitG~7VmVDWKBP0-anE9AP5dLCZr5kjnbvQUMC-kd0~O8PVX6Kt18njqLUgXuFC9bybOjHvIsFxJMIJDrGIfjoRAmAaEG7QINIqiNjmndfRoIelW53zJ1cmJn-EVtVJpqYmGiDaThXrFlS~201JdkH437gm4M1xf6CV1BIrWdCvNpUzEMeL3LXj-RiUfU2oRKiBBQCaXpw0SZFCYwn9Q75lCOFWwXXZN19HEhXaAIdLZP2iR5PcK14mcbY25V8YzlBcRCnUhe2q76yIiNwhuA__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA) 
+- [ ] https://www.semanticscholar.org/paper/Crime-on-the-edges%3A-patterns-of-crime-and-land-use-Song-Andresen/b7f8f0ac40d3acb16c78d9aa9aeb9af678e8a1b0
+- [ ] checkcontest [edge paper](https://www.sciencedirect.com/science/article/abs/pii/S0264275123000720)
+- [ ] a survey of approaches for identifying [neighbourhoods](https://files.osf.io/v1/resources/3frcz/providers/osfstorage/5c75b4b582a3950018cd7849?action=download&version=1&direct&format=pdf)
+
+- [ ] actual validation of [neighbourhood](https://epjds.epj.org/articles/epjdata/abs/2022/01/13688_2022_Article_374/13688_2022_Article_374.html)
+- [ ] another one [maybe](https://www.tandfonline.com/doi/full/10.1080/13658816.2023.2204347)
+
+Email from Prof Kim:
+
+> Dr. Zhang,
+> I don't have any further work or current on-going projects on this topic but here are two papers I can recommend:
+>-   Imai et al. (2023) - Measuring and Modeling Neighborhood ([https://arxiv.org/pdf/2110.14014.pdf](https://arxiv.org/pdf/2110.14014.pdf))  
+    -   Grannis (2005) - T-Communities: Pedestrian Street Networks and Residential Segregation in Chicago, Los Angeles, and New York ([https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6040.2005.00118.x](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6040.2005.00118.x))
+
 
 ----
 
@@ -22,13 +62,54 @@ Socially constructed implicityly assumes that these relations exist in actors. S
 
 Key questions: 
 - what are the definitions of border / social frontiers / research question
+	- A: Social boundaries are socially constructed areas between neighbourhoods (which itself can be hard to define concep [Logan et al 2011](Frontier%20+%20boundary%20lit%20notebook.md#Logan%20et%20al%202011). These can be sharp or fuzzy. Lots of it is based on ethnographic and qualitative studies on neighbourhoods [see Logan et al 2011](Frontier%20+%20boundary%20lit%20notebook.md#Logan%20et%20al%202011).
+
 - what's the theory of change (i.e. why do boundaries matter)
+	- A:  Mainly of interest to those interested in conflict and maybe crime [Neil and Legewie (2022)](Frontier%20+%20boundary%20lit%20notebook.md#Neil%20and%20Legewie%20(2022)). Ideas is that people perceive others in out-groups as threatening under certain circumstances. Threats leads to defense which leads to conflict. Similar in another vein, there is contest to establish power in certain neighbourhood [Legewie, Joscha, and Merlin Schaeffer. 2016.](Frontier%20+%20boundary%20lit%20notebook.md#Legewie,%20Joscha,%20and%20Merlin%20Schaeffer.%202016.) which leads to conflict and tension. 
+
 - what empirical method was used 
-	- was there any validation
+	- Areal wombling is the use of polygon data to establish border -- but there's different methods. The unit of interest are pairs of areas that are geographically adjacent (henceforth edges; also known as boundaries). For each edge, some type of Boundary Value (measure of sharpness) and boundaries are decided based on a cut-off threshold or absolute measure. 
+	- Hard edges = transitions are starker and usually higher boundary values (also referred to by sharpness)
+	- Wombling uses point data or interpolated data to calculate where frontier are. 
+	- The edge detection
+	- Validation: in almost all papers there are no human validation of the edges found. There is a similar issue in the neighbourhood detection literature (which is wider and longer-standing). Suggestions from [Logan et al 2011](Frontier%20+%20boundary%20lit%20notebook.md#Logan%20et%20al%202011) include fieldwork or using the location of other features (churchs) etc to corroborate.
+
 - what are the uses
+		- Boundary detection is used for other things like detecing cancer / epidemology [Lu and Carlin 2005](Frontier%20+%20boundary%20lit%20notebook.md#Lu%20and%20Carlin%202005)
+		- Use for detecting neighbourhood -- using ethnic neighbourhoods -- are related to violence/ crime and older literature on policing neighbourhood boundaries [Neil and Legewie (2022)](Frontier%20+%20boundary%20lit%20notebook.md#Neil%20and%20Legewie%20(2022))
 
 
-key papers + tables: 
+----
+
+# Other validation cases 
+
+Machine imaging validation:
+- https://link.springer.com/article/10.1186/s40644-019-0252-2
+- https://www.sciencedirect.com/science/article/pii/S1120179721000946
+
+Technically validation is used to improve models and set parameters? Testing is used as an unbiased way gauge accuracy
+
+idea of ground truth refers to objective way to gauge any algorithm
+
+
+Discrete choice experiment: https://eprints.whiterose.ac.uk/114018/9/Lancsaretal_Revisions.docxCC_clean130317.pdf
+
+----
+
+# Dean et al 2019 
+
+note: social frontiers = hard edges in the parlance of other places
+
+Their argument is that there is a dearth on info  on boundaries and what happens there:
+> Since then, Spielman and Logan (2013), Kramer (2017) and Legewie and Schaeffer (2016) all remark on deficiencies in existing research on segregation which ‘does not address what happens at places where groups border’ (Legewie & Schaeffer 2016, p. 131). -- p. 2
+
+Aim of the paper is to define a robust method of detecing hard edges 
+
+Their review:
+> Spielman and Logan (2013) use high-resolution population data to define neighbourhoods in 1,880 selected US cities by looking at the distribution of groups defined by ethnicity and class. Kramer (2017) uses a combination of GIS and kernel density analysis to locate frontiers, while Legewie and Schaeffer (2016) deploy edge detection algorithms borrowed from the image processing literature. Legewie and Schaeffer (2016, p. 125)
+
+Check this paper for lit review on wombling: 
+> algorithms for point-referenced or image data is provided in Jacquez et al. (2000)
 
 
 
@@ -58,9 +139,10 @@ Examples of boundaries:
 - Research on gang violence highlights that shared turf boundaries (Papachristos, Hureau, and Braga 2013) or boundary crossings (Radil, Flint, and Tita 2010) are an important predictor of violence. 
 - -Desmond and Valdez (2013) claim that neighborhoods at the edges of segregated black communities have particularly high frequencies of nuisance property citations because nonblack residents feel threatened by their black neighbors. 
 
-**theory of change**
+# **theory of change**
 
-Essentialy trying to explain why conflicts may occur at fuzzy boundaries 
+
+First reason: out-groups are perceived as threatening. 
 
 > As reviewed above, a common argument in the literature is that ethnoracial compositions have the potential to stir social tensions because out-group members are perceived as threatening.
 
@@ -70,7 +152,7 @@ From here it seems that it's given that resident can 'feel' which areas are part
 
 > Gould (2003) and others claim that polarized situations in which two equally sized opponents face each other are even more contentious than circumstances in which a majority defends its space against the in-migration of minorities. Here the ambiguity about social rank—that is, who is the dominating group—breeds conflict.
 
-Second reason is *defended neighbourhoods*:
+Second reason is indeterminate status of neighbours leads to competition:
 
 > The defended neighborhoods literature further suggests that residents of ethnically homogeneous areas develop exclusive community identities. Campbell et al. (2009) note how ethnoracial compositions inform people’s subjective construction of neighborhood boundaries correspondingly. Minorities’ in-migration to homogeneous areas contests these subjective boundaries and is consequently met by strong resistance to defend the integrity of the dominant group’s neighborhood community.
 
@@ -352,8 +434,118 @@ validation. (p. 14)
 
 
 
-Another article at operationalising neighbourhoods. Big issue is that social scientists are forced to treat administrative data unit as neighbourhoods (Dietz 2002)
+Another article at operationalising neighbourhoods and their boundaries. Big issue is that social scientists are forced to treat administrative data unit as neighbourhoods (Dietz 2002)
 
 > Since entering the social science lexicon in theearly twentieth century, neighborhood has been a con-tentious unit of analysis. McKenzie (1923, quoted byMatthews 2011, 41) noted that, “probably no otherterm is used so loosely or with such changing contentas the term neighborhood, and very few are more dif-ficult to define.” (p.67)
 
 Uses the 1880 data (used in Logan et al 2011)
+
+**What is a neighbourhood**
+
+For sociology it's defined here:
+> The use of neighborhoods as a unit of scientific analysis was advanced by the Chicago School of Sociology in the early twentieth century. The Chicago sociologists’ interest in neighborhoods was motivated by an interest in “the effect of position in both time and space upon human institutions and human behavior” (Park, Burgess, and McKenzie 1925, 64). P68
+
+note: obviously as a term in common parlance it's been around for much longer.
+
+Here's a thing from George: 
+> More recent discussions of neighborhoods converge on the notion that they have a spatial dimension, including a location and (possibly) boundaries. There is agreement that the spatial organization of cities is multidimensional. A neighborhood is a “bundle of spatially based attributes” (Galster 2001, 2012). Galster identified ten general categories of attributes, ranging from the built environment and demographic composition to political behavior, social networks, and residents’ place identities. He also suggested that these attributes might each vary in different spatial scales—at the extreme, one could imagine that the attributes all vary independently, so that the identification of neighborhoods along one attribute might look very different than the identification along another attribute.
+
+
+A quick review of methods but also useful to see that Lebel et al employ a mix of experts and analysis of features 
+> Shevky and Bell (1961) argued that local areas within the city could be delineated on the basis of indicators of just three dimensions: social rank, urbanization, and segregation. Following in the tradition of social area analysis and factorial ecology, Sampson, Raudenbush, and Earls (1997) used factor analysis to aggregate census tracts in Chicago into neighborhood clusters that are geographically contiguous and socially homogeneous with respect to race, ethnicity, social class, housing density, and family structure. **Health researchers Lebel, Pampalon, and Villeneuve (2007) offered a multiperspective approach to accomplish the same objective, including historical analysis (which streets appeared as boundaries between neighborhoods in historical documents), demographic analysis (mapping socioeconomic data), and expert perceptions (based on a committee of local experts equipped with historical and demographic information).**
+
+Interesting that the general usefulness of neighbourhoods is essentially predicated on people:
+
+> Regardless of the terminology that they use, many urban researchers concur that there is something essential about a geographically defined area, something about its composition, history, politics, or **social relations among residents—or even its effects on residents**—that makes it useful to think of it as a neighborhood. This is also our approach. (p. 69)
+
+note: Interestingly that other theoriest think that neighbourhoods as physical space is less relevant now due to transport and less saliency, or that neighbourhoods are ego-centric (i.e. they exist around people) (p.69)
+
+__validation__ 
+
+There actually exists some previous validation studies which offer evidence for an ego-centric neighbourhood: 
+
+> Field experiments by Coulton et al. (2001) found that most residents placed their own home at the center of their neighborhood. Survey research by Hunter (1974) reported that neighborhoods had “rolling” boundaries—people might agree on the name of their neighborhood, but those living near its edge tended to perceive it as extending further in that direction.
+
+
+**Method**: for this paper it's very hard to gauge their method
+
+-----
+
+# Olner et al (2023)
+
+> Olner, Dan, Gwilym Pryce, Maarten Van Ham, and Heleen Janssen. 2003. ‘The Conflicting Geographies of Social Frontiers: Exploring the Asymmetric Impacts of Social Frontiers on Household Mobility in Rotterdam’. _Environment and Planning B: Urban Analytics and City Science_.
+
+
+---------------
+
+# Kramer 2017
+
+> Rory Kramer. 2017. ‘Defensible Spaces in Philadelphia: Exploring Neighborhood Boundaries Through Spatial Analysis’. _RSF: The Russell Sage Foundation Journal of the Social Sciences_ 3(2):81. doi: [10.7758/rsf.2017.3.2.04](https://doi.org/10.7758/rsf.2017.3.2.04).
+
+
+Note: This mentions other boundary papers at the time: 
+
+> However, research on neighborhood boundary  
+making is practically nonexistent apart from a  
+few rare exceptions (Ananat 2011; Grannis  
+2005; Legewie and Schaeffer 2016; Roberto  
+2015),
+
+note: explin's Grannis's t-community as spaces of walkable streets 
+
+
+__method__ Rory Kramer uses a slope based approach that sounds a lot like wombling: 
+
+> This analysis can be understood as a slope-  
+based approach that focuses on the congruence  
+and accordance of a single externality, in this  
+case, racial segregation. Imagine a three di-  
+mensional map of a city. The x- and y-axes are  
+the same geographic latitude and longitude  
+coordinates as found on a traditional map and  
+**the z-axis is the measure of the externality of  
+interest, in this case the percentage of a given  
+race in that area.** Racial externality boundaries  
+would be those locations where that **z-axis  
+changes quickly, or, in other words, where its  
+slope in z-x or z-y space is quite steep.** Combin-  
+ing these literatures, this paper analyzes racial  
+segregation externalities in Philadelphia, iden-  
+tifies those that are stable over time and those  
+that are fleeting, and compares the two types  
+to theorize about the causes of long-lasting,  
+stable racial boundaries in Philadelphia. In the  
+section that follows, I discuss why Philadelphia  
+is a good case study for this project. (p. 84 )
+
+
+__Data__ 
+- raster data from 1990, 2000 and 2010 census summaries
+- kernal density 
+- looks at stable slopes over time 
+- use non-eucliean smoothing to identify sharp slopes? 
+
+
+----- 
+
+# Ananat, Elizabeth Oltmans. 2011
+
+> Ananat, Elizabeth Oltmans. 2011. “The Wrong  
+Side(s) of the Tracks: The Causal Effects of Ra-  
+cial Segregation on Urban Poverty and Inequal-  
+ity.” American Economic Journal: Applied Eco-  
+nomics 3(2): 34–6
+
+Not about identifying frontiers BUT very interesting paper on segreation using railway tracks as IV for segreation
+
+
+
+----
+
+# Roberto 2015
+
+> Roberto, Elizabeth. 2015. “Spatial Boundaries and  
+the Local Context of Residential Segregation.”  
+Cornell University Library. Accessed July 25,  
+2016. http://arxiv.org/abs/1509.02574.
+
