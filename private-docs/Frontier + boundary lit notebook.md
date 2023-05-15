@@ -26,7 +26,7 @@ Side(s) of the Tracks: The Causal Effects of Ra-
 cial Segregation on Urban Poverty and Inequal-  
 ity.” American Economic Journal: Applied Eco-  
 nomics 3(2): 34–6
-- [ ] Roberto, Elizabeth. 2015. “Spatial Boundaries and  
+- [x] Roberto, Elizabeth. 2015. “Spatial Boundaries and  
 the Local Context of Residential Segregation.”  
 Cornell University Library. Accessed July 25,  
 2016. http://arxiv.org/abs/1509.02574.
@@ -38,6 +38,9 @@ Cornell University Library. Accessed July 25,
 
 - [ ] actual validation of [neighbourhood](https://epjds.epj.org/articles/epjdata/abs/2022/01/13688_2022_Article_374/13688_2022_Article_374.html)
 - [ ] another one [maybe](https://www.tandfonline.com/doi/full/10.1080/13658816.2023.2204347)
+- [ ] Wong, Cara , Jake Bowers, Daniel Rubenson, Mark Fredrickson, and Ashlea Rundlett (2020).  
+Maps in people’s heads: Assessing a new measure of context. Political Science Research  
+and Methods 8 (1), 160–168.
 
 Email from Prof Kim:
 
@@ -70,9 +73,11 @@ Key questions:
 - what empirical method was used 
 	- Areal wombling is the use of polygon data to establish border -- but there's different methods. The unit of interest are pairs of areas that are geographically adjacent (henceforth edges; also known as boundaries). For each edge, some type of Boundary Value (measure of sharpness) and boundaries are decided based on a cut-off threshold or absolute measure. 
 	- Hard edges = transitions are starker and usually higher boundary values (also referred to by sharpness)
-	- Wombling uses point data or interpolated data to calculate where frontier are. 
+	- Wombling uses point data or interpolated data to calculate where frontier are. This is based on slope see [Kramer 2017](Frontier%20+%20boundary%20lit%20notebook.md#Kramer%202017)
+	- 
 	- The edge detection
 	- Validation: in almost all papers there are no human validation of the edges found. There is a similar issue in the neighbourhood detection literature (which is wider and longer-standing). Suggestions from [Logan et al 2011](Frontier%20+%20boundary%20lit%20notebook.md#Logan%20et%20al%202011) include fieldwork or using the location of other features (churchs) etc to corroborate.
+	- Validation: [McCartan et al 2021](Frontier%20+%20boundary%20lit%20notebook.md#McCartan%20et%20al%202021) actually uses drawn map data. Then fits a model to predict which neighbourhoods people select. Then validates the model using testing data
 
 - what are the uses
 		- Boundary detection is used for other things like detecing cancer / epidemology [Lu and Carlin 2005](Frontier%20+%20boundary%20lit%20notebook.md#Lu%20and%20Carlin%202005)
@@ -542,10 +547,160 @@ Not about identifying frontiers BUT very interesting paper on segreation using r
 
 ----
 
-# Roberto 2015
+# Roberto 2021 
 
-> Roberto, Elizabeth. 2015. “Spatial Boundaries and  
-the Local Context of Residential Segregation.”  
-Cornell University Library. Accessed July 25,  
-2016. http://arxiv.org/abs/1509.02574.
+> Roberto, Elizabeth, and Elizabeth Korver-Glenn. 2021. ‘The Spatial Structure and Local Experience of Residential Segregation’. _Spatial Demography_ 9(3):277–307. doi: [10.1007/s40980-021-00086-7](https://doi.org/10.1007/s40980-021-00086-7).
 
+
+> This study examines the extent to which road connectivity and physical barriers—  
+such as highways, railroad tracks, and waterways—structure spatial patterns of racial  
+and ethnic residential segregation and shape how segregation is locally experienced  
+by residents. Our focus is on physical barriers that are also social boundaries—fea‑  
+tures of the built environment that reduce physical connectivity and mark a social  
+boundary between geographic areas. We measure residential segregation with atten‑  
+tion to the proximity and road connectivity between locations, which allows us to  
+identify areas where physical barriers mark a social boundary between geographic  
+areas with different racial and ethnic compositions. Our approach integrates ethno‑  
+graphic observation of three such areas in Houston, Texas, to investigate residents’  
+perceptions and local experience of social and spatial division. The results reveal  
+that physical barriers are associated with heightened levels of ethnoracial segrega‑  
+tion, and residents experience the barriers as symbolic markers of perceived dis‑  
+tinctions between groups and physical impediments to social connection. Although  
+barriers like highways, railroad tracks, and bayous are not inherently harbingers of  
+ethnoracial segregation, our study demonstrates that physical barriers can provide  
+the infrastructure for social boundaries and facilitate durable neighborhood racial  
+divisions
+
+
+note: so here physical boundaries are also social boundaries because they reduce interaction. I don't think they imply that all social boundaries are physical or vice versa 
+
+Their definition of social boundaries:
+> Social boundaries are located along the edges of areas with different racial and  
+ethnic compositions. They frequently overlap with geographic features, such as  
+major streets, and political borders, such as school districts....Social boundaries define distinct, segregated  areas, but they are nonetheless permeable. They can create opportunities for con‑  
+tact and may also provoke intergroup conflict (Legewie, 2018; Legewie & Schaeffer,  
+2016).
+
+
+Method:
+- Houston Texas
+- construct egocentric neighbours around each node -- extent = travel / accessibility
+- there is qualitative lement which included ethnographic research in the neighbourhoods and in-depth interviews
+- the qualitative data was collected for another research questions
+- 
+
+![](Pasted%20image%2020230515202542.png)
+^ map with very hard to explain legend ... colours
+
+Interview snippets:
+
+> ... respondents—72 of  
+whom mentioned physical barriers without prompting 127 times—perceived and  
+experienced physical barriers, such as highways and railroad tracks, as markers of  
+ethnoracial difference and separation. p290
+
+Note: not really quite about locating boundaries per se but has evidence on people using physical boundaries to mark out social boundaries. 
+
+----
+
+# McCartan et al 2021 
+
+> McCartan, Cory, Jacob R. Brown, and Kosuke Imai. 2021. ‘Measuring and Modeling Neighborhoods’. doi: [10.48550/ARXIV.2110.14014](https://doi.org/10.48550/ARXIV.2110.14014).
+
+> Granular geographic data present new opportunities to understand how neighborhoods are formed, and how they influence politics. At the same time, the inherent subjectivity of neighborhoods creates methodological challenges in measuring and modeling them. We develop a survey instrument that allows respondents to draw their neighborhoods on a map. We also propose a statistical model to analyze how the characteristics of respondents and local areas determine subjective neighborhoods. **We conduct two surveys: collecting subjective neighborhoods from voters in Miami, New York City, and Phoenix, and asking New York City residents to draw a community of interest for inclusion in their city council district. Our analysis shows that, holding other factors constant, White respondents include census blocks with more White residents in their neighborhoods. Similarly, Democrats and Republicans are more likely to include co-partisan areas.** In addition, our model provides more accurate out-of-sample predictions than standard neighborhood measures.
+
+^ Very interesting as they are c
+
+Note: this is really two studies -- there's once in three states and a second one in New York 
+
+**rationale**: the data allows us to try to measure neighbourhoods but the issue is still with measuring neighbourhoods. 
+
+> At the same time, these complex data pose methodological challenges of measuring and  
+modeling one’s neighborhood. .... However, n**eighborhoods are  
+inherently subjective because they are shaped by personal experiences and views (Paddison  
+1983; Chaskin 1997; Sampson et al. 2002; Keller 2003)**.1 Thus, two individuals who live at the  
+same address may identify different local communities as their neighborhoods. This intrinsic  
+subjectivity of neighborhoods leads to a substantial variation not just across places, but also  
+across people (Coulton et al. 2001). p.2 
+
+Note: Takes as fundamental that people have egocentric neighbourhoods. They actually have a tool asking people to draw their own neighbourhoods on a map:
+
+> In a pioneering study, Wong et al. (2012) address this measurement problem by asking survey  
+respondents to draw their own neighborhoods on a map (see also Wong et al. 2020). We follow  
+their innovative measurement strategy and develop an easy-to-use, open-source online survey  
+instrument to measure subjective neighborhoods (Section 2). Our instrument is customizable  
+and easily incorporated into standard online survey platforms such as Qualtrics, facilitating  
+its use by other researchers.
+
+^ super cool 
+
+> Existing studies, including those that  
+measure subjective neighborhoods, do not directly model how respondent and geographic  
+characteristics, and their interactions, relate to one’s neighborhood. Instead, they almost  
+exclusively rely upon descriptive statistics of observed neighborhoods such as racial and  
+economic demographics, neighborhood size, and agreement with administrative boundaries  
+to describe subjective neighborhood definitions (Wong et al. 2020). The absence of a formal  
+statistical model makes it difficult to systematically analyze the characteristics of respondents  
+and places that together determine subjective neighborhoods
+
+
+**Method**
+
+summary: they got responses from voters in three metro-areas. -- 2527 register voter responses in total. They got an additional survey of 627 New York City residents to draw their communities of interest. After getting the draw data, they used a model tp predict:
+
+> a Bayesian model for  
+neighborhood drawing that incorporates respondent characteristics, geographic factors, and  
+their interaction. The model predicts the likelihood of including a given census block in a  
+voter’s neighborhood. In addition, the coefficients of the model represent the direction and  
+magnitude of predictive effects different variables have on this inclusion probability. Using  
+this model, one can measure the degree to which the characteristics of respondents and  
+geographic factors together predict subjective neighborhoods of different types (p10) ... Though the model is developed from explicitly spatial principles, as we show in Section 3.2,  
+ultimately it reduces to a generalized linear mixed-effects model (GLMM) with a particular  
+link function, where every observation is a census block
+
+section 2.2: the mapping tool -- they enter their residential address and they get to draw their community: 
+
+> Next, respondents were presented with an embedded mapping application where they enter  
+their residential address, at which point the maps zooms to a centered view of their address.  
+Then, the underlying census block grid was shown on the map over the road base map, and  
+respondents used the brush tool to select the census blocks that they considered a part of their  
+“local community.”4 Our first survey used this terminology, mirroring previous surveys that  
+asked respondents to draw their own neighborhoods (Wong et al. 2020). These authors have  
+shown that the phrase “local community” is a tangible concept in people’s minds, and further  
+demonstrate the consistency of drawn neighborhoods when re-contacting survey respondents. p.8
+
+Their tool is available @ https://github.com/CoryMcCartan/neighborhood-survey
+![](Pasted%20image%2020230515211252.png)
+
+After collecting the data they 
+
+**Validation:** They validate the model -- using training and testing data (400 respondents for fitting and 71 for test ) -- see p. 71. they also compare the model(s) against a naive model which just draws a circle around people's residences. (p.18-19)
+
+Results = race is a determinant (evidenced for white) as is political allegiance. 
+
+![](Pasted%20image%2020230515212115.png)
+
+^ above is the model coefficeents 
+
+__The New York Study__ They advertised this through fcebook and people clicked a link that took them to qualtrics -- rand from Dec 6 2002 to Feb 21 2023 
+
+Response rates:
+- 25,767 users clicked ad
+- 1,086 chose to take survey 
+- 627 respondents drew maps of more than one census block
+- respondents asked to draw their communities of interest 
+
+> Rhe survey asked New York City residents to consider  
+City’s official guideline for considering “communities of interest” when redrawing city council  
+districts. This guideline directs the City to “Keep intact neighborhoods and communities  
+with established ties of common interest and association, whether historical, racial, economic,  
+ethnic, religious or other” (New York City Charter 2022). Respondents are then directed to  
+shade in on an interactive map “your community that should be kept together in your city  
+council district.” This map drawing exercise is followed by similar demographic questions to  
+the previous survey.  
+
+- Here's the coefficients for the New York model:
+
+![](Pasted%20image%2020230515212853.png)
+
+- once again they validate by splitting the sample into training and testing data (p.24) 
