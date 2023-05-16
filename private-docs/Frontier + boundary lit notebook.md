@@ -30,7 +30,7 @@ nomics 3(2): 34–6
 the Local Context of Residential Segregation.”  
 Cornell University Library. Accessed July 25,  
 2016. http://arxiv.org/abs/1509.02574.
-- [ ] McCartan, Brown and Imai: https://arxiv.org/pdf/2110.14014.pdf
+- [x] McCartan, Brown and Imai: https://arxiv.org/pdf/2110.14014.pdf
 [Grannis:](https://d1wqtxts1xzle7.cloudfront.net/34626518/T-Communities-libre.pdf?1409824462=&response-content-disposition=inline%3B+filename%3DT_Communities_Pedestrian_Street_Networks.pdf&Expires=1684165209&Signature=BpWUbeXuINnkrGZYnpnJEgohP4Gh9NtJ6m5XPZt02dADPe2ocAbkC1IUk9FJVVieiTitG~7VmVDWKBP0-anE9AP5dLCZr5kjnbvQUMC-kd0~O8PVX6Kt18njqLUgXuFC9bybOjHvIsFxJMIJDrGIfjoRAmAaEG7QINIqiNjmndfRoIelW53zJ1cmJn-EVtVJpqYmGiDaThXrFlS~201JdkH437gm4M1xf6CV1BIrWdCvNpUzEMeL3LXj-RiUfU2oRKiBBQCaXpw0SZFCYwn9Q75lCOFWwXXZN19HEhXaAIdLZP2iR5PcK14mcbY25V8YzlBcRCnUhe2q76yIiNwhuA__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA) 
 - [ ] https://www.semanticscholar.org/paper/Crime-on-the-edges%3A-patterns-of-crime-and-land-use-Song-Andresen/b7f8f0ac40d3acb16c78d9aa9aeb9af678e8a1b0
 - [ ] checkcontest [edge paper](https://www.sciencedirect.com/science/article/abs/pii/S0264275123000720)
@@ -296,6 +296,9 @@ Kim, Young-An, and John R. Hipp. 2022. ‘Both Sides of the Street: Introducing 
 
 Summary: look at relationship between physical and social boundaries (so called edges) and level of crime. 
 
+> ### Results
+
+We observed that there are positive relationships between all three of these boundary measures and violent and property crimes. The results indicated that physical and social boundaries are important to consider in understanding the spatial patterns of crime. Moreover, the current study confirmed the moderating effects between social and physical boundaries.
 
 **What are edges**
 
