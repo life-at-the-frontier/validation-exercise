@@ -64,6 +64,13 @@ Socially constructed implicityly assumes that these relations exist in actors. S
 
 
 Key questions: 
+
+- What is the ethnographics / qualtiative/ general evidence that boundaries are socially constructed? 
+	- Elijah Anderson (1990:154–156) reported about “the edge” in Eastern City (a pseudonym for his case study city) as “the place where two communities meet, where the lower-income black residents come in contact with the middle- and upper-income white ones.”
+	- Pattillo (2007) described what residents call the “dividing” or “invisible” line in Chicago’s South Side as an area that separates prospering South from languishing North Kenwood.
+	- n another locale Campbell et al (2009) reported that white residents preferred to draw wider boundaries inorder to think of their neighborhood as more racially and occupationally diverse: they drew
+	- rich 2009
+
 - what are the definitions of border / social frontiers / research question
 	- A: Social boundaries are socially constructed areas between neighbourhoods (which itself can be hard to define concep [Logan et al 2011](Frontier%20+%20boundary%20lit%20notebook.md#Logan%20et%20al%202011). These can be sharp or fuzzy. Lots of it is based on ethnographic and qualitative studies on neighbourhoods [see Logan et al 2011](Frontier%20+%20boundary%20lit%20notebook.md#Logan%20et%20al%202011).
 
@@ -236,9 +243,7 @@ This is an OSF [preprint](https://osf.io/preprints/socarxiv/4ahnm/)
 
 Neil, Roland, and Joscha Legewie. 2023. _Policing Neighborhood Boundaries and the Racialized Social Control of Spaces_. _preprint_. SocArXiv. doi: [10.31235/osf.io/4ahnm](https://doi.org/10.31235/osf.io/4ahnm).
 
-> Despite longstanding interest in the policing of neighborhood racial boundaries, this topic has not  
-received sustained theoretical or empirical attention. Synthesizing and extending theories as to  
-why racial boundaries influence police behavior, this paper advances a model of the racialized  
+> Despite longstanding interest in the policing of neighborhood racial boundaries, this topic has not  received sustained theoretical or empirical attention. Synthesizing and extending theories as to  why racial boundaries influence police behavior, this paper advances a model of the racialized  
 social control of spaces that predicts a higher level of police stops and lower standards of suspicion  
 at neighborhood racial boundaries, independent of crime rates. Integrating data from New York  
 City’s Stop, Question, and Frisk program from 2008-2012 with extensive neighborhood measures,  
@@ -396,6 +401,9 @@ My note: the beginning of this paper is actually quite good for working up the r
 
 Note: **pages 2 -3** are good for ethnographic evidence on borders. Also the vagueness of ethnographic borders prompts these algorithm:
 
+> Recent ethnographic studies of cognitive maps show that residents draw on many of the same characteristics to identify the boundaries of their neighborhoods as do social scientists. Lacy (2007) describes this as “boundary work,” and focuses on how residents of middle class black areas seek to signify that their neighborhood is distinct from neighborhoods of black working class or poor people. In a Baltimore neighborhood Rich (2009) found that white residents used both the racial composition and class background of specific blocks to mark the limits of their own neighborhood: “when speaking about the boundaries for themselves, many talked about race and, in the terms of one Villager, where the racial ‘Maginot Line’ fell. Homeowners deemed the more middle-class and white areas of the neighborhood ‘the heart of Village Heights,’ while they questioned if the areas with a majority of black residents were included in the boundaries” (p. 838). But in another locale Campbell et al (2009) reported that white residents preferred to draw wider boundaries inorder to think of their neighborhood as more racially and occupationally diverse: they drew “large maps that extended beyond the census tract to include a northern area. Whereas the Broadmore block group was a white, middle to upper middle class neighborhood, North Broadmore was less affluent and included a higher percentage of African Americans” (p. 479).
+
+On validation:
 > Ambiguous boundaries probably work fine for residents, but they  
 complicate neighborhood research. How can we measure neighborhood characteristics and  
 their changes over time if we only know vaguely where the neighborhoods are?

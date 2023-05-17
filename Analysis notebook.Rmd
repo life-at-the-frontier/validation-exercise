@@ -65,8 +65,8 @@ mapdata %>%
   ) %>%
   table_me(
     digits = 2,
-    col.name = c('map', 'mean phi (steepness, standardised)', 'mean rank of steepness (compared to region)', 'mean line length'),
-    caption = 'Summary of border line characteristics (a = steepest map)'
+    col.name = c('map', 'mean phi (standardised)', 'mean rank of phi (compared to region)', 'mean line length'),
+    caption = 'Summary of border line characteristics (a = map with highest boundary value phi)'
     )
 
 ## Rank is their rank in the entire Sheffield and Rotherham area
