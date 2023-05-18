@@ -49,6 +49,59 @@ mapdata <- bind_rows(
 )
 ```
 
+
+```{r}
+# process data 
+
+shefBase_Here <- 
+  'cleaned data/makeFile01 sheffield ttwa lsoa.rds'
+
+shef_lsoa <-
+  shefBase_Here %>% readRDS()
+
+shef_lsoa <-
+  shef_lsoa %>%
+  mutate(
+    forProp = nonUKBorn/allResidents
+  )
+
+st_geometry(shef_lsoa) <- NULL
+
+mapdata_no_df <- mapdata
+st_geometry(mapdata_no_df) <- NULL
+
+mapdata_no_df <-
+  mapdata_no_df %>%
+  left_join(
+    shef_lsoa %>% 
+      select(lsoa11cd, forProp),
+      by = c(lsoacd_1 = 'lsoa11cd')
+  ) %>%
+  left_join(
+    shef_lsoa %>% 
+      select(lsoa11cd, forProp),
+    by = c(lsoacd_2 = 'lsoa11cd')
+  )
+
+## correlation
+mapdata_no_df <-
+  mapdata_no_df %>%
+  mutate(
+    diff_forProp = abs(forProp.x - forProp.y)
+  )
+
+mapdata_no_df %>%
+  select(diff_forProp, diff_phi) %>%
+  cor
+
+mapdata_no_df %>%
+  select(diff_forProp, diff_phi) %>%
+  cor(method = 'spearman')
+
+
+```
+
+
 ```{r}
 # summaries ---------------------------------------------------------------
 
