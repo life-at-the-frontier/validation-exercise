@@ -1,8 +1,9 @@
 ---
-title: "Supplement S2: Results notebook"
-output: 
+title: 'Supplement S2: Results notebook'
+output:
   html_document:
     code_folding: hide
+  pdf_document: default
 date: "`r Sys.Date()`"
 ---
 
