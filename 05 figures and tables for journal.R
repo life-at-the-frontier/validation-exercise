@@ -36,13 +36,15 @@ firstLayer <-
   tm_borders(alpha = 0.5) 
 
 
+## Screenshot OSM layer for article
 firstLayer +  
   tm_shape(
     pair_all %>% select(type),
     name = 'borders'
   ) +
   tm_lines(lwd = 5) +
-  tm_facets('type', sync = T)
+  tm_facets('type', sync = T) +
+  tmap_options(basemaps.alpha = 0.5)
 
 
 ## Colour coded big map
