@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2023-05-02" />
+<meta name="date" content="2023-05-30" />
 
 <title>Supplement S2: Results notebook</title>
 
@@ -662,7 +662,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">Supplement S2: Results notebook</h1>
-<h4 class="date">2023-05-02</h4>
+<h4 class="date">2023-05-30</h4>
 
 </div>
 
@@ -685,6 +685,57 @@ mapdata &lt;- bind_rows(
   c = mapdataList$c,
   .id = &#39;map&#39;
 )</code></pre>
+<pre class="r"><code># process data 
+
+shefBase_Here &lt;- 
+  &#39;cleaned data/makeFile01 sheffield ttwa lsoa.rds&#39;
+
+shef_lsoa &lt;-
+  shefBase_Here %&gt;% readRDS()
+
+shef_lsoa &lt;-
+  shef_lsoa %&gt;%
+  mutate(
+    forProp = nonUKBorn/allResidents
+  )
+
+st_geometry(shef_lsoa) &lt;- NULL
+
+mapdata_no_df &lt;- mapdata
+st_geometry(mapdata_no_df) &lt;- NULL
+
+mapdata_no_df &lt;-
+  mapdata_no_df %&gt;%
+  left_join(
+    shef_lsoa %&gt;% 
+      select(lsoa11cd, forProp),
+      by = c(lsoacd_1 = &#39;lsoa11cd&#39;)
+  ) %&gt;%
+  left_join(
+    shef_lsoa %&gt;% 
+      select(lsoa11cd, forProp),
+    by = c(lsoacd_2 = &#39;lsoa11cd&#39;)
+  )
+
+## correlation
+mapdata_no_df &lt;-
+  mapdata_no_df %&gt;%
+  mutate(
+    diff_forProp = abs(forProp.x - forProp.y)
+  )
+
+mapdata_no_df %&gt;%
+  select(diff_forProp, diff_phi) %&gt;%
+  cor</code></pre>
+<pre><code>##              diff_forProp  diff_phi
+## diff_forProp    1.0000000 0.8621987
+## diff_phi        0.8621987 1.0000000</code></pre>
+<pre class="r"><code>mapdata_no_df %&gt;%
+  select(diff_forProp, diff_phi) %&gt;%
+  cor(method = &#39;spearman&#39;)</code></pre>
+<pre><code>##              diff_forProp  diff_phi
+## diff_forProp    1.0000000 0.8969188
+## diff_phi        0.8969188 1.0000000</code></pre>
 <pre class="r"><code># summaries ---------------------------------------------------------------
 
 
@@ -700,13 +751,14 @@ mapdata %&gt;%
   ) %&gt;%
   table_me(
     digits = 2,
-    col.name = c(&#39;map&#39;, &#39;mean phi (steepness, standardised)&#39;, &#39;mean rank of steepness (compared to region)&#39;, &#39;mean line length&#39;),
-    caption = &#39;Summary of border line characteristics (a = steepest map)&#39;
+    col.name = c(&#39;map&#39;, &#39;mean phi (standardised)&#39;, &#39;mean rank of phi (compared to region)&#39;, &#39;mean line length&#39;),
+    caption = &#39;Summary of border line characteristics (a = map with highest boundary value phi)&#39;
     )</code></pre>
 <pre><code>## Adding missing grouping variables: `map`</code></pre>
 <table class=" lightable-classic lightable-striped lightable-hover" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-Summary of border line characteristics (a = steepest map)
+Summary of border line characteristics (a = map with highest boundary
+value phi)
 </caption>
 <thead>
 <tr>
@@ -714,10 +766,10 @@ Summary of border line characteristics (a = steepest map)
 map
 </th>
 <th style="text-align:right;">
-mean phi (steepness, standardised)
+mean phi (standardised)
 </th>
 <th style="text-align:right;">
-mean rank of steepness (compared to region)
+mean rank of phi (compared to region)
 </th>
 <th style="text-align:right;">
 mean line length
@@ -949,18 +1001,7 @@ How long lived in the area (bands)
 20 +
 </td>
 <td style="text-align:right;">
-14
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-How long lived in the area (bands)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-1
+15
 </td>
 </tr>
 <tr>
@@ -1092,18 +1133,7 @@ How long lived in the area (raw)
 Whole life
 </td>
 <td style="text-align:right;">
-9
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-How long lived in the area (raw)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-1
+10
 </td>
 </tr>
 </tbody>
